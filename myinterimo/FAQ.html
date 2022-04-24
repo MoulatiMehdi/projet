@@ -28,40 +28,52 @@
     <title>MyInterimo : L’inter-agence en mode 3.0</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark bg-light  d-flex justify-content-around fixed-top">
-    <a href="index.html"><img src="./img/logo-250.png" alt="Myinterimo-logo"></a>
-    <button type="button" class="navbar-toggler bg-primary" data-bs-toggle="collapse" data-bs-target="#nav">
-        <span class="navbar-toggler-icon "></span>
+<nav class="navbar navbar-expand-md navbar-light bg-light justify-content-around fixed-top">
+    <a class="col col-auto" href="index.html">
+        <img class="justify-content-around " src="./img/logo-250.png" alt="Myinterimo-logo">
+    </a>
+    <button type="button" class="navbar-toggler bg-primary py-2 " data-bs-toggle="collapse" data-bs-target="#nav">
+        <i class="fa-solid fa-bars text-light"></i>
     </button>
-    <div class="collapse  navbar-collapse justify-content-center" id="nav">
-        <ul class="navbar-nav px-3">
-            <li class="nav-item">
-                <a href="./index.html">Accueil</a>
-                <hr>
+    <div class="collapse  navbar-collapse justify-content-around" id="nav">
+        <ul class="navbar-nav ">
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./index.html">
+                    Accueil
+                    <hr>
+                </a>
             </li>
-            <li class="nav-item">
-                <a href="./fonctionnalite.html">Fonctionnalités</a>
-                <hr>
+            <li class="nav-item  p-sm-2">
+                <a class="nav-link text-center" href="./fonctionnalite.html">
+                    Fonctionnalités
+                    <hr>
+                </a>
+
             </li>
-            <li class="nav-item">
-                <a href="./Témoingages.html">Témoingages</a>
-                <hr>
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./Témoingages.html">
+                    Témoingages
+                    <hr>
+                </a>
+
             </li>
-            <li class="nav-item">
-                <a href="./FAQ.html">FAQ</a>
-                <hr>
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./FAQ.html">
+                    FAQ
+                    <hr>
+                </a>
             </li>
-            <li class="nav-item">
-                <a href="./contactez-nous.html">Contact</a>
-                <hr>
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./contactez-nous.html">
+                    Contact
+                    <hr>
+                </a>
             </li>
         </ul>
     </div>
 </nav>
-<div class="container-md">
-
-
-    <section id="section1" class="row justify-content-around align-items-center">
+<div class="container-lg">
+    <section id="section1" class="row justify-content-around align-items-center py-3 px-3">
         <img class="col col-md-6"
              src="./img/business-security-_-savior-save-insurance-helpful-support-service@2x.png"
              alt="man-women-smartphone">
@@ -87,121 +99,358 @@
 
 
     </section>
+    <section class=" d-flex justify-content-center py-3 px-3">
+        <div class=" accordion col-lg-8 col-12" id="accordionExample">
+            <div class="accordion-item ">
+                <h2 class="accordion-header " id="titre1">
+                    <button class="accordion-button  collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question1"
+                            aria-expanded="false" aria-controls="question1">
+                        Comment gérer mes partenaires ?
+                    </button>
+                </h2>
+                <div id="question1" class="accordion-collapse collapse" aria-labelledby="titre1"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Afin de gérer vos contacts partenaires rendez-vous dans l’onglet «Mes Partenaires». Trois
+                        statuts sont proposés : « Partenaires à inviter » sont les pros que vous pouvez inviter pour
+                        partager avec eux un « mur » d’annonces partagées, qu’ils soient sur votre secteur d’activité,
+                        en France ou à l’étranger.« Partenaires invités » sont les pros à qui vous avez envoyé une
+                        invitation, qui est en cours de d’acceptation ou de refus.« Mes Partenaires » sont les pros avec
+                        qui vous partager vos annonces, pour lesquelles vous pourrez déléguer ou pas vos mandats.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre2">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question2" aria-expanded="false" aria-controls="question2">
+                        Comment voir les annonces partagées avec mes partenaires ?
+                    </button>
+                </h2>
+                <div id="question2" class="accordion-collapse collapse" aria-labelledby="titre2"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Rendez-vous dans l’onglet «Les annonces publiées» : toutes les annonces partagées par vos
+                        partenaires s’y trouvent, vous avez la possibilité de filtrer via les onglets «Filtre» et «Où».
+                        La «Carte» vous permet de visualiser la localisation des annonces partagées. L’onglet
+                        «Sélection» vous permet de modifier l’ordre d’affichage des annonces et de filtrer les annonces
+                        par rapport à un partenaire précis.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre3">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question3" aria-expanded="false" aria-controls="question3">
+                        Comment ajouter une annonce ?
+                    </button>
+                </h2>
+                <div id="question3" class="accordion-collapse collapse" aria-labelledby="titre3"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vos annonces seront ajoutées automatiquement à l’application, nos algorithmes les récupèrent sur
+                        la toile du web. Dans le cas possible où MyInterimo oublierait une de vos annonces, vous pourrez
+                        alors l’ajouter manuellement depuis l’onglet «Ajouter un bien» dans «Mes Annonces Publiées» Il
+                        vous sera alors demander un des URL (adresse de l’annonce manquante) que vous copierez et
+                        collerez, depuis votre site ou un de vos sites de diffusion partenaires.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre4">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question4" aria-expanded="false" aria-controls="question4">
+                        Quelles annonces je peux partager ?
+                    </button>
+                </h2>
+                <div id="question4" class="accordion-collapse collapse" aria-labelledby="titre4"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous partagerez avec vos partenaires, toutes vos annonces en vente ou location qui sont
+                        diffusées sur le web, en mandats simples ou exclusifs, sans limite, et sans ressaisie.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre5">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question5" aria-expanded="false" aria-controls="question5">
+                        Qui peut voir mes annonces et comment déléguer ?
+                    </button>
+                </h2>
+                <div id="question5" class="accordion-collapse collapse" aria-labelledby="titre5"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Uniquement vos partenaires, et ils vous demanderont une délégation que vous accepterez de donner
+                        ou non.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre6">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question6" aria-expanded="false" aria-controls="question6">
+                        Comment demander une délégation à vos partenaires ?
+                    </button>
+                </h2>
+                <div id="question6" class="accordion-collapse collapse" aria-labelledby="titre6"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Quand vous consultez l’annonce d’un de vos partenaires, vous avez dans les détails de l’annonce
+                        l’onglet « Délégation de mandat à demander », vous cliquerez dessus pour pouvoir lui envoyer une
+                        demande de délégation de mandat.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre7">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question7" aria-expanded="false" aria-controls="question7">
+                        Comment suivre les demandes de délégations de mandat ?
+                    </button>
+                </h2>
+                <div id="question7" class="accordion-collapse collapse" aria-labelledby="titre7"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous avez 4 possibilités de statuts de votre demande de délégation de mandat :
+                        <br> <br>
+                        Délégation de mandat à demander <br>
+                        Délégation de mandat demandée <br>
+                        Délégation de mandat acceptée<br>
+                        Délégation de mandat refusée <br> <br>
+                        Pour suivre l’avancement de votre demande de délégation de mandat cliquez sur les 3 points à
+                        côté du bouton Délégation de mandat, ce qui vous donnera aussi l’historique de votre demande.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre8">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question8" aria-expanded="false" aria-controls="question8">
+                        Comment suivre mes annonces ?
+                    </button>
+                </h2>
+                <div id="question8" class="accordion-collapse collapse" aria-labelledby="titre8"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous pouvez depuis le menu cliquez sur Mes Annonces publiées pour voir toutes vos annonces
+                        publiées. Vous pourrez ajouter des détails et infos complémentaires sur chacune de vos annonces.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre9">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question9" aria-expanded="false" aria-controls="question9">
+                        Comment sélectionner des annonces en favoris ?
+                    </button>
+                </h2>
+                <div id="question9" class="accordion-collapse collapse" aria-labelledby="titre9"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Cliquez sur l’étoile favoris, vous retrouverez ainsi facilement l’annonce dans l’onglet «Suivis
+                        & Favoris» et vous pourrez ainsi suivre vos favoris.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre10">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question10" aria-expanded="false" aria-controls="question10">
+                        Comment être connecté avec mes partenaires ?
+                    </button>
+                </h2>
+                <div id="question10" class="accordion-collapse collapse" aria-labelledby="titre10"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Les onglets «J’aime» et «Commenter» vous permettent pour chaque bien de réaliser les mêmes
+                        actions que sur un réseau social. Interagissez avec vos confrères et commentez les publications
+                        publiées.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre11">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question11" aria-expanded="false" aria-controls="question11">
+                        Comment se partagent les honoraires ?
+                    </button>
+                </h2>
+                <div id="question11" class="accordion-collapse collapse" aria-labelledby="titre11"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Le partage d’honoraires se fait suivant les conditions du délégant, et vous pouvez le savoir
+                        quand vous cliquez sur les détails d’une annonce, en cliquant sur Infos confidentielles, votre
+                        partenaire pourra vous donner accès.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre12">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question12" aria-expanded="false" aria-controls="question12">
+                        Comment suivre l'évolution du prix d'une annonce ?
+                    </button>
+                </h2>
+                <div id="question12" class="accordion-collapse collapse" aria-labelledby="titre12"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous pouvez suivre le prix d’une annonce, dans le détail d’une annonce, en cliquant sur le
+                        bouton Suivre le prix. Vous serez alerté par mail si le prix varie.
+                    </div>
+                </div>
+            </div>
 
-    <section id="section7" class="row align-items-center">
-        <div class="col col-md-6">
-            <h6> MyRestAI</h6>
-            <h1 class="bold-text">
-                Solutions pour les Professionnels de l’immobilier
-            </h1>
-            <p class="description">
-                MyInterimo est une application développée par la société MyRestAI, qui propose des solutions innovantes
-                au service des professionnels de l’immobilier.
-            </p>
-        </div>
-        <div class="col col-md-3 align-content-between ">
-            <img class="w-100" src="./img/logo_prolan.png" alt="logo_prolan">
-            <img class="w-100" src="./img/logo_myoffrimo.png" alt="logo_myespaceo">
-            <img class="w-100" src="./img/logo_myinterimo-1.png" alt="logo_myinterimo">
-        </div>
-        <div class="col col-md-3 align-content-between">
-            <img class="w-100" src="./img/logo_MyOptimeo.png" alt="logo_MyOptimeo">
-            <img class="w-100" src="./img/logo_mysolusoft.png" alt="logo_mysolusoft">
-            <img class="w-100" src="./img/logo_myespaceo.png" alt="logo_myespaceo">
 
+        </div>
+    </section>
+    <section id="section7" class="d-flex justify-content-around align-items-center py-5">
+        <div class="row row-cols-auto justify-content-around align-items-center">
+            <div class="col col-lg-4 col-md-5  justify-content-center p-lg-5">
+                <div class="row  text-center">
+                    <h6> MyRestAI</h6>
+                </div>
+                <div class="row text-md-start text-center">
+                    <h1 class="bold-text">Solutions pour les Professionnels de l’immobilier</h1>
+                </div>
+                <div class="row">
+                    <p class="description text-md-start text-center">
+                        MyInterimo est une application développée par la société MyRestAI, qui propose des solutions
+                        innovantes
+                        au service des professionnels de l’immobilier.
+                    </p>
+                </div>
+            </div>
+            <div class="col col-md-6 ">
+                <div class="row row-cols-auto justify-content-around ">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_prolan.png" alt="logo_prolan">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_myoffrimo.png" alt="logo_myespaceo">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_myinterimo-1.png" alt="logo_myinterimo">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_MyOptimeo.png" alt="logo_MyOptimeo">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_mysolusoft.png" alt="logo_mysolusoft">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_myespaceo.png" alt="logo_myespaceo">
+                </div>
+
+            </div>
         </div>
 
     </section>
     <!-- Telechager notre application -->
-
-    <section id="box3" class="box " style="background-color: rgba(0, 0, 0, 0.337);">
+    <section id="box3" class="box p-5" style="background-color:#49D3F2">
         <div class="row align-items-center justify-content-around">
-            <div class="col col-md-6 ">
-                <h6 class="font-weight-bold" style="color:white">CRÉER VOTRE COMPTE GRATUITEMENT !</h6>
-                <h1 class="font-weight-bolder text-light p-md-1">
-                    Découvrez MyInterimo maintenant !
-                </h1>
-                <h6 style="color: white;"> Développez votre chiffre d’affaires avec MyInterimo. Application
-                    100%
-                    gratuite !</h6>
-
-                <div class="buttons d-flex justify-content-around font-weight-bolder ">
-                    <a href="#" class="rectangle-button p-md-2 d-flex  ">
-                        <i class="fa-brands fa-app-store m-2 fa-2xl"></i>
-                        App Store
-                    </a>
-
-                    <a href="#" class="rectangle-button p-md-2 d-flex  ">
-                        <i class="fa-brands fa-google-play fa-xl m-2"></i>
-                        Google Play
-                    </a>
-
+            <div class="col col-lg-5 col-md-7  justify-content-center align-items-center">
+                <div class="row">
+                    <h6 class="font-weight-bold" style="color:white">CRÉER VOTRE COMPTE GRATUITEMENT !</h6>
+                </div>
+                <div class="row">
+                    <h1 class="font-weight-bolder text-light p-md-1">
+                        Découvrez MyInterimo maintenant !
+                    </h1>
+                </div>
+                <div class="row">
+                    <h6 style="color: white;">
+                        Développez votre chiffre d’affaires avec MyInterimo.
+                        Application 100% gratuite !
+                    </h6>
+                </div>
+                <div class="row d-flex justify-content-around font-weight-bolder ">
+                    <div class="hstack gap-3 justify-content-center">
+                        <div class="col d-flex justify-content-end">
+                            <a href="#" style="width: 150px" class="rectangle-button  place-item-center">
+                                <i class="fa-brands fa-app-store m-2 fa-2xl"></i>
+                                App Store
+                            </a>
+                        </div>
+                        <div class="col d-flex justify-content-start">
+                            <a href="#" style="width: 150px" class="rectangle-button  place-item-center">
+                                <i class="fa-brands fa-google-play fa-xl m-2"></i>
+                                Google Play
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <img class="w-25 p-3" src="./svg/telecharger_myinterimo_footer.webp"
+            <img class="col col-lg-3 col-md-4  col-6 p-3" src="./svg/telecharger_myinterimo_footer.webp"
                  alt="telecharger_myinterimo_footer-phone">
 
         </div>
 
     </section>
 </div>
+
+
 <footer>
 
-    <div class="row mb-5 align-items-center">
-        <div class="col-md-6">
+    <div class="row">
+        <div class="col d-flex  justify-content-center">
             <img src="./svg/logo-250.webp" alt="MyinterimoLogo">
         </div>
     </div>
-    <div class="row justify-content-between">
-        <div class="col col-md-3">
-            <strong>Nos Partenaires</strong>
-            <ul>
-                <li><a href="#">MyEspaceo</a></li>
-                <li><a href="#">MyRestAI</a></li>
-                <li><a href="#">Prolan Group SA</a></li>
-            </ul>
+    <div class="row row-cols-auto  my-4">
+        <div class="col col-lg-3 col-sm-6 col-12 p-3 ">
+            <div class="row">
+                <strong class="text-sm-start text-center">Nos Partenaires</strong>
+                <ul>
+                    <li class="description text-sm-start text-center"><a href="#">MyEspaceo</a></li>
+                    <li class="description text-sm-start text-center"><a href="#">MyRestAI</a></li>
+                    <li class="description text-sm-start text-center"><a href="#">Prolan Group SA</a></li>
+                </ul>
+            </div>
         </div>
 
-        <div class="col col-md-3">
-            <strong>Entreprise</strong>
-            <ul>
+        <div class="col col-lg-3 col-sm-6 col-12 p-3 ">
+            <div class="row">
+                <strong class=" text-sm-start text-center">Entreprise</strong>
+                <ul>
+                    <li class="description  text-sm-start text-center"><a href="#">Politique de confidentialité</a></li>
+                    <li class="description text-sm-start text-center"><a href="#">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="#">Mentions légales</a></li>
+                </ul>
+            </div>
 
-                <li><a href="#">Politique de confidentialité</a></li>
-                <li><a href="#">CGU</a></li>
-                <li><a href="#">Mentions légales</a></li>
-            </ul>
         </div>
 
-        <div class="col col-md-3">
-            <strong>Contact</strong>
-            <ul>
+        <div class="col col-lg-3 col-sm-6 col-12 p-3 ">
+            <div class="row ">
+                <strong class="text-sm-start text-center">Contact</strong>
 
-                <li>+33 4 80 95 94 39</li>
-                <li>Hello@Myinterimo.Com</li>
-            </ul>
+                <ul>
+                    <li class="description text-sm-start text-center">+33 4 80 95 94 39</li>
+                    <li class="description text-sm-start text-center">Hello@Myinterimo.Com</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="col col-md-3">
-            <strong> Address</strong>
-            <ul>
-                <li>1 Rue De Pécolat</li>
-                <li>Genève, 1201 - Suisse</li>
-            </ul>
+        <div class="col col-lg-3 col-sm-6 col-12 p-3">
+            <div class="row text-md-start text-left">
+                <strong class="text-sm-start text-center"> Address</strong>
+                <ul>
+                    <li class="description text-sm-start text-center">1 Rue De Pécolat</li>
+                    <li class="description text-sm-start text-center">Genève, 1201 - Suisse</li>
+                </ul>
+            </div>
         </div>
     </div>
 
 
-    <hr>
+    <hr class="row ">
 
-    <div class="space-beetwen">
-        <h6 style="font-size:small ; color: gray;">© 2022 MyInterimo. Tous les droits sont réservés.</h6>
-        <div class="socialMedia ">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <div class="row row-cols-auto align-items-center">
+        <div class="col col-sm-6 col-12 justify-content-sm-start justify-content-center">
+            <h6 class="text-sm-start text-center m-0" style="font-size:11px ; color: gray;">
+                © 2022 MyInterimo. Tous les droits sont réservés.
+            </h6>
+        </div>
+
+        <div class="socialMedia col col-sm-6 col-12  ">
+            <div class="row row-cols-auto justify-content-sm-end justify-content-center">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
         </div>
     </div>
 </footer>

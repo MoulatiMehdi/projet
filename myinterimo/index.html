@@ -28,54 +28,63 @@
     <title>MyInterimo : L’inter-agence en mode 3.0</title>
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-light bg-light  d-flex justify-content-around fixed-top">
-    <a class="navbar-brand" href="index.html"><img src="./img/logo-250.png" alt="Myinterimo-logo"></a>
-    <button type="button" class="navbar-toggler bg-primary py-2" data-bs-toggle="collapse" data-bs-target="#nav">
+<nav class="navbar navbar-expand-md navbar-light bg-light justify-content-around fixed-top">
+    <a class="col col-auto" href="index.html">
+        <img class="justify-content-around " src="./img/logo-250.png" alt="Myinterimo-logo">
+    </a>
+    <button type="button" class="navbar-toggler bg-primary py-2 " data-bs-toggle="collapse" data-bs-target="#nav">
         <i class="fa-solid fa-bars text-light"></i>
     </button>
-    <div class="collapse  navbar-collapse justify-content-center" id="nav">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="./index.html">Accueil
+    <div class="collapse  navbar-collapse justify-content-around" id="nav">
+        <ul class="navbar-nav ">
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./index.html">
+                    Accueil
                     <hr>
                 </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./fonctionnalite.html">Fonctionnalités
-                    <hr>
-                </a>
-
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./Témoingages.html">Témoingages
+            <li class="nav-item  p-sm-2">
+                <a class="nav-link text-center" href="./fonctionnalite.html">
+                    Fonctionnalités
                     <hr>
                 </a>
 
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./FAQ.html">FAQ
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./Témoingages.html">
+                    Témoingages
                     <hr>
                 </a>
 
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="./contactez-nous.html">Contact</a>
-                <hr>
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./FAQ.html">
+                    FAQ
+                    <hr>
+                </a>
+            </li>
+            <li class="nav-item p-sm-2">
+                <a class="nav-link text-center" href="./contactez-nous.html">
+                    Contact
+                    <hr>
+                </a>
             </li>
         </ul>
     </div>
 </nav>
-<div class="container-md">
-    <section id="section1" class="row justify-content-around align-items-center">
-        <img class="col col-sm-6"
+<div class="container-lg ">
+    <!-- grab some space because the nav-bar is fixed -->
+    <section class=" m-md-1 m-sm-2 m-0 p-lg-0 p-md-4 p-0 "></section>
+
+    <section id="section1" class="row justify-content-around align-items-center px-3 py-5">
+        <img class="col col-md-6 col-12"
              src="./img/communication-_-man-woman-smartphone-call-video-call-chat-talk-group@2x.png"
              alt="man-women-smartphone">
-        <div class="col col-md-6 ">
+        <div class="col col-md-6 col-12">
             <h6 class="primary-text"> Véritable réseau social immobilier</h6>
             <h1 class="bold-text">
                 MyInterimo : L’inter-agence en mode 3.0
             </h1>
-
             <p class="description">
                 Le véritable réseau social immobilier
                 <strong>MyInterimo</strong>
@@ -83,31 +92,37 @@
                 Invitez vos partenaires librement, créez un mur de biens communs pour déléguer vos mandats ou pas,
                 saisie automatique de vos annonces à publier…
                 <br>100% gratuit et illimité !</p>
+            <div class="row">
+                <div class="hstack gap-3 align-items-center justify-content-md-start justify-content-center">
+                    <a class="rectangle-button place-item-center px-4">
+                        Découvrez Myintermino
+                        <i class="fa-solid fa-arrow-right fa-xl " style="padding-left: 10px"></i>
+                    </a>
+                    <a href="#" class="circle-button place-item-center ">
+                        <i class="fa-solid fa-play fa-sm ">
+                        </i>
 
-            <div style="margin-top: 40px;">
-                <div class="space-evenly">
-                    <a class="rectangle-button place-item-center p-2">Découvrez Myintermino <i
-                            class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i> </a>
-
-                    <div class="space-evenly">
-                        <a href="#" class="circle-button place-item-center" style="margin-right:10px ;">
-                            <i class="fa-solid fa-play fa-2xs"></i>
-                        </a>
-                        voir la vidéo
-                    </div>
+                    </a>
+                    <h6 class="fw-bolder" style="font-size: 13px"> voir la vidéo</h6>
                 </div>
+
+                <div class="col">
+
+
+                </div>
+
+
             </div>
         </div>
 
 
     </section>
-
-    <section id="box1" class="box justify-content-center align-items-center">
-        <div class="row row-cols-auto  justify-content-around align-items-center">
-            <div class="col col-md-4">
+    <section id="box1" class="box justify-content-center align-items-center p-4">
+        <div class="row row-cols-auto  justify-content-around align-items-center p-2">
+            <div class="col col-md-4 col-12">
                 <div class="row">
                     <h6 class="primary-text">Utilisez MyInterimo avec MyEspaceo et soyez 100% connecté !</h6>
-                    <h1 class="fw-bolder" style="padding: 10px 0;">
+                    <h1 class="fw-bolder">
                         Fonctionnalités MyInterimo
                     </h1>
                     <p class="description ">
@@ -118,30 +133,29 @@
                     </p>
                 </div>
             </div>
-            <div class="col col-md-6">
+            <div class="col col-md-6 col-12">
                 <div class=" row row-cols-auto justify-content-center">
-                    <div class="fonction col-4 ">
+                    <div class="fonction col-sm-4 col-6 ">
                         <i class="circle-icon fa-solid fa-puzzle-piece fa-xl"></i>
                         <h6 class="circle-icon-title">Invitez des agences ou mandataires</h6>
                     </div>
-
-                    <div class="fonction col-4">
+                    <div class="fonction col-sm-4 col-6">
                         <i class="circle-icon fa-solid fa-eye fa-xl"></i>
                         <h6 class="circle-icon-title">Suivez vos annonces favorites</h6>
                     </div>
-                    <div class="fonction col-4">
+                    <div class="fonction col-sm-4 col-6">
                         <i class=" circle-icon fa-solid fa-credit-card fa-xl"></i>
                         <h6 class="circle-icon-title"> Ouvert à tous les PRO ayant une carte T</h6>
                     </div>
-                    <div class="fonction col-4">
+                    <div class="fonction col-sm-4 col-6">
                         <i class=" circle-icon fa-solid fa-link fa-xl"></i>
                         <h6 class="circle-icon-title">besoin de passerelles CRM</h6>
                     </div>
-                    <div class="fonction col-4">
+                    <div class="fonction col-sm-4 col-6">
                         <i class=" circle-icon fa-solid fa-share-from-square fa-xl"></i>
                         <h6 class="circle-icon-title"> Partagez tout type de mandat</h6>
                     </div>
-                    <div class="fonction col-4">
+                    <div class="fonction col-sm-4 col-6">
                         <i class=" circle-icon fa-solid fa-toggle-on fa-xl"></i>
                         <h6 class="circle-icon-title"> Déléguez vos mandats ou pas</h6>
                     </div>
@@ -152,11 +166,12 @@
         </div>
     </section>
 
-    <section id="section2" class="">
+    <section id="section2" class="p-3">
         <div class="row justify-content-around align-items-center">
-            <img class="col col-md-6" src="./img/delivery-_-man-woman-boat-sail-boat-logistic-map-box-package@2x.png"
+            <img class="col col-md-6 col-12"
+                 src="./img/delivery-_-man-woman-boat-sail-boat-logistic-map-box-package@2x.png"
                  alt="delivery-man-women-boat">
-            <div class="col col-md-6 ">
+            <div class="col col-md-6 col-12">
                 <div class="row ">
                     <div class="col">
                         <div class="row">
@@ -188,7 +203,7 @@
                             quant à votre capacité à vendre.
                         </p>
                     </div>
-                    <div class="fonction  col col-sm-6">
+                    <div class="fonction col col-sm-6">
                         <i class=" circle-icon fa-solid fa-euro-sign fa-xl"></i>
                         <strong>Développez Vos Ventes</strong>
                         <p class="description">
@@ -202,7 +217,7 @@
         </div>
     </section>
 
-    <section id="section3" class="row justify-content-around align-items-center">
+    <section id="section3" class="row justify-content-around align-items-center p-3">
         <img class="col col-md-6" src="./img/e-commerce-_-woman-shopping-shop-commerce-e-commerce-shopping-cart@2x.png"
              alt="woman-shopping-shop-commerce-e-commerce">
         <div class="col col-md-6 place-item-center">
@@ -225,51 +240,54 @@
 
     </section>
 
-    <section id="section4" class="row align-items-center">
-        <img class="col col-md-6" src="./svg/marketing-_-woman-smartphone-electronic-device-announcement.webp"
+    <section id="section4" class="row align-items-center justify-content-center p-3">
+        <img class="col col-md-6 col-12" src="./svg/marketing-_-woman-smartphone-electronic-device-announcement.webp"
              alt="woman-shopping-shop-commerce-e-commerce">
-        <div class="col col-md-6 ">
-            <div>
-
-                <div>
-                    <h1 class="bold-text">
-                        Plus d’offres,<br> plus d’opportunités
-                    </h1>
-                    <p class="description">
-                        Chaque agence membre mutualise ses mandats avec la communauté MyInterimo pour un maximum de
-                        visibilité afin de réaliser des ventes au meilleur prix et avec une très grande réactivité.
-                    </p>
-                </div>
-
-                <div>
-                    <h1 class="bold-text">
-                        Un fil d’actualité intelligent
-                    </h1>
-                    <p class="description">
-                        Nos experts en design et en développement ont conçu une interface ergonomique avec des
-                        fonctionnalités qui répondent aux besoins et aux pratiques des utilisateurs. Votre fil
-                        d’actualité
-                        vous affichera les mises à jour des offres de vos partenaires en temps réel ainsi que leurs
-                        derniers
-                        biens en vente.
-
-                    </p>
-                </div>
-
+        <div class="col col-md-6 col-12 ">
+            <div class="row">
+                <h1 class="bold-text">
+                    Plus d’offres, plus d’opportunités
+                </h1>
             </div>
+            <div class="row">
+                <p class="description">
+                    Chaque agence membre mutualise ses mandats avec la communauté MyInterimo pour un maximum de
+                    visibilité afin de réaliser des ventes au meilleur prix et avec une très grande réactivité.
+                </p>
+            </div>
+
+            <div class="row">
+                <h1 class="bold-text">
+                    Un fil d’actualité intelligent
+                </h1>
+            </div>
+            <div class="row">
+                <p class="description">
+                    Nos experts en design et en développement ont conçu une interface ergonomique avec des
+                    fonctionnalités qui répondent aux besoins et aux pratiques des utilisateurs. Votre fil
+                    d’actualité
+                    vous affichera les mises à jour des offres de vos partenaires en temps réel ainsi que leurs
+                    derniers
+                    biens en vente.
+
+                </p>
+            </div>
+
         </div>
 
     </section>
 
-    <section id="section5" class="row justify-content-around align-items-center">
-        <img class="col col-md-6"
+    <section id="section5" class="row justify-content-around align-items-center p-3">
+        <img class="col col-md-6 col-12"
              src="./img/workflow-web-development-_-chat-talk-conversation-communication-team-work-project-business@2x.png"
              alt="woman-shopping-shop-commerce-e-commerce">
-        <div class="col-md-6">
-            <div>
+        <div class="col-md-6 col-12">
+            <div class="row">
                 <h1 class="bold-text">
                     Collaborer pour être plus fort
                 </h1>
+            </div>
+            <div class="row">
                 <p class="description">
                     L’union fait la force. Au travers de vos partenariats, MyInterimo va permettre de constituer un
                     réseau immobilier puissant constitué d’une multitude d’agences de toute taille et de mandataires
@@ -288,30 +306,33 @@
     </section>
 
 
-    <section id="section6" class="row justify-content-around align-items-center">
-
-        <img class="col col-md-6"
+    <section id="section6" class="row justify-content-around align-items-center p-3">
+        <img class="col col-md-6 col-12"
              src="./img/business-_-woman-search-find-scan-magnifier-profile-account-user-employee-rating-reviedw@2x.png"
              alt="woman-search-find-scan">
-        <div class="col col-md-6 ">
-            <div>
-
+        <div class="col col-md-6 col-12 align-items-center">
+            <div class="row">
                 <h1 class="bold-text">
                     Se faire connaître et reconnaître
                 </h1>
+
+            </div>
+            <div class="row">
                 <p class="description">
-                    Avec MyInterimo, prenez de l’ampleur en devenant un influenceur de votre secteur immobilier. Suivez
+                    Avec MyInterimo, prenez de l’ampleur en devenant un influenceur de votre secteur immobilier.
+                    Suivez
                     les confrères avec lesquels vous collaborez, interagissez facilement et de manière instantanée,
-                    écrivez vos commentaires, émettez des avis et recommandez votre réseau. C’est aussi grâce à vous que
-                    votre réseau vivra et perdurera. MyInterimo est l’application qui va changer votre vision et votre
+                    écrivez vos commentaires, émettez des avis et recommandez votre réseau. C’est aussi grâce à vous
+                    que
+                    votre réseau vivra et perdurera. MyInterimo est l’application qui va changer votre vision et
+                    votre
                     utilisation des réseaux sociaux pour le meilleur !
 
                 </p>
             </div>
         </div>
     </section>
-
-    <section id="box2" class="box justify-content-around align-items-center">
+    <section id="box2" class="box justify-content-around align-items-center my-3">
         <div class="row row-cols-auto justify-content-around align-items-center">
             <div class="col col-lg-4  col-md-12">
                 <div class="row justify-content-center">
@@ -331,9 +352,9 @@
                     </p>
                 </div>
                 <div class="row justify-content-center">
-                    <a class=" rectangle-button place-item-center " style="width: 200px">
+                    <a class=" rectangle-button place-item-center " style="width: 250px">
                         voir plus de fonctionnalités
-                        <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
+                        <i class="fa-solid fa-arrow-right fa-xl" style="margin-left: 15px;"></i>
                     </a>
                 </div>
             </div>
@@ -426,8 +447,7 @@
         </div>
 
     </section>
-
-    <section id="section7" class="justify-content-around align-items-center">
+    <section id="section7" class="justify-content-around align-items-center py-5">
         <div class="row row-cols-auto justify-content-around align-items-center">
             <div class="col col-lg-4 col-md-5  justify-content-center p-lg-5">
                 <div class="row  text-center">
@@ -446,23 +466,23 @@
             </div>
             <div class="col col-md-6 ">
                 <div class="row row-cols-auto justify-content-around ">
-                    <img class="col col-sm-6 p-3" src="./img/logo_prolan.png" alt="logo_prolan">
-                    <img class="col col-sm-6 p-3" src="./img/logo_myoffrimo.png" alt="logo_myespaceo">
-                    <img class="col col-sm-6 p-3" src="./img/logo_myinterimo-1.png" alt="logo_myinterimo">
-                    <img class="col col-sm-6 p-3" src="./img/logo_MyOptimeo.png" alt="logo_MyOptimeo">
-                    <img class="col col-sm-6 p-3" src="./img/logo_mysolusoft.png" alt="logo_mysolusoft">
-                    <img class="col col-sm-6 p-3" src="./img/logo_myespaceo.png" alt="logo_myespaceo">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_prolan.png" alt="logo_prolan">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_myoffrimo.png" alt="logo_myespaceo">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_myinterimo-1.png" alt="logo_myinterimo">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_MyOptimeo.png" alt="logo_MyOptimeo">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_mysolusoft.png" alt="logo_mysolusoft">
+                    <img class="col col-sm-6 col-6 p-3" src="./img/logo_myespaceo.png" alt="logo_myespaceo">
                 </div>
 
             </div>
         </div>
 
     </section>
-    <!-- Telechager notre application -->
 
-    <section id="box3" class="box " style="background-color: rgba(0, 0, 0, 0.337);">
+    <!-- Telechager notre application -->
+    <section id="box3" class="box p-5" style="background-color:#49D3F2">
         <div class="row align-items-center justify-content-around">
-            <div class="col col-md-4 justify-content-center align-items-center">
+            <div class="col col-lg-5 col-md-7  justify-content-center align-items-center">
                 <div class="row">
                     <h6 class="font-weight-bold" style="color:white">CRÉER VOTRE COMPTE GRATUITEMENT !</h6>
                 </div>
@@ -494,7 +514,7 @@
                     </div>
                 </div>
             </div>
-            <img class="col-md-3 p-3" src="./svg/telecharger_myinterimo_footer.webp"
+            <img class="col col-lg-3 col-md-4  col-6 p-3" src="./svg/telecharger_myinterimo_footer.webp"
                  alt="telecharger_myinterimo_footer-phone">
 
         </div>
@@ -557,17 +577,23 @@
     </div>
 
 
-    <hr class="row">
+    <hr class="row ">
 
-    <div class="row row-cols-auto d-flex justify-content-center">
-        <h6 class="col-sm-6 col-12" style="font-size:11px ; color: gray;">© 2022 MyInterimo. Tous les droits sont
-            réservés.</h6>
-        <div class="socialMedia col col-sm-6 col-12 d-flex justify-content-center">
-            <a href="#"><i class="fa-brands fa-facebook"></i></a>
-            <a href="#"><i class="fa-brands fa-instagram"></i></a>
-            <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
-            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+    <div class="row row-cols-auto align-items-center">
+        <div class="col col-sm-6 col-12 justify-content-sm-start justify-content-center">
+            <h6 class="text-sm-start text-center m-0" style="font-size:11px ; color: gray;">
+                © 2022 MyInterimo. Tous les droits sont réservés.
+            </h6>
+        </div>
+
+        <div class="socialMedia col col-sm-6 col-12  ">
+            <div class="row row-cols-auto justify-content-sm-end justify-content-center">
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
         </div>
     </div>
 </footer>
