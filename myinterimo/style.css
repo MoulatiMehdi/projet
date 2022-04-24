@@ -25,25 +25,8 @@ body {
 
 /* nav bar */
 nav {
-    box-shadow: 0 0 10px 1px var(--color-shadow-black);
-    background-color: white;
-}
-
-
-nav ul {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-nav li {
-    padding: 0 10px;
-    text-align: center;
-
-}
-
-nav img {
-    margin: 0 50px;
+     box-shadow: 0 0 10px 1px var(--color-shadow-black);
+     background-color: white;
 }
 
 nav li hr {
@@ -51,7 +34,6 @@ nav li hr {
     position: relative;
     border-radius: 6px;
     width: 0;
-    height: 2px;
     text-align: center;
     padding-top: 4px;
     margin: 2px 0;
@@ -59,16 +41,22 @@ nav li hr {
     z-index: 2;
 
 }
-
-nav li:hover a {
-    color: var(--color-main);
+nav li{
+    position: relative;
 }
+
+/*nav li hr {
+    position: relative;
+    height: 2px;
+    width: 0;
+    border-radius: 2px;
+    background-color: var(--color-main);
+}*/
 
 nav li:hover hr {
     width: 100%;
     transition: var(--animation-horizantal-line) 0.6s;
-
-
+    opacity: initial;
 }
 
 :is(nav) a, a:hover {
@@ -97,10 +85,6 @@ footer li {
 }
 
 /*  another elements    */
-div strong {
-    padding-bottom: 10px;
-
-}
 
 ul {
     list-style: none;
@@ -113,14 +97,6 @@ a, a:hover {
     text-decoration: none;
 }
 
-section {
-
-    padding: 50px 0;
-}
-
-#section7 img {
-    max-width: 250px;
-}
 
 /* text */
 
@@ -141,7 +117,8 @@ section {
     min-width: 140px;
 
     font-size: 12px;
-    font-weight: 600;
+    letter-spacing: 1px;
+    font-weight: 900;
 
     color: white;
     background-color: var(--color-main);
@@ -159,11 +136,12 @@ section {
 
 /* circle button */
 .circle-button {
-    height: 25px;
-    width: 25px;
+    height: 35px;
+    width: 35px;
+    border-radius: 40px;
+    outline: 7px solid var(--color-shadow-black);
+    border: 2px transparent solid;
 
-    border-radius: 30px;
-    outline: 5px solid var(--color-shadow-black);
     color: white;
     background-color: var(--color-main);
 
@@ -172,6 +150,7 @@ section {
 .circle-button:hover {
     background-color: white;
     color: var(--color-main);
+
     border: 2px var(--color-main) solid;
     transition: 0.6s ease-out;
 
@@ -199,7 +178,7 @@ i.circle-icon {
 
 }
 
-.fonction:hover .circle-icon-title{
+.fonction:hover .circle-icon-title {
     font-weight: 900;
     color: black;
 }
@@ -260,7 +239,6 @@ a {
 /* social media*/
 
 .socialMedia i {
-    padding: 10px;
     color: var(--color-text-description);
 }
 
@@ -270,14 +248,11 @@ a {
 
 
 /**************** phone prespective ****************/
-@media screen and (max-width: 100px) {
+@media screen and (max-width: 768px) {
     /* font sizes */
-    * {
-        font-size: 12px;
-    }
 
     .description {
-        font-size: 12px;
+        font-size: 13px;
     }
 
     h6 {
@@ -293,127 +268,19 @@ a {
     }
 
     strong {
-        font-size: 14px;
+        font-size: 15px;
     }
 
-    /* section element */
-    section img {
-
-    }
-
-    section {
-        margin: 40px 0;
-    }
-
-    section img {
-        width: 100%;
-    }
-
-    .row {
-        flex-direction: column;
-    }
-
-    #section7 .col {
-        width: 70%;
-    }
-
-    /**/
-    .contenu {
-        flex-direction: column;
-        border: 0;
-    }
-
-    .space-beetwen {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .box#box1 {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin: 0;
-    }
-
-    .box#box2 {
-        flex-direction: column;
-    }
-
-    .box#box3 * {
-        flex-direction: column;
-    }
-
-
-    .row {
-        width: auto;
-    }
-
-    .rectangle-button {
-        margin: 10px 0;
-    }
-
-    .button a {
-
-
-        margin: 10px 0;
-        max-width: 200px;
-        padding: 0;
-    }
-
-    .buttons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-
-    }
-
-    /* footer  element*/
-    footer {
-        text-align: center;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    :is(footer) li, a {
-        font-size: 13px;
-        color: gray;
-        text-align: center;
-    }
-
-    /* nav bar  element */
-    nav img > a, nav img {
-        margin: 0;
-        width: 150px;
-    }
-
-    nav li {
-        border-radius: 5px;
-        padding: 20px 0;
-    }
-
-    nav li:hover hr {
+    nav li hr{
         width: 0;
         display: none;
     }
-
-    nav li:hover {
-        background-color: var(--color-main);
-        transition: 0.6s ease-in-out;
-
+    nav li{
+        border-radius: 7px;
+    }
+    nav li:hover .nav-link {
+        color: var(--color-main) !important;
     }
 
-    nav li:hover a {
-        color: white;
-    }
-
-    nav a {
-        font-size: 20px;
-    }
-
-    nav li {
-        width: 100%;
-    }
 }
 
