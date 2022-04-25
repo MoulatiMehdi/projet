@@ -197,7 +197,7 @@ i.circle-icon {
 
 /* description text */
 .description {
-    font-size: 13px;
+    font-size: 14px;
     color: var(--color-text-description);
     /*text-align: center;*/
     padding-top: 5px;
@@ -233,6 +233,13 @@ a {
 
 .socialMedia i:hover {
     color: var(--color-main);
+}
+.temoin{
+
+    background-color: white;
+    padding: 20px;
+    border-radius: 15px;
+
 }
 
 
