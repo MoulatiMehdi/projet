@@ -1,17 +1,6 @@
 /* body */
 body {
-    --color--black: #000000;
-    --color--cyan-bluish-gray: #abb8c3;
-    --color--white: #ffffff;
-    --color--pale-pink: #f78da7;
-    --color--vivid-red: #cf2e2e;
-    --color--luminous-vivid-orange: #ff6900;
-    --color--luminous-vivid-amber: #fcb900;
-    --color--light-green-cyan: #7bdcb5;
-    --color--vivid-green-cyan: #00d084;
-    --color--pale-cyan-blue: #8ed1fc;
-    --color--vivid-cyan-blue: #0693e3;
-    --color--vivid-purple: #9b51e0;
+
     --gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
     --gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg, rgb(122, 220, 180) 0%, rgb(0, 208, 130) 100%);
     --gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg, rgba(252, 185, 0, 1) 0%, rgba(255, 105, 0, 1) 100%);
@@ -24,18 +13,7 @@ body {
     --gradient--pale-ocean: linear-gradient(135deg, rgb(255, 245, 203) 0%, rgb(182, 227, 212) 50%, rgb(51, 167, 181) 100%);
     --gradient--electric-grass: linear-gradient(135deg, rgb(202, 248, 128) 0%, rgb(113, 206, 126) 100%);
     --gradient--midnight: linear-gradient(135deg, rgb(2, 3, 129) 0%, rgb(40, 116, 252) 100%);
-    --duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');
-    --duotone--grayscale: url('#wp-duotone-grayscale');
-    --duotone--purple-yellow: url('#wp-duotone-purple-yellow');
-    --duotone--blue-red: url('#wp-duotone-blue-red');
-    --duotone--midnight: url('#wp-duotone-midnight');
-    --duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');
-    --duotone--purple-green: url('#wp-duotone-purple-green');
-    --duotone--blue-orange: url('#wp-duotone-blue-orange');
-    --font-size--small: 13px;
-    --font-size--medium: 20px;
-    --font-size--large: 36px;
-    --font-size--x-large: 42px;
+
 }
 
 
