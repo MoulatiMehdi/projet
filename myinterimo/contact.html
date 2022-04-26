@@ -9,25 +9,22 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <!-- JavaScript Bundle with Popper -->
-    <script src="draggble-slide.js">
-
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
     <!-- local CSS file-->
     <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="draggble-slide.css">
+
     <!-- font Nunito-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+
     <!-- icon -->
     <link rel="icon"
           href="https://i0.wp.com/myinterimo.com/wp-content/uploads/2022/01/cropped-favicon-2.png?fit=32%2C32&amp;ssl=1"
           sizes="32x32">
+    <script src="" lang="php"></script>
     <title>Contact - MyInterimo</title>
 </head>
 <body>
+
 <header class="container">
     <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
         <a class="col col-md-4 col-auto" href="index.html">
@@ -66,17 +63,77 @@
                     </a>
                 </li>
                 <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="contact.html">
+                    <a class="nav-link active" href="contact.html">
                         Contact
-                        <hr>
+                        <hr class="w-100 bg-warning">
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
 </header>
+
 <div class="container-lg ">
-    <section class=" m-md-1 m-sm-2 m-0 p-lg-5 p-md-4 py-5 "></section>
+
+    <!-- replace the fixed navbar space -->
+    <section class="p-5"></section>
+
+    <!-- Myinterimo Form and Location -->
+    <section class=" p-5 "></section>
+    <section class="row p-3">
+        <div class="col col-md-6 order-md-2 h-auto col-12 position-relative align-items-center">
+            <img
+                    src="https://i0.wp.com/myinterimo.com/wp-content/uploads/2020/08/Mask-Group-17.png?fit=641%2C641&amp;ssl=1"
+                    class="w-100"
+                    alt="demo-attachment-246-Mask-Group-17" data-ratio="1" data-original-w="641"
+                    data-src="https://i0.wp.com/myinterimo.com/wp-content/uploads/2020/08/Mask-Group-17.png?fit=641%2C641&amp;ssl=1"
+                    style="height: auto; ">
+        </div>
+        <div class="col col-md-6 order-md-1 col-12">
+            <h5 class="py-2">Besoin d’informations, d’une démonstration ou questions ?</h5>
+            <h5 class="py-1 text-secondary">
+                Contactez notre équipe, elle se fera un plaisir de répondre à vos questions.
+            </h5>
+            <h1 class="fw-bolder py-1">
+                Contactez notre équipe
+            </h1>
+            <h6>Nos équipes sont à votre disposition du lundi au jeudi de 9h à 12h30 puis de 14h à 18h et le
+                vendredi de
+                9h
+                à 12h30 puis de 14h à 17h30. N’hésitez pas à nous contacter pour toute demande.
+            </h6>
+            <form action="" method="POST" data-status="init" class="row form needs-validation" novalidate>
+                <div class="position-relative">
+                    <label for="name"></label>
+                    <input type="text" class="form-control rounded-pill px-4 py-3 border-0" id="name"
+                           name="name" placeholder="Votre Nom *" required>
+                    <div class="invalid-feedback px-3">Saisir votre nom !</div>
+                </div>
+                <div class="position-relative">
+                    <label for="email"></label>
+                    <input type="email" class="form-control rounded-pill px-4 py-3 border-0" id="email"
+                           name="email" placeholder="Votre E-Mail *" required>
+                    <div class="invalid-feedback px-3">
+                        Saisir Votre E-mail !
+                    </div>
+                </div>
+                <div class="position-relative">
+                    <label for="message"></label>
+                    <textarea class="form-control border-0 p-4" style="border-radius: 15px" id="message"
+                              name="message" placeholder="Votre Message *" rows="7" required></textarea>
+                    <div class="invalid-feedback px-3">
+                        Saisir votre Message !
+                    </div>
+                </div>
+                <div class="mt-3 ms-2">
+                    <button class="btn btn-dark px-4 py-1" type="submit">Envoyer</button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+
+    <!-- Myinterimo information for Contact -->
     <section class="row justify-content-center align-items-center  px-3">
         <div class="col col-md-4 col-12 p-3">
             <div class="fonction row  align-items-center justify-content-center ">
@@ -84,7 +141,7 @@
                     <i class=" circle-icon fa-solid fa-phone fa-2xl"></i>
                 </div>
                 <div class="col col-md-8 col-5">
-                    <h6><strong>Téléphone</strong></h6>
+                    <h4><strong>Téléphone</strong></h4>
                     <h6 style="font-size: 13px">+41 76 437 82 83</h6>
                     <h6 style="font-size: 13px">+33 4 80 95 94 39</h6>
                 </div>
@@ -96,7 +153,7 @@
                     <i class="circle-icon fa-solid fa-location-dot fa-2xl"></i>
                 </div>
                 <div class="col col-md-8 col-5">
-                    <h6><strong>Adresse</strong></h6>
+                    <h4><strong>Adresse</strong></h4>
                     <h6 style="font-size: 13px">1 Rue de Pécolat Genève,</h6>
                     <h6 style="font-size: 13px">1201 - Suisse</h6>
                 </div>
@@ -108,13 +165,113 @@
                     <i class="circle-icon fa-solid fa-envelope fa-2xl"></i>
                 </div>
                 <div class="col col-md-8 col-5">
-                    <h6 ><strong>E-Mail</strong></h6>
+                    <h4><strong>E-Mail</strong></h4>
                     <h6 style="font-size: 13px">hello@myinterimo.com</h6>
                     <h6 style="font-size: 13px">support@myinterimo.com</h6>
                 </div>
             </div>
         </div>
     </section>
+
+</div>
+
+<!-- les Témoignages -->
+<section class="my-5">
+    <div class="row justify-content-around ">
+        <h6 class="text-center">Témoignages</h6>
+        <h1 class="text-center fw-bolder">Ils parlent de MyInterimo</h1>
+        <p class="description text-center">Comme vos confrères, adhérez à MyInterimo. Inscrivez-vous dès à présent
+            pour inviter
+            vos amis et créer votre communauté.</p>
+
+    </div>
+    <div class="row justify-content-around ">
+        <main class="">
+            <div class="wrapper">
+                <div class="items ">
+                    <div class="item col col-md-4 col-10 align-items-center my-5">
+                        <div class="row">
+                            <p class="description">
+
+                                Je trouve que c’est une plateforme indispensable pour tout professionnel
+                                immobilier qui cherche
+                                à
+                                développer son activité et ses performances et surtout créer la différence.
+
+                            </p>
+                        </div>
+                        <div class="row d-flex align-items-center justify-content-start">
+                            <div class="col col-auto">
+                                <img src="./img/sebastien.jpg" alt="client-sebastien">
+                            </div>
+                            <div class="col col-auto ">
+                                <h4 class="row col-title">Sébastien Sebert</h4>
+                                <h5 class="row col-subtitle">Client MYINTERIMO</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col col-md-4 col-10 align-items-center my-5">
+                        <div class="row">
+                            <p class="description">
+                                La base d’un investissement immobilier réussi est le partage et la connectivité
+                                et MyEspaceo a su relever ce défi à travers ses applications intuitives qui nous ont
+                                aidés.
+                            </p>
+                        </div>
+                        <div class="row d-flex align-items-center justify-content-start">
+                            <div class="col col-auto col-image">
+                                <img src="./img/laurence.jpg" alt="client-laurence">
+                            </div>
+                            <div class="col col-auto">
+                                <h4 class="col-title">Laurence GrosJean</h4>
+                                <h5 class="col-subtitle">Cliente MYINTERIMO</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col col-md-4 col-10 align-items-center my-5">
+                        <div class="row">
+                            <p class="description">
+                                J’ai choisi MyInterimo pour plusieurs raisons mais la principale est du regroupement
+                                de tous les services dont un agent immobilier aura besoin en une interface.
+                            </p>
+                        </div>
+                        <div class="row d-flex align-items-center justify-content-start">
+                            <div class="col col-auto col-image">
+                                <img src="./img/patrice.jpg" alt="client-patrice">
+                            </div>
+                            <div class="col col-auto">
+                                <h4 class="col-title">Patrice Minder</h4>
+                                <h5 class="col-subtitle">Client MYINTERIMO</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col col-md-4 col-10 align-items-center my-5">
+                        <div class="row">
+                            <p class="description">
+                                Très bien conçu et développé mais plus que tout, se base sur le partage, la
+                                collaboration et la
+                                transparence entre les professionnels immobiliers.
+                            </p>
+                        </div>
+                        <div class="row d-flex align-items-center justify-content-start">
+                            <div class="col col-auto col-image">
+                                <img src="./img/anis.jpg" alt="client-laurence">
+                            </div>
+                            <div class="col col-auto">
+                                <h4 class="col-title">Anis Verdan</h4>
+                                <h5 class="col-subtitle">Client MYINTERIMO</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+</section>
+
+<div class="container-lg">
+    <!-- tous les Sites web de l'entreprise-->
     <section id="section7" class="justify-content-around align-items-center py-5">
         <div class="row row-cols-auto justify-content-around align-items-center">
             <div class="col col-lg-5 col-md-6 col-sm-12 p-lg-5 justify-content-center ">
@@ -153,48 +310,50 @@
 
     </section>
     <!-- Telechager notre application -->
-    <section id="box3" class="box p-5" style="background-color:#49D3F2">
+    <section id="box3" class="box p-5" style="background-color:var(--color-main)">
         <div class="row align-items-center justify-content-around">
-            <div class="col col-lg-5 col-md-7  justify-content-center align-items-center">
+            <div class="col col-lg-5 col-md-7 col-12 justify-content-center align-items-center">
                 <div class="row">
-                    <h6 class="font-weight-bold" style="color:white">CRÉER VOTRE COMPTE GRATUITEMENT !</h6>
+                    <h6 class="font-weight-bold text-light">CRÉER VOTRE COMPTE GRATUITEMENT !</h6>
                 </div>
-                <div class="row">
+                <div class="row ">
                     <h1 class="font-weight-bolder text-light p-md-1">
                         Découvrez MyInterimo maintenant !
                     </h1>
                 </div>
                 <div class="row">
-                    <h6 style="color: white;">
+                    <h6 class="text-light">
                         Développez votre chiffre d’affaires avec MyInterimo.
                         Application 100% gratuite !
                     </h6>
                 </div>
                 <div class="row d-flex justify-content-around font-weight-bolder ">
-                    <div class="hstack gap-3 justify-content-center">
+                    <div class="hstack gap-3 justify-content-center mt-5 mb-2">
                         <div class="col d-flex justify-content-end">
-                            <a href="#" style="width: 150px" class="rectangle-button  place-item-center">
-                                <i class="fa-brands fa-app-store m-2 fa-2xl"></i>
+                            <a href="https://apps.apple.com/us/app/myinterimo/id1559962553#?platform=iphone"
+                               class="appStoreButton">
+                                <i class="fa-brands fa-app-store  fa-2xl me-2"></i>
                                 App Store
                             </a>
                         </div>
                         <div class="col d-flex justify-content-start">
-                            <a href="#" style="width: 150px" class="rectangle-button  place-item-center">
-                                <i class="fa-brands fa-google-play fa-xl m-2"></i>
+                            <a href="https://play.google.com/store/apps/details?id=com.myrestai.interimo"
+                               class="googlePlayButton  ">
+                                <i class="fa-brands fa-google-play fa-xl  me-2"></i>
                                 Google Play
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <img class="col col-lg-3 col-md-4  col-6 p-3" src="./svg/telecharger_myinterimo_footer.webp"
+            <img class="mt-5 col col-lg-3 col-md-4 col-sm-7 col-10 justify-content-center"
+                 src="./svg/telecharger_myinterimo_footer.webp"
                  alt="telecharger_myinterimo_footer-phone">
 
         </div>
 
     </section>
 </div>
-
 
 <footer>
 
@@ -272,4 +431,11 @@
 </footer>
 </body>
 <script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
+<!-- JavaScript Bundle with Popper -->
+<script src="draggble-slide.js"></script>
+<script src="./validation.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
 </html>

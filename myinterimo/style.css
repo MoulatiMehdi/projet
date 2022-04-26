@@ -1,14 +1,15 @@
 /* body */
 body {
-    --color-main: #0d6efd;
-    --color-box-circle: rgb(231, 226, 226);
-    --color-box-background: white;
-    --color-shadow-black: rgba(0, 0, 0, 0.1);
-    --color-shadow-blue: rgba(0, 111, 255, 0.3);
-    --color-background-page: whitesmoke;
-    --color-text-description: gray;
-    --animation-horizantal-line: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-
+    --color-main: #0d6efd !important;
+    --color-box-circle: rgba(222, 221, 221, 0.47) !important;
+    --color-box-background: white !important;
+    --color-shadow-black: rgba(0, 0, 0, 0.2) !important;
+    --color-shadow-blue: rgba(0, 111, 255, 0.3) !important;
+    --color-background-page: whitesmoke !important;
+    --color-text-description: #70798B !important;
+    --animation-horizantal-line: cubic-bezier(0.18, 0.89, 0.32, 1.28) !important;
+    --color-store-black-secondary: #18004B !important;
+    --color-store-white:white !important;
 }
 
 body {
@@ -26,10 +27,11 @@ body {
 
 /* nav bar */
 nav {
-     box-shadow: 0 0 10px 1px var(--color-shadow-black);
-     background-color: white;
+    box-shadow: 0 0 10px 1px var(--color-shadow-black);
+    background-color: white;
 }
-nav img{
+
+nav img {
     width: 200px;
 }
 
@@ -37,18 +39,23 @@ nav li hr {
 
     position: relative;
     border-radius: 6px;
-    padding-top: 3px;
-    width: 0;
+    padding-top: 4px;
+
     color: var(--color-main);
+    opacity: 1 !important;
+
     margin: 0;
+    width: 0;
+    transition: ease-in 0.3s;
 }
+
 nav li:hover hr {
     width: 100%;
     transition: var(--animation-horizantal-line) 0.6s;
     opacity: initial;
 }
 
-:is(nav) a, a:hover {
+nav a {
 
     color: black;
     font-weight: 600;
@@ -81,7 +88,7 @@ ul {
     padding: 0;
 }
 
-a, a:hover {
+a {
     text-align: center;
     text-decoration: none;
 }
@@ -99,11 +106,32 @@ a, a:hover {
 }
 
 /* buttons */
+button:focus, button:active {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+    color: white !important;
+    background-color: var(--color-main) !important;
+}
+
+.accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e") !important;
+    transform: rotate(-180deg);
+
+}
+
 /* rectangle button */
 .rectangle-button {
+    display: flex ;
+    align-items: center ;
+    justify-content: center ;
+
     border-radius: 5px;
     height: 42px;
     min-width: 140px;
+    padding: 0 15px;
 
     font-size: 12px;
     letter-spacing: 1px;
@@ -112,36 +140,41 @@ a, a:hover {
     color: white;
     background-color: var(--color-main);
     outline: 2px var(--color-main) solid;
+    transition: 0.3s ease-in;
 
 }
-
 .rectangle-button:hover {
 
     color: var(--color-main);
     outline: var(--color-main) 2px solid;
     background-color: white;
-    transition: 0.6s ease-out;
+    transition: 0.3s ease-out;
 }
 
 /* circle button */
 .circle-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     height: 35px;
     width: 35px;
     border-radius: 40px;
+    /* shadow */
     outline: 7px solid var(--color-shadow-black);
-    border: 2px transparent solid;
 
+    border: 2px transparent solid;
+    transition: ease-in 0.3s;
     color: white;
     background-color: var(--color-main);
 
 }
-
 .circle-button:hover {
     background-color: white;
     color: var(--color-main);
 
     border: 2px var(--color-main) solid;
-    transition: 0.6s ease-out;
+    transition: 0.3s ease-out;
 
 }
 
@@ -152,46 +185,55 @@ i.circle-icon {
     align-items: center;
 
     background-color: var(--color-box-circle);
-    border-radius: 70px;
-    width: 65px;
-    height: 65px;
+    border-radius: 75px;
+    width: 75px;
+    height: 75px;
     margin: 10px 0;
+    transition: 0.3s ease-in;
 
 }
-
 .fonction:hover i.circle-icon {
     color: var(--color-main);
     background-color: white;
     box-shadow: -5px 10px 20px 2px var(--color-shadow-blue);
-    transition: 0.6s ease-out;
+    transition: 0.3s ease-out;
 
 }
-
 .fonction:hover .circle-icon-title {
     font-weight: 900;
     color: black;
+    transition: 0.3s ease-out;
+
 }
 
+/* App Store Button */
+.appStoreButton ,.googlePlayButton{
 
-/* orgnasing elements  */
-.place-item-center {
-    display: flex;
+    display: inline-flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
 
+    font-size: 13px;
+    letter-spacing: 1px;
+    font-weight: 800;
+
+    min-width: 150px;
+    height: 40px;
+
+    border-radius: 5px;
 }
-
-.space-evenly {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-
+.appStoreButton,.googlePlayButton:hover{
+    color: var(--color-store-black-secondary) ;
+    background: var(--color-store-white);
+    outline: 2px var(--color-store-black-secondary) solid;
+    transition: 0.3s ease-in;
 }
+.googlePlayButton,.appStoreButton:hover{
+    background:var(--color-store-black-secondary) ;
+   color: var(--color-store-white);
+    outline: 2px var(--color-store-white) solid;
+    transition: 0.3s ease-out;
 
-.space-beetwen {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 }
 
 
@@ -229,39 +271,34 @@ a {
 
 .socialMedia i {
     color: var(--color-text-description);
+    transition: 0.3s ease-out;
 }
 
 .socialMedia i:hover {
     color: var(--color-main);
-}
-.temoin{
-
-    background-color: white;
-    padding: 20px;
-    border-radius: 15px;
-
+    transition: 0.3s ease-out;
 }
 
 
-/**************** phone prespective ****************/
-@media screen and (max-width: 768px) {
+/**************** phone perspective ****************/
+@media screen and (max-width: 0px) {
     /* font sizes */
-
-
     strong {
         font-size: 15px;
     }
 
-    nav li hr{
+    nav li hr {
         width: 0;
         display: none;
     }
-    nav li{
+
+    nav li {
         border-radius: 7px;
     }
+
     nav li:hover .nav-link {
         color: var(--color-main) !important;
+        transition: 0.3s ease-out;
     }
-
 }
 
