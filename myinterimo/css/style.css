@@ -309,7 +309,7 @@ a {
 
 
 /**************** phone perspective ****************/
-@media screen and (max-width: 0px) {
+@media screen and (max-width: 768px) {
     /* font sizes */
     strong {
         font-size: 15px;
