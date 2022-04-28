@@ -42,7 +42,9 @@ section h1,section strong {
     max-width: 100px;
     font-weight: 400;
 }
-
+*{
+    box-sizing: border-box;
+}
 body {
     --color-main: #0d6efd !important;
     --color-box-circle: rgba(222, 221, 221, 0.47) !important;
@@ -127,7 +129,11 @@ footer li {
     text-align: left;
 
 }
-
+footer strong{
+    font-family: "Rubik", sans-serif;
+    font-size: 20px !important;
+    font-weight: 600 !important;
+}
 /*  another elements    */
 
 ul {
@@ -249,12 +255,13 @@ button:focus, button:active {
 
 .circle-icon-title,.circle-icon-title strong {
     font-size: 18px !important;
-    font-weight: 500;
+    font-weight: 400 !important;
+    font-family: "Rubik", Sans-serif, serif;
 }
 
 .circle-icon-subtitle {
-    font-size: 16px;
-    font-weight: 400;
+    font-size: 16px !important;
+    font-weight: 400 !important;
 }
 
 i {
@@ -265,18 +272,18 @@ i {
 }
 
 .fonction:hover .circle-icon {
-    color: var(--color-main);
-    background-color: white;
+    color: var(--color-main) !important;
+    background-color: white !important;
 
-    box-shadow: -5px 10px 20px 2px var(--color-shadow-blue);
-    transition: 0.3s ease-out;
+    box-shadow: -5px 10px 20px 2px var(--color-shadow-blue) !important;
+    transition: 0.3s ease-out !important;
 
 }
 
 .fonction:hover .circle-icon-title {
-    font-weight: 700;
-    color: black;
-    transition: 0.3s ease-out;
+    font-weight: 500!important;
+    color: black!important;
+    transition: 0.3s ease-out!important;
 
 }
 
@@ -292,10 +299,10 @@ i {
     letter-spacing: 1px !important;
     font-weight: 600 !important;
 
-    min-width: 150px;
-    height: 42px;
+    min-width: 150px!important;
+    height: 42px!important;
 
-    border-radius: 5px;
+    border-radius: 5px!important;
 }
 
 .appStoreButton {
@@ -327,7 +334,7 @@ i {
 
 /* description text */
 .description {
-    font-size: 13px !important;
+    font-size: 15px !important;
     font-weight: 400;
     color: var(--color-text-description);
     /*text-align: center;*/
