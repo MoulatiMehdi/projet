@@ -18,7 +18,9 @@ const start = (e) => {
 
 
 const move = (e) => {
-    if(!isDown) return;
+    if (!isDown) {
+        return;
+    }
 
     e.preventDefault();
     const x = e.pageX || e.touches[0].pageX - slider.offsetLeft;

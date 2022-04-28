@@ -13,5 +13,7 @@
     <orderEntry type="library" name="font-awesome" level="application" />
     <orderEntry type="library" name="jquery-3.6.0.slim" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+    <orderEntry type="library" name="gsap" level="application" />
+    <orderEntry type="library" name="InertiaPlugin" level="application" />
   </component>
 </module>
