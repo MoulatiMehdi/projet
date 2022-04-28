@@ -21,13 +21,27 @@ h1, strong {
 }
 
 .count {
+    display: flex;
     color: #FFFFFF;
     font-family: "Rubik", sans-serif;
-    font-size: 50px;
+    font-size: 80px;
     font-weight: 500;
-    letter-spacing: -2.4px;
+
 }
 
+.num {
+    padding: 0;
+    margin: 0;
+    letter-spacing: -3px;
+    flex-grow: 1;
+    white-space: pre-wrap;
+}
+
+.counter-title {
+    font-size: 17px;
+    max-width: 100px;
+    font-weight: 400;
+}
 
 body {
     --color-main: #0d6efd !important;
@@ -127,8 +141,9 @@ ul {
 a {
     text-align: center;
     text-decoration: none;
-}
+    transition: 2s ease-out;
 
+}
 
 /* text */
 
@@ -224,10 +239,12 @@ i.circle-icon {
     align-items: center;
 
     background-color: var(--color-box-circle);
+
     border-radius: 75px;
     width: 75px;
     height: 75px;
     margin: 10px 0;
+
     transition: 0.3s ease-in;
 
 }
@@ -235,6 +252,7 @@ i.circle-icon {
 .fonction:hover i.circle-icon {
     color: var(--color-main);
     background-color: white;
+
     box-shadow: -5px 10px 20px 2px var(--color-shadow-blue);
     transition: 0.3s ease-out;
 
@@ -250,31 +268,43 @@ i.circle-icon {
 /* App Store Button */
 .appStoreButton, .googlePlayButton {
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 
-    font-size: 13px;
-    letter-spacing: 1px;
-    font-weight: 800;
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 13px !important;
+    letter-spacing: 1px !important;
+    font-weight: 600 !important;
 
     min-width: 150px;
-    height: 40px;
+    height: 42px;
 
     border-radius: 5px;
 }
 
-.appStoreButton, .googlePlayButton:hover {
+.appStoreButton {
     color: var(--color-store-black-secondary);
     background: var(--color-store-white);
-    outline: 2px var(--color-store-black-secondary) solid;
+    transition: 0.3s ease-in;
+
+}
+
+.googlePlayButton:hover {
+    color: var(--color-store-black-secondary);
+    background: var(--color-store-white);
     transition: 0.3s ease-in;
 }
 
-.googlePlayButton, .appStoreButton:hover {
+.googlePlayButton {
     background: var(--color-store-black-secondary);
     color: var(--color-store-white);
-    outline: 2px var(--color-store-white) solid;
+    transition: 0.3s ease-out;
+}
+
+.appStoreButton:hover {
+    background: var(--color-store-black-secondary);
+    color: var(--color-store-white);
     transition: 0.3s ease-out;
 
 }
