@@ -1,10 +1,9 @@
 <?php
         $userName = $_POST['name'];
         $userEmail = $_POST['email'];
-        $messageSubject = $_POST['objectif'];
         $message = $_POST['message'];
 
-        $to="mehdirigal2001@gmail.com";
+        $to="moulati.mehdi@gmail.com";
         $body="";
 
         $body .="From: ".$userName."\r\n";

@@ -351,9 +351,10 @@ i {
 }
 
 footer a {
-    color: gray;
-    text-decoration: none;
+    color: gray !important;
+    text-decoration: none !important;
 }
+
 
 /* box collector */
 .box {
