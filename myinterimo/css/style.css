@@ -16,17 +16,20 @@ body {
 
 }
 
-section h1,section strong {
+section h1, section strong {
     font-family: "Roboto", sans-serif;
 }
 
 .count {
     display: flex;
+
+}
+
+.count * {
     color: #FFFFFF;
     font-family: "Rubik", sans-serif;
     font-size: 80px;
     font-weight: 500;
-
 }
 
 .num {
@@ -42,9 +45,11 @@ section h1,section strong {
     max-width: 100px;
     font-weight: 400;
 }
-*{
+
+* {
     box-sizing: border-box;
 }
+
 body {
     --color-main: #0d6efd !important;
     --color-box-circle: rgba(222, 221, 221, 0.47) !important;
@@ -107,7 +112,7 @@ nav li:hover hr {
 }
 
 nav a {
-
+    font-size: 17px;
     color: black;
     font-weight: 600;
 }
@@ -129,14 +134,16 @@ footer li {
     text-align: left;
 
 }
-footer strong{
+
+footer strong {
     font-family: "Rubik", sans-serif;
     font-size: 20px !important;
     font-weight: 600 !important;
 }
+
 /*  another elements    */
 
-ul {
+nav ul, footer ul {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -253,7 +260,7 @@ button:focus, button:active {
 
 }
 
-.circle-icon-title,.circle-icon-title strong {
+.circle-icon-title, .circle-icon-title strong {
     font-size: 18px !important;
     font-weight: 400 !important;
     font-family: "Rubik", Sans-serif, serif;
@@ -281,9 +288,9 @@ i {
 }
 
 .fonction:hover .circle-icon-title {
-    font-weight: 500!important;
-    color: black!important;
-    transition: 0.3s ease-out!important;
+    font-weight: 500 !important;
+    color: black !important;
+    transition: 0.3s ease-out !important;
 
 }
 
@@ -294,42 +301,45 @@ i {
     align-items: center !important;
     justify-content: center !important;
 
-    font-family: 'Nunito', sans-serif !important;
-    font-size: 13px !important;
+    font-family: 'Rubik', sans-serif !important;
+    font-size: 14px !important;
     letter-spacing: 1px !important;
-    font-weight: 600 !important;
+    font-weight: 500 !important;
 
-    min-width: 150px!important;
-    height: 42px!important;
+    min-width: 150px !important;
+    height: 42px !important;
+    border-radius: 5px !important;
 
-    border-radius: 5px!important;
+    transition: 0.1s ease-out;
+
 }
 
 .appStoreButton {
     color: var(--color-store-black-secondary);
     background: var(--color-store-white);
-    transition: 0.3s ease-in;
+
+
+}
+.appStoreButton:hover {
+     background: var(--color-store-black-secondary);
+     color: var(--color-store-white);
+     transition: 0.3s ease-in;
+
 
 }
 
+.googlePlayButton {
+    background: var(--color-store-black-secondary);
+    color: var(--color-store-white);
+}
 .googlePlayButton:hover {
     color: var(--color-store-black-secondary);
     background: var(--color-store-white);
     transition: 0.3s ease-in;
 }
 
-.googlePlayButton {
-    background: var(--color-store-black-secondary);
-    color: var(--color-store-white);
-    transition: 0.3s ease-out;
-}
 
-.appStoreButton:hover {
-    background: var(--color-store-black-secondary);
-    color: var(--color-store-white);
-    transition: 0.3s ease-out;
 
-}
 
 
 /* description text */
@@ -341,7 +351,7 @@ i {
     padding-top: 5px;
 }
 
-a {
+footer a {
     color: gray;
     text-decoration: none;
 }
@@ -390,7 +400,7 @@ a {
     strong {
         font-size: 15px;
     } */
-    *{
+    * {
         font-size: 13px;
     }
 
