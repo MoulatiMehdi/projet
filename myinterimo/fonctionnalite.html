@@ -36,7 +36,8 @@
         <a class="col col-md-4 col-auto" href="index.html">
             <img class="justify-content-around " src="img/logo/logo-250.png" alt="Myinterimo-logo">
         </a>
-        <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px" data-bs-toggle="collapse"
+        <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px"
+                data-bs-toggle="collapse"
                 data-bs-target="#nav">
             <i class="fa-solid fa-bars text-light fa-lg"></i>
         </button>
@@ -105,16 +106,32 @@
             </div>
             <div class="row">
                 <div class="hstack gap-3 align-items-center justify-content-md-start justify-content-center">
-                    <a href="#" class="rectangle-button  px-4">
+                    <a href="#box3" class="rectangle-button " style="min-width: 215px">
                         Découvrez Myintermino
                         <i class="fa-solid fa-arrow-right fa-xl " style="padding-left: 10px"></i>
                     </a>
-                    <a href="#" class="circle-button  ">
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="MyinterimoYoutubeVideo" tabindex="-1"
+                         aria-labelledby="MyinterimoYoutubeVideoLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered ">
+                            <div class="modal-content ">
+                                <iframe
+                                        height="504" width="auto"
+                                        src="https://www.youtube.com/embed/4fs_eZbQaug"
+                                        title="YouTube video player"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="circle-button" data-bs-toggle="modal" data-bs-target="#MyinterimoYoutubeVideo">
                         <i class="fa-solid fa-play fa-sm ">
                         </i>
 
                     </a>
-                    <h6 class="fw-bolder" style="font-size: 13px"> voir la vidéo</h6>
+                    <h6 class="fw-bolder text-center" style="font-size: 13px"> voir la vidéo</h6>
                 </div>
             </div>
         </div>
@@ -251,8 +268,6 @@
                 </p>
             </div>
         </div>
-
-
     </section>
 
     <!-- les chiffres de Myinterimo-->
@@ -472,15 +487,15 @@
                 <div class="row d-flex justify-content-around font-weight-bolder ">
                     <div class="hstack gap-3 justify-content-center mt-5 mb-2">
                         <div class="col d-flex justify-content-end">
-                            <a href="https://apps.apple.com/us/app/myinterimo/id1559962553#?platform=iphone"
-                               class="appStoreButton">
+                            <a href="https://play.google.com/store/apps/details?id=com.myrestai.interimo"
+                               target="_blank" class="googlePlayButton  ">
                                 <i class="fa-brands fa-app-store  fa-2xl me-2"></i>
                                 App Store
                             </a>
                         </div>
                         <div class="col d-flex justify-content-start">
                             <a href="https://play.google.com/store/apps/details?id=com.myrestai.interimo"
-                               class="googlePlayButton  ">
+                               target="_blank" class="googlePlayButton  ">
                                 <i class="fa-brands fa-google-play fa-xl  me-2"></i>
                                 Google Play
                             </a>
@@ -524,7 +539,8 @@
                     <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.html">politique
                         de confidentialité</a></li>
                     <li class="description text-sm-start text-center"><a href="./cgu.html">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions légales</a></li>
+                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions
+                        légales</a></li>
                 </ul>
             </div>
 
@@ -557,7 +573,7 @@
 
     <div class="row row-cols-auto align-items-center">
         <div class="col col-sm-6 col-12 justify-content-sm-start justify-content-center">
-            <h6 class="text-sm-start text-center m-0 description" >
+            <h6 class="text-sm-start text-center m-0 description">
                 © 2022 MyInterimo. Tous les droits sont réservés.
             </h6>
         </div>
@@ -566,7 +582,7 @@
             <div class="row row-cols-auto justify-content-sm-end justify-content-center">
                 <a href="https://www.facebook.com/myinterimo/"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/myinterimo/"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.instagram.com/myinterimo/"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/myinterimo/"><i class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.pinterest.fr/MyInterimo/"><i class="fa-brands fa-pinterest"></i></a>
                 <a href="https://twitter.com/MyInterimo"><i class="fa-brands fa-twitter"></i></a>
             </div>

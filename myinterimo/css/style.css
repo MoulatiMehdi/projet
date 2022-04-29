@@ -31,7 +31,9 @@ section h1, section strong {
     font-size: 80px;
     font-weight: 500;
 }
-
+*{
+    box-sizing: border-box;
+}
 .num {
     padding: 0;
     margin: 0;
@@ -401,6 +403,7 @@ footer a {
     /** {
         font-size: 13px;
     }*/
+
 
     nav li hr {
         width: 0;
