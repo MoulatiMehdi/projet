@@ -320,10 +320,11 @@ i {
 
 
 }
+
 .appStoreButton:hover {
-     background: var(--color-store-black-secondary);
-     color: var(--color-store-white);
-     transition: 0.3s ease-in;
+    background: var(--color-store-black-secondary);
+    color: var(--color-store-white);
+    transition: 0.3s ease-in;
 
 
 }
@@ -332,14 +333,12 @@ i {
     background: var(--color-store-black-secondary);
     color: var(--color-store-white);
 }
+
 .googlePlayButton:hover {
     color: var(--color-store-black-secondary);
     background: var(--color-store-white);
     transition: 0.3s ease-in;
 }
-
-
-
 
 
 /* description text */
