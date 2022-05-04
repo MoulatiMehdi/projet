@@ -9,12 +9,13 @@ let isInViewport = function (elem) {
         distance.right <= (window.innerWidth || document.documentElement.clientWidth)
     );
 };
-
+/* counter of the numbers */
 let elem = document.querySelector('#chiffres');
 let isAnimated = false;
 
 /* chiffre animation */
 window.addEventListener('scroll', function () {
+
     if (isInViewport(elem)) {
         if (!isAnimated) {
             $('.num').each(function () {
@@ -22,7 +23,7 @@ window.addEventListener('scroll', function () {
                     Counter: $(this).data('value')
                 }, {
                     duration: $(this).data('duration-value'),
-                    easing: 'swing',
+                    easing: 'linear',
                     step: function () {
                         $(this).text(Math.ceil(this.Counter));
 
@@ -38,11 +39,7 @@ window.addEventListener('scroll', function () {
 
 }, false);
 
-let imgs=document.querySelectorAll('img');
-window.addEventListener('scroll',function (){
-    imgs.forEach(function () {
-        if(isInViewport($(this))){
 
-        }
-    })
-})
+
+
+
