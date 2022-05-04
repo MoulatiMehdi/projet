@@ -3,7 +3,7 @@ let startX;
 let scrollLeft;
 
 const slider = document.querySelector('.items');
-let dist=0;
+let dist = 0;
 
 
 const end = () => {
@@ -26,7 +26,7 @@ const move = (e) => {
     }
     e.preventDefault();
     const x = e.pageX || e.touches[0].pageX - slider.offsetLeft;
-     dist = (x - startX);
+    dist = (x - startX);
     slider.scrollLeft = scrollLeft - dist;
     console.log(slider.clientLeft);
 
