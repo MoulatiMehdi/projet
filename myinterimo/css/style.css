@@ -262,6 +262,7 @@ button:focus, button:active {
 }
 
 .circle-icon-title, .circle-icon-title strong {
+    text-align: left;
     font-size: 18px !important;
     font-weight: 400 !important;
     font-family: "Rubik", Sans-serif, serif;
