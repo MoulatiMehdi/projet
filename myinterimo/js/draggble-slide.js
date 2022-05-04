@@ -3,6 +3,8 @@ let startX;
 let scrollLeft;
 
 const slider = document.querySelector('.items');
+let dist=0;
+
 
 const end = () => {
     isDown = false;
@@ -14,6 +16,7 @@ const start = (e) => {
     slider.classList.add('active');
     startX = e.pageX || e.touches[0].pageX - slider.offsetLeft;
     scrollLeft = slider.scrollLeft;
+
 }
 
 
@@ -21,11 +24,12 @@ const move = (e) => {
     if (!isDown) {
         return;
     }
-
     e.preventDefault();
     const x = e.pageX || e.touches[0].pageX - slider.offsetLeft;
-    const dist = (x - startX);
+     dist = (x - startX);
     slider.scrollLeft = scrollLeft - dist;
+    console.log(slider.clientLeft);
+
 }
 
 (() => {

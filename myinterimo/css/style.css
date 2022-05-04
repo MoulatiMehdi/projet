@@ -400,12 +400,26 @@ footer a {
     40%{ opacity: 1}
     100% {transform: translateX(0vw);}
 
-}@keyframes  moveRight{
+}
+@keyframes  moveRight{
     0% {transform: translateX(+10vw); opacity: 0}
      40%{ opacity: 1}
      100% {transform: translateX(0vw);}
 
 }
+@keyframes  moveDown{
+    0% {transform: translateY(-10vw); opacity: 0}
+     40%{ opacity: 1}
+     100% {transform: translateX(0vw);}
+
+}
+@keyframes  moveUp{
+    0% {transform: translateY(+10vw); opacity: 0}
+     40%{ opacity: 1}
+     100% {transform: translateX(0vw);}
+
+}
+
 .animImgLeft{
 
     animation:   moveLeft 3s ease-in-out  ;
@@ -413,7 +427,9 @@ footer a {
 .animImgRight{
     animation:  moveRight 3s ease-in-out  ;
 }
-
+iframe{
+    animation:moveDown 3s ease-in-out;
+}
 /**************** phone perspective ****************/
 @media screen and (max-width: 768px) {
     /* font sizes
