@@ -6,10 +6,10 @@
         $to="moulati.mehdi@gmail.com";
         $body="";
 
-        $body .="From: ".$userName."\r\n";
+        $body ="From: ".$userName."\r\n";
         $body .="Email: ".$userEmail. "\r\n";
         $body .="Message: ".$message."\r\n";
 
-        mail($to,$messageSubject,$body);
-        echo $_POST;
-    ?>
+        mail($to,"",$body);
+
+

@@ -16,6 +16,7 @@ let isAnimated = false;
 /* chiffre animation */
 window.addEventListener('scroll', function () {
 
+
     if (isInViewport(elem)) {
         if (!isAnimated) {
             $('.num').each(function () {
@@ -23,7 +24,7 @@ window.addEventListener('scroll', function () {
                     Counter: $(this).data('value')
                 }, {
                     duration: $(this).data('duration-value'),
-                    easing: 'linear',
+                    easing: 'swing',
                     step: function () {
                         $(this).text(Math.ceil(this.Counter));
 
@@ -36,10 +37,21 @@ window.addEventListener('scroll', function () {
     } else {
         isAnimated = false;
     }
+    /* move img after scroll */
+    $('section img').each(function (index,e) {
+        if(isInViewport(e)){
+            $(e).animate({
+                left:'+=100px'
+            },'slow')
+
+            console.log('right');
+        }
+        else{
+
+        }
+    })
 
 }, false);
-
-
 
 
 

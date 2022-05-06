@@ -74,6 +74,10 @@
                         </a>
                     </li>
                 </ul>
+                <div class="ms-5 hstack gap-3 d-flex justify-content-end align-content-center">
+                    <a href="creer-un-compte.php" class="rectangle-button" style="height: 35px">se Connecter</a>
+                    <a href="./connexion.html" class="rectangle-button-white" style="height: 35px">Connexion</a>
+                </div>
             </div>
         </nav>
     </header>
@@ -112,7 +116,7 @@
                             <div class="modal-content bg-black ">
                                 <iframe
                                         height="504" width="auto"
-                                        src="https://www.youtube.com/embed/4fs_eZbQaug"
+                                        src="https://www.youtube-nocookie.com/embed/4fs_eZbQaug"
                                         title="YouTube video player"
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                         allowfullscreen></iframe>
@@ -653,7 +657,8 @@
     <!-- Telechager notre application -->
     <section id="box3" class="box p-5 " style="background-color:var(--color-main) ;">
         <div class="row align-items-center justify-content-around">
-            <div class="col col-lg-5 col-md-7 col-12 justify-content-center align-items-center" style="animation: moveUp 3s ease-in-out">
+            <div class="col col-lg-5 col-md-7 col-12 justify-content-center align-items-center"
+                 style="animation: moveUp 3s ease-in-out">
                 <div class="row">
                     <h6 class="font-weight-bold text-light">CRÉER VOTRE COMPTE GRATUITEMENT !</h6>
                 </div>
@@ -767,9 +772,12 @@
         <div class="socialMedia col col-sm-6 col-12  ">
             <div class="row row-cols-auto justify-content-sm-end justify-content-center">
                 <a href="https://www.facebook.com/myinterimo/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/myinterimo/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/company/myinterimo/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://www.pinterest.fr/MyInterimo/" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+                <a href="https://www.instagram.com/myinterimo/" target="_blank"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/myinterimo/" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.pinterest.fr/MyInterimo/" target="_blank"><i
+                        class="fa-brands fa-pinterest"></i></a>
                 <a href="https://twitter.com/MyInterimo" target="_blank"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>
@@ -797,7 +805,6 @@
             let src = $(this).find('iframe').attr('src');
 
             $(this).on('click', function () {
-
                 $(this).find('iframe').attr('src', '');
                 $(this).find('iframe').attr('src', src);
 

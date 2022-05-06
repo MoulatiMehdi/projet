@@ -1,4 +1,14 @@
 /* body */
+html {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
 body {
 
     --gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg, rgba(6, 147, 227, 1) 0%, rgb(155, 81, 224) 100%);
@@ -186,24 +196,33 @@ button:focus, button:active {
 }
 
 /* rectangle button */
-.rectangle-button {
+.rectangle-button ,.rectangle-button-white{
     display: flex;
     align-items: center;
     justify-content: center;
 
     border-radius: 5px;
     height: 42px;
-    min-width: 140px;
     padding: 0 15px;
 
     font-size: 14px;
     font-weight: 700;
     text-align: left;
 
+    outline: 2px var(--color-main) solid;
+    border: transparent solid ;
+    transition: 0.3s ease-in;
+
+}
+.rectangle-button{
+
     color: white;
     background-color: var(--color-main);
-    outline: 2px var(--color-main) solid;
-    transition: 0.3s ease-in;
+
+}.rectangle-button-white{
+
+    color:var(--color-main);
+    background-color: white ;
 
 }
 
@@ -212,6 +231,12 @@ button:focus, button:active {
     color: var(--color-main);
     outline: var(--color-main) 2px solid;
     background-color: white;
+    transition: 0.3s ease-out;
+}.rectangle-button-white:hover {
+
+    color: white;
+    outline: var(--color-main) 2px solid;
+    background-color: var(--color-main);
     transition: 0.3s ease-out;
 }
 
@@ -461,7 +486,7 @@ footer a {
 }
 
 iframe {
-    animation: moveDown 3s ease-in-out;
+    animation: moveDown 2s ease-in-out;
 }
 
 /**************** phone perspective ****************/
