@@ -1,8 +1,47 @@
+<?php
+
+const DB_SERVER = 'localhost';
+const DB_USERNAME = 'root';
+const DB_PASSWORD = '';
+const DB_NAME = 'myinterimo_db';
+const TABLE_USERS = 'myinterimo_users';
+$error = "L'email ou le mot de passe est incorrect";
+
+/* Database credentials. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
+
+
+/* Attempt to connect to MySQL database */
+try {
+    $Myinterimo = new PDO("mysql:host=" . DB_SERVER . ";dbname=" . DB_NAME, DB_USERNAME, DB_PASSWORD);
+    // Set the PDO error mode to exception
+    $Myinterimo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("ERROR: Could Not Connect to DATABASE => " . $e->getMessage());
+
+
+}
+if (isset($_POST['submit'])) {
+
+    $email = htmlspecialchars($_POST['email']);
+    $mot_de_passe = sha1($_POST['mot_de_passe']);
+
+    $find_email = $Myinterimo->prepare("SELECT email,mot_de_passe  FROM " . TABLE_USERS . " WHERE email LIKE (?) AND mot_de_passe LIKE (?)");
+    $find_email->execute(array($email, $mot_de_passe));
+
+    if ($find_email->rowCount() == 1) {
+        $error = "";
+    } else {
+        header('Location:http://localhost:63342/projet-pfe/myinterimo/index.html');
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Connexion - Myinterimo</title>
     <!-- fonts-->
     <link rel="stylesheet" id="auxin-fonts-google-css"
           href="//fonts.googleapis.com/css?family=Nunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRubik%3A300%2Cregular%2C500%2C600%2C700%2C800%2C900%2C300italic%2Citalic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&amp;ver=4.2"
@@ -27,8 +66,9 @@
             padding: 0;
         }
 
-        a {
+        a{
             font-size: 13px;
+
         }
 
         h2 {
@@ -57,7 +97,7 @@
 <body class="container d-flex justify-content-center align-items-center">
 <section class="row row-cols-auto justify-content-around align-items-center w-100 h-100">
     <div class="box container col col-lg-5 col-md-6 col-10">
-        <form action="signIn.php" method="post">
+        <form action="" method="post">
             <div class="row">
                 <h2 class="title">Myinterimo</h2>
             </div>
@@ -67,19 +107,26 @@
 
             <div class="input-group mb-3 ">
                 <i class="fa-solid fa-envelope input-group-text  text-secondary bg-light" id="email-icon"></i>
-                <input type="text" class="form-control" placeholder="Votre e-mail" aria-label="Votre e-mail"
+                <input name="email" type="text" class="form-control" placeholder="Votre e-mail"
+                       aria-label="Votre e-mail"
                        aria-describedby="email-icon" required>
             </div>
             <div class="input-group mb-3 ">
                 <i class="fa-solid fa-key input-group-text text-secondary bg-light " id="password-icon"></i>
-                <input type="text" class="form-control " placeholder="Mot de passe" aria-label="Mot de Passe"
-                       aria-describedby="password-icon" required>
+                <input type="password" class="form-control " placeholder="Mot de passe" aria-label="Mot de Passe"
+                       name="mot_de_passe" aria-describedby="password-icon" required>
             </div>
-            <div >
-                <button type="submit" class="rectangle-button mb-3 text-center w-100" style="height: 35px;">
+            <div>
+                <button type="submit" name="submit" class="rectangle-button mb-3 text-center w-100"
+                        style="height: 35px;">
                     Se Connecter
                 </button>
             </div>
+            <?php
+            echo '<div class="invalid-feedback">
+                        ' . $error . '
+                    </div>';
+            ?>
             <div class="row d-flex justify-content-between">
                 <a href="#" class="col col-auto mb-3"> Mot de passe oublié?</a>
                 <a href="creer-un-compte.php" class="col col-auto mb-3"> Nouveau Compte</a>

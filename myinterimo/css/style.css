@@ -35,6 +35,9 @@ section h1, section strong {
 
 }
 
+input{
+    position: relative;
+}
 .count * {
     color: #FFFFFF;
     font-family: "Rubik", sans-serif;
@@ -196,7 +199,7 @@ button:focus, button:active {
 }
 
 /* rectangle button */
-.rectangle-button ,.rectangle-button-white{
+.rectangle-button, .rectangle-button-white {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -210,29 +213,36 @@ button:focus, button:active {
     text-align: left;
 
     outline: 2px var(--color-main) solid;
-    border: transparent solid ;
+    border: transparent solid;
     transition: 0.3s ease-in;
 
 }
-.rectangle-button{
+
+.rectangle-button {
 
     color: white;
     background-color: var(--color-main);
-
-}.rectangle-button-white{
-
-    color:var(--color-main);
-    background-color: white ;
-
 }
 
-.rectangle-button:hover {
+.rectangle-button-white {
+
+    color: var(--color-main);
+    background-color: white;
+
+}
+.disabled{
+    opacity: 70%;
+    cursor: default !important;
+}
+.rectangle-button:hover{
 
     color: var(--color-main);
     outline: var(--color-main) 2px solid;
     background-color: white;
     transition: 0.3s ease-out;
-}.rectangle-button-white:hover {
+}
+
+.rectangle-button-white:hover {
 
     color: white;
     outline: var(--color-main) 2px solid;

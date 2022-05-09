@@ -1,15 +1,15 @@
 <?php
-        $userName = $_POST['name'];
-        $userEmail = $_POST['email'];
-        $message = $_POST['message'];
+$userName = $_POST['name'];
+$userEmail = $_POST['email'];
+$message = $_POST['message'];
 
-        $to="moulati.mehdi@gmail.com";
-        $body="";
+$to = "moulati.mehdi@gmail.com";
+$body = "";
 
-        $body ="From: ".$userName."\r\n";
-        $body .="Email: ".$userEmail. "\r\n";
-        $body .="Message: ".$message."\r\n";
+$body = "From: " . $userName . "\r\n";
+$body .= "Email: " . $userEmail . "\r\n";
+$body .= "Message: " . $message . "\r\n";
 
-        mail($to,"",$body);
+mail($to, "", $body);
 
 
