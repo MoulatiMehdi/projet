@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['menu'] = 'accueil';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -28,62 +32,12 @@
     <title>MyInterimo : L’inter-agence en mode 3.0</title>
 </head>
 <body>
+<?php include 'menu.php' ?>
+<!-- grab some space to replace the fixed navbar -->
+<section class=" py-lg-0 py-md-4  py-0"></section>
 <div class="container-lg ">
-    <header class="container">
-        <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
-            <a class="col col-md-4 col-auto" href="index.html">
-                <img class="justify-content-around " src="img/logo/logo-250.png" alt="Myinterimo-logo">
-            </a>
-            <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#nav">
-                <i class="fa-solid fa-bars text-light fa-lg"></i>
-            </button>
-            <div class=" collapse  navbar-collapse justify-content-center mt-2" id="nav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link active" href="./index.html">
-                            Accueil
-                            <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
-                        </a>
-                    </li>
-                    <li class="nav-item  p-sm-2">
-                        <a class="nav-link " href="./fonctionnalite.html">
-                            Fonctionnalités
-                            <hr>
-                        </a>
 
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="Témoignages.html">
-                            Témoignages
-                            <hr>
-                        </a>
 
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="./FAQ.html">
-                            FAQ
-                            <hr>
-                        </a>
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="contact.html">
-                            Contact
-                            <hr>
-                        </a>
-                    </li>
-                </ul>
-                <div class="ms-5 hstack gap-3 d-flex justify-content-end align-content-center">
-                    <a href="creer-un-compte.php" class="rectangle-button" style="height: 35px">se Connecter</a>
-                    <a href="connexion.php" class="rectangle-button-white" style="height: 35px">Connexion</a>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <!-- grab some space to replace the fixed navbar -->
-    <section class=" py-lg-0 py-md-4  py-0"></section>
     <!-- découvrez Myinterimo -->
     <section id="section1" class="row justify-content-around align-items-center px-3 py-5">
         <img class="col col-md-6 col-sm-8 col-12 order-md-2 animImgRight"
@@ -369,7 +323,7 @@
                     </p>
                 </div>
                 <div class="row justify-content-center">
-                    <a href="./fonctionnalite.html" class=" rectangle-button  " style="width: 250px">
+                    <a href="fonctionnalite.php" class=" rectangle-button  " style="width: 250px">
                         voir plus de fonctionnalités
                         <i class="fa-solid fa-arrow-right fa-xl" style="margin-left: 15px;"></i>
                     </a>
@@ -717,7 +671,7 @@
                     <li class="description text-sm-start text-center"><a href="https://myrestai.com/">MyRestAI</a>
                     </li>
                     <li class="description text-sm-start text-center"><a href="https://prolangroupsa.com/contact/">Prolan
-                        Group SA</a></li>
+                            Group SA</a></li>
                 </ul>
             </div>
         </div>
@@ -727,11 +681,11 @@
                 <strong class=" text-sm-start text-center">Entreprise</strong>
                 <ul>
                     <li class="description  text-sm-start text-center">
-                        <a href="politique-de-confidentialite.html">politique de confidentialité</a>
+                        <a href="politique-de-confidentialite.php">politique de confidentialité</a>
                     </li>
-                    <li class="description text-sm-start text-center"><a href="./cgu.html">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions
-                        légales</a></li>
+                    <li class="description text-sm-start text-center"><a href="cgu.php">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="mentions-legales.php">Mentions
+                            légales</a></li>
                 </ul>
             </div>
 
@@ -773,11 +727,11 @@
             <div class="row row-cols-auto justify-content-sm-end justify-content-center">
                 <a href="https://www.facebook.com/myinterimo/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/myinterimo/" target="_blank"><i
-                        class="fa-brands fa-instagram"></i></a>
+                            class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/myinterimo/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
+                            class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.pinterest.fr/MyInterimo/" target="_blank"><i
-                        class="fa-brands fa-pinterest"></i></a>
+                            class="fa-brands fa-pinterest"></i></a>
                 <a href="https://twitter.com/MyInterimo" target="_blank"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>

@@ -56,63 +56,15 @@
     </style>
 </head>
 <body>
+<?php include 'menu.php' ?>
 <div class="container">
-    <header class="container">
-        <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
-            <a class="col col-md-4 col-auto" href="index.html">
-                <img class="justify-content-around " src="img/logo/logo-250.png" alt="Myinterimo-logo">
-            </a>
-            <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#nav">
-                <i class="fa-solid fa-bars text-light fa-lg"></i>
-            </button>
-            <div class=" collapse  navbar-collapse justify-content-center mt-2" id="nav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link" href="./index.html">
-                            Accueil
-                            <hr>
-                        </a>
-                    </li>
-                    <li class="nav-item  p-sm-2">
-                        <a class="nav-link " href="./fonctionnalite.html">
-                            Fonctionnalités
-                            <hr>
-                        </a>
-
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="Témoignages.html">
-                            Témoignages
-                            <hr>
-                        </a>
-
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="./FAQ.html">
-                            FAQ
-                            <hr>
-                        </a>
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="contact.html">
-                            Contact
-                            <hr>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
     <!-- grab some space to replace the fixed navbar -->
     <section class=" my-5 py-3"></section>
     <section class="politique">
         <section>
             <p>Date d’entrée en vigueur : 12 Janvier 2022</p>
             <h1>Politique de Confidentialité</h1>
-            <p> Site <a href="./index.html">www.myinterimo.com</a> et l’application mobile MyInterimo</p>
+            <p> Site <a href="index.php">www.myinterimo.com</a> et l’application mobile MyInterimo</p>
             <p class="description">Conformément à la loi n° 78-17 du 6 janvier 1978 dans sa version en vigueur et au
                 règlement n° 2016-679
                 du
@@ -776,7 +728,7 @@
                     <li class="description text-sm-start text-center"><a href="https://myrestai.com/">MyRestAI</a>
                     </li>
                     <li class="description text-sm-start text-center"><a href="https://prolangroupsa.com/contact/">Prolan
-                        Group SA</a></li>
+                            Group SA</a></li>
                 </ul>
             </div>
         </div>
@@ -785,13 +737,13 @@
             <div class="row">
                 <strong class=" text-sm-start text-center">Entreprise</strong>
                 <ul>
-                    <li class="description  text-sm-start text-center"><a href="./politique-de-confidentialite.html">politique
-                        de
-                        confidentialité</a>
+                    <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.php">politique
+                            de
+                            confidentialité</a>
                     </li>
-                    <li class="description text-sm-start text-center"><a href="./cgu.html">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions
-                        légales</a></li>
+                    <li class="description text-sm-start text-center"><a href="cgu.php">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="mentions-legales.php">Mentions
+                            légales</a></li>
                 </ul>
             </div>
 
@@ -834,9 +786,9 @@
                 <a href="https://www.facebook.com/myinterimo/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/myinterimo/"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/myinterimo/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
+                            class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.pinterest.fr/MyInterimo/" target="_blank"><i
-                        class="fa-brands fa-pinterest"></i></a>
+                            class="fa-brands fa-pinterest"></i></a>
                 <a href="https://twitter.com/MyInterimo"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>

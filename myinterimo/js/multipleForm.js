@@ -1,5 +1,6 @@
 let password = document.getElementById('inputPassword');
 let confirmPassword = document.getElementById('inputPasswordConfirm');
+let steps_div=document.getElementById('steps');
 
 let siren=document.getElementById('inputSIREN');
 let siret=document.getElementById('inputSIRET');
@@ -8,10 +9,26 @@ let currentTab = 0; // Current tab is set to be the first tab (0)
 let numberTabs=1;
 let lastTab=0;
 
+let displaySteps = (function() {
+    let executed = false;
+    return function() {
+        if (!executed) {
+            const x = document.getElementsByClassName("tab");
+            for(let i=0;i<x.length;i++){
+                x[i].style.display="none";
+                steps_div.innerHTML+='<a class=\"step col-auto\" id=\"step1\">'+(i+1)+'</a>';
+                executed=true;
+            }
+
+        }
+    };
+})();
+
+displaySteps();
 
 
+// This function will display the specified tab of the form ...
 function showTab(n) {
-    // This function will display the specified tab of the form ...
     const x = document.getElementsByClassName("tab");
     for(let i=0;i<x.length;i++){
         x[i].style.display="none";
@@ -74,7 +91,7 @@ function validateForm() {
     y = x[currentTab].getElementsByTagName("input");
 
     // A loop that checks every input field in the current tab:
-    for (i = 0; i < y.length; i++) {
+    for (i = 1; i < y.length; i++) {
         // If a field is empty...
         if (y[i].value === "") {
 

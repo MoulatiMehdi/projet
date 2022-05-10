@@ -57,62 +57,14 @@
 </head>
 <body>
 <div class="container">
-    <header class="container">
-        <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
-            <a class="col col-md-4 col-auto" href="index.html">
-                <img class="justify-content-around " src="img/logo/logo-250.png" alt="Myinterimo-logo">
-            </a>
-            <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#nav">
-                <i class="fa-solid fa-bars text-light fa-lg"></i>
-            </button>
-            <div class=" collapse  navbar-collapse justify-content-center mt-2" id="nav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link" href="./index.html">
-                            Accueil
-                            <hr>
-                        </a>
-                    </li>
-                    <li class="nav-item  p-sm-2">
-                        <a class="nav-link " href="./fonctionnalite.html">
-                            Fonctionnalités
-                            <hr>
-                        </a>
-
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="Témoignages.html">
-                            Témoignages
-                            <hr>
-                        </a>
-
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="./FAQ.html">
-                            FAQ
-                            <hr>
-                        </a>
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="contact.html">
-                            Contact
-                            <hr>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-
+<?php include 'menu.php' ?>
     <!-- grab some space to replace the fixed navbar -->
     <section class=" my-5 py-3"></section>
     <section class="politique">
         <p class="description"> Date d’entrée en vigueur : 12 Janvier 2022</p>
         <h1> Mentions légales
         </h1>
-        <p class="description"> Site <a href="./index.html">www.myinterimo.com</a> et l’application mobile MyInterimo
+        <p class="description"> Site <a href="index.php">www.myinterimo.com</a> et l’application mobile MyInterimo
         </p>
         <h3> Éditeur</h3>
         <p class="description"> ESPACEO SARL au capital de 20 000 CHF – CHE 163.312.842
@@ -252,12 +204,12 @@
             <div class="row">
                 <strong class=" text-sm-start text-center">Entreprise</strong>
                 <ul>
-                    <li class="description  text-sm-start text-center"><a href="./politique-de-confidentialite.html">politique
+                    <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.php">politique
                         de
                         confidentialité</a>
                     </li>
-                    <li class="description text-sm-start text-center"><a href="./cgu.html">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions
+                    <li class="description text-sm-start text-center"><a href="cgu.php">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="mentions-legales.php">Mentions
                         légales</a></li>
                 </ul>
             </div>

@@ -1,11 +1,7 @@
 <?php
 
-const DB_SERVER = 'localhost';
-const DB_USERNAME = 'root';
-const DB_PASSWORD = '';
-const DB_NAME = 'myinterimo_db';
-const TABLE_USERS = 'myinterimo_users';
-$error = "L'email ou le mot de passe est incorrect";
+include 'const_variable.php';
+$error = "";
 
 /* Database credentials. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
@@ -30,9 +26,11 @@ if (isset($_POST['submit'])) {
     $find_email->execute(array($email, $mot_de_passe));
 
     if ($find_email->rowCount() == 1) {
-        $error = "";
+
+        header('Location:http://localhost:63342/projet-pfe/myinterimo/index.php');
+
     } else {
-        header('Location:http://localhost:63342/projet-pfe/myinterimo/index.html');
+        $error = "L'email ou le mot de passe est incorrect";
     }
 
 }
@@ -66,10 +64,10 @@ if (isset($_POST['submit'])) {
             padding: 0;
         }
 
-        a{
+        a {
             font-size: 13px;
-
         }
+
 
         h2 {
             color: #1B2F46;
@@ -104,13 +102,26 @@ if (isset($_POST['submit'])) {
             <div class="row title-description text-left mb-3">
                 <h6>Bienvenue dans votre monde immobilier !</h6>
             </div>
-
+            <?php
+            if (!empty($error))
+                echo '<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                        </symbol>
+                    </svg>
+                    <div class="alert alert-danger d-flex align-items-center" role="alert">
+                        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                        <div>'.$error.'</div>
+                    </div>';
+            ?>
             <div class="input-group mb-3 ">
                 <i class="fa-solid fa-envelope input-group-text  text-secondary bg-light" id="email-icon"></i>
                 <input name="email" type="text" class="form-control" placeholder="Votre e-mail"
                        aria-label="Votre e-mail"
                        aria-describedby="email-icon" required>
+
             </div>
+
             <div class="input-group mb-3 ">
                 <i class="fa-solid fa-key input-group-text text-secondary bg-light " id="password-icon"></i>
                 <input type="password" class="form-control " placeholder="Mot de passe" aria-label="Mot de Passe"
@@ -122,11 +133,7 @@ if (isset($_POST['submit'])) {
                     Se Connecter
                 </button>
             </div>
-            <?php
-            echo '<div class="invalid-feedback">
-                        ' . $error . '
-                    </div>';
-            ?>
+
             <div class="row d-flex justify-content-between">
                 <a href="#" class="col col-auto mb-3"> Mot de passe oublié?</a>
                 <a href="creer-un-compte.php" class="col col-auto mb-3"> Nouveau Compte</a>

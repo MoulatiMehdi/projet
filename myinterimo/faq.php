@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['menu'] = 'faq';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -9,12 +13,9 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
     <!-- local CSS file-->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/draggble-slide.css">
-
     <!-- fonts-->
     <link rel="stylesheet" id="auxin-fonts-google-css"
           href="//fonts.googleapis.com/css?family=Nunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRubik%3A300%2Cregular%2C500%2C600%2C700%2C800%2C900%2C300italic%2Citalic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&amp;ver=4.2"
@@ -28,110 +29,32 @@
     <link rel="icon"
           href="img/logo/cropped-favicon-2.png"
           sizes="32x32">
-    <title>Fonctionnalités - MyInterimo</title>
+    <title>FAQ - MyInterimo</title>
 </head>
 <body>
-<header class="container">
-    <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
-        <a class="col col-md-4 col-auto" href="index.html">
-            <img class="justify-content-around " src="img/logo/logo-250.png" alt="Myinterimo-logo">
-        </a>
-        <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px"
-                data-bs-toggle="collapse"
-                data-bs-target="#nav">
-            <i class="fa-solid fa-bars text-light fa-lg"></i>
-        </button>
-        <div class=" collapse  navbar-collapse justify-content-center mt-2" id="nav">
-            <ul class="navbar-nav ">
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="./index.html">
-                        Accueil
-                        <hr>
-                    </a>
-                </li>
-                <li class="nav-item  p-sm-2">
-                    <a class="nav-link  active" href="./fonctionnalite.html">
-                        Fonctionnalités
-                        <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
-                    </a>
-
-                </li>
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="Témoignages.html">
-                        Témoignages
-                        <hr>
-                    </a>
-
-                </li>
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="./FAQ.html">
-                        FAQ
-                        <hr>
-                    </a>
-                </li>
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="contact.html">
-                        Contact
-                        <hr>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
 <div class="container-lg">
-
-    <!-- grab some space to replace the fixedNavBar -->
-    <section class="  py-4 "></section>
-
-    <!-- Text with image-->
-    <section id="section1" class="row justify-content-around align-items-center p-3">
-        <img class="animImgLeft col col-md-6 col-8 justify-content-center"
-             src="img/illustrations/business-_-man-woman-project-launch-start-up-workspace-office-computer@2x.png"
+    <?php include 'menu.php'?>
+    <!-- information -->
+    <section id="section1" class="row  row-cols-auto justify-content-around align-items-center py-3 px-3">
+        <img class="animImgLeft col col-md-6 col-sm-10 "
+             src="img/illustrations/business-security-_-savior-save-insurance-helpful-support-service@2x.png"
              alt="man-women-smartphone">
-        <div class="col col-md-6 col-12">
-            <div class="row">
-                <h6 class="primary-text text-md-start text-center">Votre nouveau réseau</h6>
-                <h1 class="bold-text text-md-start text-center">
-                    Social, Immobilier 100% Gratuit
-                </h1>
+        <div class="col col-md-6 ">
+            <h6 class="primary-text"> Questions fréquentes</h6>
+            <h1 class="bold-text">
+                Créer ? Ajouter ? Inviter ? Configurer ?
+            </h1>
 
-                <p class="description text-md-start text-center">
-                    Collaborez avec vos confrères professionnels Avec MyInterimo, vivez l’inter-agence en mode 3.0.
-                    Véritable
-                    réseau social de l’immobilier, faites-vous des amis, créez votre mur commun de biens partagés,
-                    développez
-                    votre chiffre d'affaires et restez connecté.
-                </p>
-            </div>
-            <div class="row">
-                <div class="hstack gap-3 align-items-center justify-content-md-start justify-content-center">
-                    <a href="#box3" class="rectangle-button " style="min-width: 215px">
-                        Découvrez Myintermino
-                        <i class="fa-solid fa-arrow-right fa-xl " style="padding-left: 10px"></i>
+            <p class="description">
+                Voici les réponses aux questions posées le plus fréquemment. Si vous ne trouvez pas la réponse à votre
+                question, n’hésitez pas à nous contacter.</p>
+
+            <div style="margin-top: 40px;">
+                <div class="d-flex justify-content-around">
+                    <a href="#box3" class="rectangle-button  p-2">
+                        Télecharger l'application
+                        <i class="fa-solid fa-arrow-right" style="margin-left: 10px;"></i>
                     </a>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="MyinterimoYoutubeVideo" tabindex="-1"
-                         aria-labelledby="MyinterimoYoutubeVideoLabel"
-                         aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered ">
-                            <div class="modal-content ">
-                                <iframe
-                                        height="504" width="auto"
-                                        src="https://www.youtube.com/embed/4fs_eZbQaug"
-                                        title="YouTube video player"
-                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                        allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="circle-button" data-bs-toggle="modal" data-bs-target="#MyinterimoYoutubeVideo">
-                        <i class="fa-solid fa-play fa-sm ">
-                        </i>
-
-                    </a>
-                    <h6 class="fw-bolder text-center" style="font-size: 13px"> voir la vidéo</h6>
                 </div>
             </div>
         </div>
@@ -139,134 +62,214 @@
 
     </section>
 
-    <!-- toutes les fonctionnalités de Myinterimo -->
-    <section class="p-3">
-        <div class="row row-cols-auto ">
-            <div class="fonction col-sm-4 col-6">
-                <i class=" circle-icon fa-regular fa-credit-card fa-xl"></i>
-                <h6 class="circle-icon-title"> Ouvert à tous les PROS ayant une carte T</h6>
-                <p class="description">
-                    Tous les pros de l’immobilier sont les bienvenus en respectant les dispositions de la loi Hoguet.
-                </p>
+    <!-- FAQ accordion -->
+    <section class=" d-flex justify-content-center py-3 px-3">
+        <div class=" accordion col-lg-8 col-12" id="accordionExample">
+            <div class="accordion-item ">
+                <h2 class="accordion-header " id="titre1">
+                    <button class="accordion-button  collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question1"
+                            aria-expanded="false" aria-controls="question1">
+                        Comment gérer mes partenaires ?
+                    </button>
+                </h2>
+                <div id="question1" class="accordion-collapse collapse" aria-labelledby="titre1"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Afin de gérer vos contacts partenaires rendez-vous dans l’onglet « Mes Partenaires ». Trois
+                        statuts sont proposés : « Partenaires à inviter » sont les pros que vous pouvez inviter pour
+                        partager avec eux un « mur » d’annonces partagées, qu’ils soient sur votre secteur d’activité,
+                        en France ou à l’étranger.« Partenaires invités » sont les pros à qui vous avez envoyé une
+                        invitation, qui est en cours de d’acceptation ou de refus.« Mes Partenaires » sont les pros avec
+                        qui vous partager vos annonces, pour lesquelles vous pourrez déléguer ou pas vos mandats.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-brands fa-slideshare fa-xl"></i>
-                <h6 class="circle-icon-title">Invitez des agences ou mandataires pour être amis</h6>
-                <p class="description">
-                    Profitez de notre puissant annuaire pour trouver vos futurs partenaires.
-                </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre2">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question2" aria-expanded="false" aria-controls="question2">
+                        Comment voir les annonces partagées avec mes partenaires ?
+                    </button>
+                </h2>
+                <div id="question2" class="accordion-collapse collapse" aria-labelledby="titre2"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Rendez-vous dans l’onglet « Les annonces publiées » : toutes les annonces partagées par vos
+                        partenaires s’y trouvent, vous avez la possibilité de filtrer via les onglets « Filtre » et « Où
+                        ».
+                        La « Carte » vous permet de visualiser la localisation des annonces partagées. L’onglet
+                        « Sélection » vous permet de modifier l’ordre d’affichage des annonces et de filtrer les
+                        annonces
+                        par rapport à un partenaire précis.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-solid fa-person-circle-check fa-xl"></i>
-                <h6 class="circle-icon-title">Choisissez vos amis partenaires sur votre secteur, en France ou à
-                    l'étranger</h6>
-                <p class="description">
-                    Vous pourrez augmenter votre offre de biens pour la plus grande satisfaction de vos prospects
-                    acheteurs, grâce au partage.
-                </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre3">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question3" aria-expanded="false" aria-controls="question3">
+                        Comment ajouter une annonce ?
+                    </button>
+                </h2>
+                <div id="question3" class="accordion-collapse collapse" aria-labelledby="titre3"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vos annonces seront ajoutées automatiquement à l’application, nos algorithmes les récupèrent sur
+                        la toile du web. Dans le cas possible où MyInterimo oublierait une de vos annonces, vous pourrez
+                        alors l’ajouter manuellement depuis l’onglet « Ajouter un bien » dans « Mes Annonces Publiées »
+                        Il
+                        vous sera alors demander un des URL (adresse de l’annonce manquante) que vous copierez et
+                        collerez, depuis votre site ou un de vos sites de diffusion partenaires.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-xl fa-solid fa-gears"></i>
-                <h6 class="circle-icon-title">Créez votre mur de biens communs partagés</h6>
-                <p class="description">
-                    Véritable réseau social immobilier consultez les biens de vos amis.
-                </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre4">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question4" aria-expanded="false" aria-controls="question4">
+                        Quelles annonces je peux partager ?
+                    </button>
+                </h2>
+                <div id="question4" class="accordion-collapse collapse" aria-labelledby="titre4"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous partagerez avec vos partenaires, toutes vos annonces en vente ou location qui sont
+                        diffusées sur le web, en mandats simples ou exclusifs, sans limites, et sans ressaisie.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class=" circle-icon fa-regular fa-share-from-square fa-xl"></i>
-                <h6 class="circle-icon-title"> Partagez tout type de mandat avec vos amis</h6>
-                <p class="description">
-                    Vous partagerez avec vos amis tous les biens que vous diffusez, location ou vente, et neufs ou
-                    anciens
-                </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre5">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question5" aria-expanded="false" aria-controls="question5">
+                        Qui peut voir mes annonces et comment déléguer ?
+                    </button>
+                </h2>
+                <div id="question5" class="accordion-collapse collapse" aria-labelledby="titre5"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Uniquement vos partenaires, et ils vous demanderont une délégation que vous accepterez de donner
+                        ou non.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-regular fa-file-zipper fa-xl"></i>
-                <h6 class="circle-icon-title"> Partagez vos mandats simples ou exclusifs</h6>
-                <p class="description">
-                    Sans distinction, partagez vos mandats simples ou exclusifs, peu importe vous êtes entre amis.
-                </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre6">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question6" aria-expanded="false" aria-controls="question6">
+                        Comment demander une délégation à vos partenaires ?
+                    </button>
+                </h2>
+                <div id="question6" class="accordion-collapse collapse" aria-labelledby="titre6"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Quand vous consultez l’annonce d’un de vos partenaires, vous avez dans les détails de l’annonce
+                        l’onglet « Délégation de mandat à demander », vous cliquerez dessus pour pouvoir lui envoyer une
+                        demande de délégation de mandat.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class=" circle-icon fa-solid fa-land-mine-on  fa-xl"></i>
-                <h6 class="circle-icon-title"> Déléguez vos mandats ou pas</h6>
-                <p class="description">
-                    En totale liberté vous pourrez déléguer ou pas les mandats de vos annonces partagées entre amis.
-                </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre7">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question7" aria-expanded="false" aria-controls="question7">
+                        Comment suivre les demandes de délégations de mandat ?
+                    </button>
+                </h2>
+                <div id="question7" class="accordion-collapse collapse" aria-labelledby="titre7"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous avez 4 possibilités de statuts de votre demande de délégation de mandat :
+                        <br> <br>
+                        Délégation de mandat à demander <br>
+                        Délégation de mandat demandée <br>
+                        Délégation de mandat acceptée<br>
+                        Délégation de mandat refusée <br> <br>
+                        Pour suivre l’avancement de votre demande de délégation de mandat cliquez sur les 3 points à
+                        côté du bouton Délégation de mandat, ce qui vous donnera aussi l’historique de votre demande.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-solid fa-martini-glass fa-xl"></i>
-                <h6 class="circle-icon-title"> Partage d'honoraires libre</h6>
-                <p class="description">
-                    Parce que chaque mandat est unique, vous fixez vos règles de partage, consultables dans les infos
-                    complémentaires de vos annonces. </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre8">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question8" aria-expanded="false" aria-controls="question8">
+                        Comment suivre mes annonces ?
+                    </button>
+                </h2>
+                <div id="question8" class="accordion-collapse collapse" aria-labelledby="titre8"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous pouvez depuis le menu cliquez sur Mes Annonces publiées pour voir toutes vos annonces
+                        publiées. Vous pourrez ajouter des détails et infos complémentaires sur chacune de vos annonces.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class=" circle-icon fa-solid fa-link fa-xl"></i>
-                <h6 class="circle-icon-title">besoin de passerelles CRM</h6>
-                <p class="description">
-                    Vous allez bénéficier de notre technologie pour diffuser sans limites et sans contraintes.
-                </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre9">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question9" aria-expanded="false" aria-controls="question9">
+                        Comment sélectionner des annonces en favoris ?
+                    </button>
+                </h2>
+                <div id="question9" class="accordion-collapse collapse" aria-labelledby="titre9"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Cliquez sur l’étoile favoris, vous retrouverez ainsi facilement l’annonce dans l’onglet « Suivis
+                        & Favoris » et vous pourrez ainsi suivre vos favoris.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-xl fa-solid fa-scroll"></i>
-                <h6 class="circle-icon-title">Logiciel transaction libre</h6>
-                <p class="description">
-                    Quel que soit votre logiciel de transaction vous pourrez partager vos annonces entre amis. </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre10">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question10" aria-expanded="false" aria-controls="question10">
+                        Comment être connecté avec mes partenaires ?
+                    </button>
+                </h2>
+                <div id="question10" class="accordion-collapse collapse" aria-labelledby="titre10"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Les onglets « J’aime » et « Commenter » vous permettent pour chaque bien de réaliser les mêmes
+                        actions que sur un réseau social. Interagissez avec vos confrères et commentez les publications
+                        publiées.
+                    </div>
+                </div>
             </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-xl fa-solid fa-hand-holding-heart"></i>
-                <h6 class="circle-icon-title">Commentez ou aimez les annonces</h6>
-                <p class="description">
-                    Véritable fil d’actualité intelligent, vous serez connecté aux annonces et à vos amis. </p>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre11">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question11" aria-expanded="false" aria-controls="question11">
+                        Comment se partagent les honoraires ?
+                    </button>
+                </h2>
+                <div id="question11" class="accordion-collapse collapse" aria-labelledby="titre11"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Le partage d’honoraires se fait suivant les conditions du délégant, et vous pouvez le savoir
+                        quand vous cliquez sur les détails d’une annonce, en cliquant sur Infos confidentielles, votre
+                        partenaire pourra vous donner accès.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="titre12">
+                    <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#question12" aria-expanded="false" aria-controls="question12">
+                        Comment suivre l'évolution du prix d'une annonce ?
+                    </button>
+                </h2>
+                <div id="question12" class="accordion-collapse collapse" aria-labelledby="titre12"
+                     data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        Vous pouvez suivre le prix d’une annonce, dans le détail d’une annonce, en cliquant sur le
+                        bouton Suivre le prix. Vous serez alerté par mail si le prix varie.
+                    </div>
+                </div>
             </div>
 
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-solid fa-money-bill-trend-up fa-xl"></i>
-                <h6 class="circle-icon-title">Suivez l'évolution du prix d'une annonce</h6>
-                <p class="description">
-                    En cliquant sur Suivre le prix d’une annonce, vous serez prévenu par mail de tout changement de
-                    prix.
-                </p>
-            </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-solid fa-text-slash fa-xl"></i>
-                <h6 class="circle-icon-title">Aucune saisie pour publier vos biens</h6>
-                <p class="description">
-                    Nous avons développé une nouvelle technologie permettant de récupérer vos annonces diffusées sur le
-                    web, et de vous les associer pour les diffuser sur votre mur commun de biens partagés entre amis.
-                </p>
-            </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-xl fa-solid fa-fingerprint"></i>
-                <h6 class="circle-icon-title">Personnalisez les informations de vos annonces</h6>
-                <p class="description">
-                    Vous pouvez ajouter des infos pour chacune de vos annonces diffusées, et ainsi motiver vos amis pour
-                    les vendre.
-                </p>
-            </div>
 
-            <div class="fonction col-sm-4 col-6">
-                <i class=" circle-icon fa-solid  fa-filter fa-xl"></i>
-                <h6 class="circle-icon-title">Utilisez le filtre pour trouver rapidement une annonce</h6>
-                <p class="description">
-                    Vous avez une recherche particulière ? Utilisez le filtre pour sortir les annonces ciblées.
-                </p>
-            </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-regular fa-heart fa-xl"></i>
-                <h6 class="circle-icon-title">Suivez vos annonces favorites</h6>
-                <p class="description">
-                    Une annonce vous intéresse particulièrement ? Ajoutez-la à vos favoris et suivez-la.
-                </p>
-            </div>
-            <div class="fonction col-sm-4 col-6">
-                <i class="circle-icon fa-solid fa-map-location-dot fa-xl"></i>
-                <h6 class="circle-icon-title">Suivez vos annonces favorites</h6>
-                <p class="description">
-                    Une annonce vous intéresse particulièrement ? Ajoutez-la à vos favoris et suivez-la.
-                </p>
-            </div>
         </div>
     </section>
 
@@ -318,7 +321,6 @@
 
         </div>
     </section>
-
 </div>
 
 <!-- des Témoignages -->
@@ -426,7 +428,6 @@
 
 
 <div class="container-lg">
-
     <!-- tous les Sites web de l'entreprise-->
     <section id="section7" class="justify-content-around align-items-center py-5">
         <div class="row row-cols-auto justify-content-around align-items-center">
@@ -468,7 +469,7 @@
 
     <!-- Telechager notre application -->
     <section id="box3" class="box p-5" style="background-color:var(--color-main)">
-        <div class="row align-items-center justify-content-around">
+        <div class="row align-items-center justify-content-around ">
             <div class="col col-lg-5 col-md-7 col-12 justify-content-center align-items-center"
                  style="animation: moveUp 3s ease-in-out">
                 <div class="row">
@@ -506,14 +507,16 @@
             </div>
             <img class="animImgRight mt-5 col col-lg-3 col-md-4 col-sm-7 col-10 justify-content-center"
                  src="img/phoneScreenShot/telecharger_myinterimo_footer.png"
-                 alt="telecharger,myinterimo,footer,phone">
+                 alt="telecharger_myinterimo_footer-phone">
 
         </div>
 
     </section>
 </div>
 
+
 <footer>
+
     <div class="row">
         <div class="col d-flex  justify-content-center">
             <img src="img/logo/logo-250.png" alt="MyinterimoLogo">
@@ -528,7 +531,7 @@
                     </li>
                     <li class="description text-sm-start text-center"><a href="https://myrestai.com/">MyRestAI</a></li>
                     <li class="description text-sm-start text-center"><a href="https://prolangroupsa.com/contact/">Prolan
-                        Group SA</a></li>
+                            Group SA</a></li>
                 </ul>
             </div>
         </div>
@@ -537,11 +540,11 @@
             <div class="row">
                 <strong class=" text-sm-start text-center">Entreprise</strong>
                 <ul>
-                    <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.html">politique
-                        de confidentialité</a></li>
-                    <li class="description text-sm-start text-center"><a href="./cgu.html">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions
-                        légales</a></li>
+                    <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.php">politique
+                            de confidentialité</a></li>
+                    <li class="description text-sm-start text-center"><a href="cgu.php">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="mentions-legales.php">Mentions
+                            légales</a></li>
                 </ul>
             </div>
 
@@ -578,22 +581,22 @@
                 © 2022 MyInterimo. Tous les droits sont réservés.
             </h6>
         </div>
-
-        <div class="socialMedia col col-sm-6 col-12  ">
+        <div class="socialMedia col col-sm-6 col-12  my-2">
             <div class="row row-cols-auto justify-content-sm-end justify-content-center">
                 <a href="https://www.facebook.com/myinterimo/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/myinterimo/"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/myinterimo/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
+                            class="fa-brands fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/myinterimo/"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.pinterest.fr/MyInterimo/" target="_blank"><i
-                        class="fa-brands fa-pinterest"></i></a>
+                            class="fa-brands fa-pinterest"></i></a>
+
                 <a href="https://twitter.com/MyInterimo"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>
     </div>
 </footer>
-</body>
 
+</body>
 <script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="js/draggble-slide.js"></script>

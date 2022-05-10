@@ -56,55 +56,8 @@
     </style>
 </head>
 <body>
+<?php include 'menu.php' ?>
 <div class="container ">
-    <header class="container">
-        <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
-            <a class="col col-md-4 col-auto" href="index.html">
-                <img class="justify-content-around " src="img/logo/logo-250.png" alt="Myinterimo-logo">
-            </a>
-            <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#nav">
-                <i class="fa-solid fa-bars text-light fa-lg"></i>
-            </button>
-            <div class=" collapse  navbar-collapse justify-content-center mt-2" id="nav">
-                <ul class="navbar-nav ">
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link" href="./index.html">
-                            Accueil
-                            <hr>
-                        </a>
-                    </li>
-                    <li class="nav-item  p-sm-2">
-                        <a class="nav-link " href="./fonctionnalite.html">
-                            Fonctionnalités
-                            <hr>
-                        </a>
-
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="Témoignages.html">
-                            Témoignages
-                            <hr>
-                        </a>
-
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="./FAQ.html">
-                            FAQ
-                            <hr>
-                        </a>
-                    </li>
-                    <li class="nav-item p-sm-2">
-                        <a class="nav-link " href="contact.html">
-                            Contact
-                            <hr>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
     <!-- grab some space to replace the fixed navbar -->
     <section class=" my-5 py-3"></section>
@@ -112,14 +65,14 @@
         <section>
             <p>Date d’entrée en vigueur : 12 Janvier 2022</p>
             <h1>Conditions Générales d’Utilisation</h1>
-            <p>Site <a href="./index.html">www.myinterimo.com</a> et l’application mobile MyInterimo</p>
+            <p>Site <a href="index.php">www.myinterimo.com</a> et l’application mobile MyInterimo</p>
             <p class="description">
                 La société <b> ESPACEO SARL </b> est l’éditeur d’un site internet accessible à l’adresse suivante :
-                <a href="./index.html">www.myinterimo.com</a>, ainsi que d’une application mobile exploitée sous le nom
+                <a href="index.php">www.myinterimo.com</a>, ainsi que d’une application mobile exploitée sous le nom
                 MyInterimo. La société
                 ESAPACEO SARL a rassemblé et organisé les données reçues sur son site au sein d’une base de données,
                 originale qu’elle met à jour régulièrement. L’Utilisateur est informé que le Site Internet
-                <a href="./index.html"><a href="./index.html">www.myinterimo.com</a></a> ainsi que l’application mobile
+                <a href="index.php"><a href="index.php">www.myinterimo.com</a></a> ainsi que l’application mobile
                 MyInterimo sont proposés
                 par la société :
                 <b> ESPACEO SARL </b>
@@ -139,7 +92,7 @@
                 transaction Immobilière, titulaires d’une carte T. ou affiliés.
 
             </p>
-            <p class="description"> En publiant ou en lisant une annonce sur le site Internet <a href="./index.html">www.myinterimo.com</a>
+            <p class="description"> En publiant ou en lisant une annonce sur le site Internet <a href="index.php">www.myinterimo.com</a>
                 ou sur l’application
                 MyInterimo, l’Utilisateur s’engage sur l’honneur à être un professionnel de la transaction.</p>
             <p class="description"> La Société peut demander à l’Utilisateur, à n’importe quel moment, de justifier de
@@ -163,7 +116,7 @@
             </p>
             <p class="description"> L’ensemble des Services fournis par la Société et mis à disposition de l’Utilisateur
                 est détaillé sur le
-                Site Internet de la Société à l’adresse <a href="./index.html">www.myinterimo.com</a>, ainsi que sur
+                Site Internet de la Société à l’adresse <a href="index.php">www.myinterimo.com</a>, ainsi que sur
                 l’application mobile
                 MyInterimo.</p>
             <p class="description"> L’application mobile est disponible en téléchargement depuis l’App store et Google
@@ -187,7 +140,7 @@
         <section>
             <h1>Accès aux services</h1>
             <p class="description">
-                Les Services sont exclusivement accessibles en ligne sur le Site Internet : <a href="./index.html">www.myinterimo.com</a>,
+                Les Services sont exclusivement accessibles en ligne sur le Site Internet : <a href="index.php">www.myinterimo.com</a>,
                 et sur
                 l’application mobile MyInterimo.
 
@@ -322,7 +275,7 @@
         <section>
             <h1> Annonces</h1>
             <p class="description">L’utilisateur qui entend passer une annonce, autorise la société <b> ESPACEO
-                SARL </b> à
+                    SARL </b> à
                 récupérer sur son site internet ou sur tous sites de diffusion toutes ses annonces ainsi diffusées.
                 L’utilisateur donne donc l’autorisation express à la société <b> ESPACEO SARL </b>, sans limites ni
                 contestation
@@ -391,7 +344,7 @@
             <h1> Propriété application mobile</h1>
             <p class="description">
                 La société <b> ESPACEO SARL </b> est titulaire des droits d’auteurs sur le site Internet <a
-                    href="./index.html">www.myinterimo.com</a> ainsi
+                        href="index.php">www.myinterimo.com</a> ainsi
                 que sur l’application mobile MyInterimo, notamment en application de l’article L. 111-1 du code de la
                 propriété intellectuelle.
             </p>
@@ -526,7 +479,7 @@
                     toutes les prestations concernées par le contrat, y compris la collecte des données personnelles des
                     internautes via leur inscription en ligne sur l’application MyInterimo et via le formulaire en ligne
                     sur
-                    le site web <a href="./index.html">www.myinterimo.com</a>.
+                    le site web <a href="index.php">www.myinterimo.com</a>.
 
                 </p>
                 <p class="description"> 3. La société <br>
@@ -689,7 +642,7 @@
                     <li class="description text-sm-start text-center"><a href="https://myrestai.com/">MyRestAI</a>
                     </li>
                     <li class="description text-sm-start text-center"><a href="https://prolangroupsa.com/contact/">Prolan
-                        Group SA</a></li>
+                            Group SA</a></li>
                 </ul>
             </div>
         </div>
@@ -698,13 +651,13 @@
             <div class="row">
                 <strong class=" text-sm-start text-center">Entreprise</strong>
                 <ul>
-                    <li class="description  text-sm-start text-center"><a href="./politique-de-confidentialite.html">politique
-                        de
-                        confidentialité</a>
+                    <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.php">politique
+                            de
+                            confidentialité</a>
                     </li>
-                    <li class="description text-sm-start text-center"><a href="./cgu.html">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions
-                        légales</a></li>
+                    <li class="description text-sm-start text-center"><a href="cgu.php">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="mentions-legales.php">Mentions
+                            légales</a></li>
                 </ul>
             </div>
 
@@ -747,9 +700,9 @@
                 <a href="https://www.facebook.com/myinterimo/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                 <a href="https://www.instagram.com/myinterimo/"><i class="fa-brands fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/company/myinterimo/" target="_blank"><i
-                        class="fa-brands fa-linkedin"></i></a>
+                            class="fa-brands fa-linkedin"></i></a>
                 <a href="https://www.pinterest.fr/MyInterimo/" target="_blank"><i
-                        class="fa-brands fa-pinterest"></i></a>
+                            class="fa-brands fa-pinterest"></i></a>
                 <a href="https://twitter.com/MyInterimo"><i class="fa-brands fa-twitter"></i></a>
             </div>
         </div>

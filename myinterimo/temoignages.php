@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['menu'] = 'temoignages';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,54 +33,8 @@
     <title>Témoignages - MyInterimo</title>
 </head>
 <body>
-<header class="container">
-    <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
-        <a class="col col-md-4 col-auto" href="index.html">
-            <img class="justify-content-around " src="img/logo/logo-250.png" alt="Myinterimo-logo">
-        </a>
-        <button type="button" class="navbar-toggler bg-primary " style="height: 40px; width: 50px"
-                data-bs-toggle="collapse"
-                data-bs-target="#nav">
-            <i class="fa-solid fa-bars text-light fa-lg"></i>
-        </button>
-        <div class=" collapse  navbar-collapse justify-content-center mt-2" id="nav">
-            <ul class="navbar-nav ">
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="./index.html">
-                        Accueil
-                        <hr>
-                    </a>
-                </li>
-                <li class="nav-item  p-sm-2">
-                    <a class="nav-link " href="./fonctionnalite.html">
-                        Fonctionnalités
-                        <hr>
-                    </a>
 
-                </li>
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link  active" href="./Témoignages.html">
-                        Témoignages
-                        <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
-                    </a>
-
-                </li>
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="./FAQ.html">
-                        FAQ
-                        <hr>
-                    </a>
-                </li>
-                <li class="nav-item p-sm-2">
-                    <a class="nav-link " href="contact.html">
-                        Contact
-                        <hr>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-</header>
+<?php include 'menu.php' ?>
 <section class=" p-5 "></section>
 <!-- des Témoignages -->
 <section class="my-5">
@@ -293,10 +251,10 @@
             <div class="row">
                 <strong class=" text-sm-start text-center">Entreprise</strong>
                 <ul>
-                    <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.html">politique
+                    <li class="description  text-sm-start text-center"><a href="politique-de-confidentialite.php">politique
                         de confidentialité</a></li>
-                    <li class="description text-sm-start text-center"><a href="./cgu.html">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="./mentions-legales.html">Mentions
+                    <li class="description text-sm-start text-center"><a href="cgu.php">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="mentions-legales.php">Mentions
                         légales</a></li>
                 </ul>
             </div>

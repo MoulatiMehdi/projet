@@ -1,0 +1,70 @@
+
+a {
+    font-size: 13px;
+}
+
+h2 {
+    color: #1B2F46;
+    font-size: 22px !important;
+    font-weight: bold !important;
+    font-family: "Montserrat", Helvetica, Arial, serif;
+
+}
+
+h6 {
+    color: #999999;
+    font-size: 13px;
+}
+
+p {
+    font-size: 10px !important;
+    color: #70798B;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+label {
+    font-size: small;
+}
+
+.step, .step:hover {
+    padding: 1px 10px;
+    color: #FFFFFF;
+    background: darkgrey;
+    border-radius: 30px;
+    text-align: center;
+    line-height: 30px;
+
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+    font-size: 17px;
+    transition: 0.3s ease-in;
+
+
+}
+
+
+.finish {
+
+    background: dodgerblue;
+    transition: 0.3s ease-out;
+
+}
+
+.progress-bar {
+    background: dodgerblue;
+
+}
+
+.progress {
+    border-radius: 20px;
+}
+
+.active, .active:hover {
+    outline: 2px solid dodgerblue;
+    background: white;
+    color: dodgerblue;
+    transition: 0.3s ease-out;
+
+}

@@ -1,10 +1,6 @@
 <?php
 
-const DB_SERVER = 'localhost';
-const DB_USERNAME = 'root';
-const DB_PASSWORD = '';
-const DB_NAME = 'myinterimo_db';
-const TABLE_USERS = 'myinterimo_users';
+include 'const_variable.php';
 $phone_error = "";
 $email_error = "";
 $n_siret_error = "";
@@ -23,11 +19,11 @@ try {
 }
 if (isset($_POST['submit'])) {
 
-    $nom = htmlspecialchars($_POST['nom']);
-    $prenom = htmlspecialchars($_POST['prenom']);
-    $civilite = htmlspecialchars($_POST['civilite']);
+    $nom = strtolower(htmlspecialchars($_POST['nom']));
+    $prenom = strtolower(htmlspecialchars($_POST['prenom']));
+    $civilite = strtolower(htmlspecialchars($_POST['civilite']));
     $telephone = htmlspecialchars($_POST['telephone']);
-    $user_type = "user";
+    $user_type = "USER";
     $email = htmlspecialchars($_POST['email']);
     $mot_de_passe = sha1($_POST['mot_de_passe']);
     $nom_reseau = htmlspecialchars($_POST['nom_reseau']);
@@ -37,6 +33,7 @@ if (isset($_POST['submit'])) {
     $carte_t_reseau = htmlspecialchars($_POST['carte_t_reseau']);
     $n_siren = htmlspecialchars($_POST['n_siren']);
     $n_siret = htmlspecialchars($_POST['n_siret']);
+    $user_image = htmlspecialchars($_POST['user-image']);
 
     $count_phone = $Myinterimo->prepare("SELECT * FROM " . TABLE_USERS . " WHERE telephone LIKE (?)");
     $count_email = $Myinterimo->prepare("SELECT * FROM " . TABLE_USERS . " WHERE email LIKE (?)");
@@ -51,17 +48,17 @@ if (isset($_POST['submit'])) {
         $phone_error = "numéro téléphone deja utilisée.\n";
     }
     if ($count_email->rowCount() != 0) $email_error .= "email deja utilisée.\n";
-    if ($count_siret->rowCount() != 0) $n_siret_error .= "siret deja utilisée.\n";
+    if ($count_siret->rowCount() != 0) $n_siret_error .= "SIRET deja utilisée.\n";
 
     if (empty($phone_error) && empty($email_error) && empty($n_siret_error)) {
         $inser_user = $Myinterimo->prepare(
             "INSERT INTO myinterimo_users(
                              nom,prenom,telephone,civilite,user_type,adresse,
                              email,mot_de_passe,email_pro,nom_reseau,carte_t_reseau,
-                             n_siren,n_siret,site_url) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+                             n_siren,n_siret,site_url,user_image) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
         $inser_user->execute(array($nom, $prenom, $telephone, $civilite, $user_type, $adresse,
-            $email, $mot_de_passe, $email_pro, $nom_reseau, $carte_t_reseau, $n_siren, $n_siret, $site_url));
-        header('Location:http://localhost:63342/projet-pfe/myinterimo/index.html');
+            $email, $mot_de_passe, $email_pro, $nom_reseau, $carte_t_reseau, $n_siren, $n_siret, $site_url, $user_image));
+        header('Location:http://localhost:63342/projet-pfe/myinterimo/index.php');
     }
 
 
@@ -87,78 +84,8 @@ if (isset($_POST['submit'])) {
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <style>
-
-
-        a {
-            font-size: 13px;
-        }
-
-        h2 {
-            color: #1B2F46;
-            font-size: 22px !important;
-            font-weight: bold !important;
-            font-family: "Montserrat", Helvetica, Arial, serif;
-
-        }
-
-        h6 {
-            color: #999999;
-            font-size: 13px;
-        }
-
-        p {
-            font-size: 10px !important;
-            color: #70798B;
-            font-weight: bold;
-            text-align: center;
-        }
-
-        label {
-            font-size: small;
-        }
-
-        .step {
-            padding: 1px 10px;
-            color: #FFFFFF;
-            background: darkgrey;
-            border-radius: 30px;
-            text-align: center;
-            line-height: 30px;
-
-            font-family: 'Nunito', sans-serif;
-            font-weight: 900;
-            font-size: 17px;
-            transition: 0.3s ease-in;
-
-
-        }
-
-        .finish {
-
-            background: dodgerblue;
-            transition: 0.3s ease-out;
-
-        }
-
-        .progress-bar {
-            background: dodgerblue;
-
-        }
-
-        .progress {
-            border-radius: 20px;
-        }
-
-        .active {
-            outline: 2px solid dodgerblue;
-            background: white;
-            color: dodgerblue;
-            transition: 0.3s ease-out;
-
-        }
-    </style>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/steps.css">
 
 </head>
 <body class="container d-flex justify-content-center align-items-center">
@@ -170,32 +97,43 @@ if (isset($_POST['submit'])) {
             <div class="col-auto progress w-100 p-0 position-absolute" style="height: 10px; ">
                 <div class="progress-bar"></div>
             </div>
-            <div class="d-flex position-absolute  justify-content-evenly align-items-center ">
-                <a class="step col-auto" id="step1">1</a>
-                <a class="step col-auto " id="step2">2</a>
+            <div id="steps" class="d-flex position-absolute  justify-content-evenly align-items-center ">
+
             </div>
 
         </div>
         <form method="POST" action="" id="regForm" class="was-validated box row g-3 py-3 px-3">
-            <div class="tab row g-3">
-                <div class="col-md-6">
+
+            <?php include 'connexion_error.php'; ?>
+            <div class="tab row">
+                <div class="col col-12">
+                    <h2 class="text-center text-primary my-3">Informations Personnel</h2>
+                    <hr>
+                </div>
+                <div class="col col-md-12">
+                        <label for="file-input" class="d-flex justify-content-center">
+                            <i class="circle-icon fa-solid fa-camera fa-xl" style="cursor: pointer"></i>
+                        </label>
+                        <input id="file-input" type="file" accept="image/png,image/jpg,image/jpeg" name="user_image" hidden="hidden">
+                </div>
+                <div class="col col-md-6">
                     <label for="inputFirstName" class="form-label">Prénom</label>
                     <input type="text" class="form-control" placeholder="Prenom" name="prenom"
                            pattern="([A-z0-9À-ž\s-]){2,}"
                            id="inputFirstName" required>
                 </div>
-                <div class="col-md-6">
+                <div class="col col-md-6 mb-2">
                     <label for="inputLastName" class="form-label">Nom</label>
                     <input type="text" class="form-control" pattern="([A-z0-9À-ž\s-]){2,}" placeholder="nom"
                            name="nom" id="inputLastName" required>
                 </div>
-                <div class="col-6">
+                <div class="col col-6 mb-2">
                     <label for="inputPhone" class="form-label">téléphone</label>
                     <input name="telephone" type="text" class="form-control" id="inputPhone"
                            pattern="^\+\d{1,3}[\s.-]\d{3}[\s.-]\d{6}$"
                            placeholder="+212-637-621862" required>
                 </div>
-                <div class="col-6">
+                <div class="col col-6 mb-2">
                     <label for="inputGender" class="form-label">Civilité :</label>
                     <select name="civilite" class="form-select " aria-label="example" id="inputGender">
                         <option selected>Monsieur</option>
@@ -203,30 +141,36 @@ if (isset($_POST['submit'])) {
                         <option value="2">Mademoiselle</option>
                     </select>
                 </div>
-                <div class="col-8">
+                <div class="col col-8 mb-2">
                     <label for="inputEmail">Email</label>
                     <input name="email" type="Email" class="form-control" id="inputEmail"
                            pattern="^\w+(\.[\w]+)?@([\w]+\.)+\w{2,4}$"
                            placeholder="exemple@mail.com" required>
                 </div>
-                <div class="col-8 position-relative">
+                <div class="col col-8 mb-2">
                     <label for="inputPassword">Mot de Passe</label>
                     <input name="mot_de_passe" type="password" class="form-control" id="inputPassword"
-                           pattern="^[A-Z]+.{7,}$" placeholder="Mot de Passe" required>
-                    <div class="invalid-feedback">
-                        Au moins 8 characters.
-                        <br>Le premier character en Majuscule.
+                           pattern="^.{8,32}$" placeholder="Mot de Passe" required>
+                    <div class="invalid-feedback ps-2">
+                        enter 8-32 characters.
                     </div>
                 </div>
-                <div class="col-8">
+
+                <div class="col col-8 mb-2">
                     <label for="inputPasswordConfirm">Confirmation du Mot de Passe :</label>
                     <input type="password" class="form-control" id="inputPasswordConfirm"
                            placeholder="Confirmer Mot de Passe" required>
+                    <div class="invalid-feedback ps-2">
+                        le mot de passe n'est pas identique.
+                    </div>
                 </div>
 
 
             </div>
-            <div class="tab row g-3">
+            <div class="tab row">
+                <div class="col col-12">
+                    <h2 class="title text-center text-primary my-3">Informations Professionnelle</h2>
+                </div>
                 <div class="col-md-6">
                     <label for="inputNomReseau" class="form-label">Nom de mon reseaux :</label>
                     <input name="nom_reseau" type="text" class="form-control" placeholder="Nom Réseau"
@@ -280,17 +224,7 @@ if (isset($_POST['submit'])) {
         </form>
 
         <h6 class="mt-3 text-center"> Vous avez déjà un compte? <a href="connexion.php">Se connecter</a></h6>
-        <?php
 
-        echo '<div style="color: red">' . $email_error . ' <br></div>';
-        echo '<div style="color: red">' . $phone_error . ' <br></div>';
-        echo '<div style="color: red">' . $n_siret_error . ' <br></div>';
-
-        $email_error = "";
-        $phone_error = "";
-        $n_siret_error = "";
-
-        ?>
     </div>
     <img src="img/illustrations/imageMyspace.png" style="width: 400px" class="col col-auto"
          alt="Myinterimo,house">
