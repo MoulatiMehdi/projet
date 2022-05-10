@@ -201,7 +201,7 @@ if (isset($_POST['submit'])) {
                            pattern="^\d{14}$" id="inputSIRET" required>
                 </div>
                 <div class="col-md-6">
-                    <label for="inputCarteT" class="form-label">Carte T de mon réseaux :</label>
+                    <label for="inputCarteT" class="form-label">Carte T de mon réseau :</label>
                     <input name="carte_t_reseau" type="text" class="form-control" placeholder="Carte T de Réseau"
                            id="inputCarteT" required>
                 </div>

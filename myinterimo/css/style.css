@@ -368,13 +368,13 @@ i {
 }
 
 .googlePlayButton {
-    background: var(--color-store-black-secondary);
-    color: var(--color-store-white);
+    background: var(--color-store-black-secondary) !important;
+    color: var(--color-store-white) !important;
 }
 
 .googlePlayButton:hover {
-    color: var(--color-store-black-secondary);
-    background: var(--color-store-white);
+    color: var(--color-store-black-secondary) !important;
+    background: var(--color-store-white) !important;
     transition: 0.3s ease-in;
 }
 

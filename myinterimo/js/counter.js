@@ -25,7 +25,7 @@ window.addEventListener('scroll', function () {
                 }, {
                     duration: $(this).data('duration-value'),
                     easing: 'swing',
-                    step: function () {
+                     step:function () {
                         $(this).text(Math.ceil(this.Counter));
 
                     },
