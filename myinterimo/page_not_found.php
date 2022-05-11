@@ -99,7 +99,6 @@
 
         </div>
     </section>
-
     <!-- Telechager notre application -->
     <section id="box3" class="box p-5" style="background-color:var(--color-main)">
         <div class="row align-items-center justify-content-around">

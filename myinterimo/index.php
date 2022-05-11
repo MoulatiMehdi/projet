@@ -16,14 +16,7 @@ $_SESSION['menu'] = 'accueil';
 
 
     <!-- fonts-->
-    <link rel="stylesheet" id="auxin-fonts-google-css"
-          href="//fonts.googleapis.com/css?family=Nunito%3A200%2C200italic%2C300%2C300italic%2Cregular%2Citalic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRubik%3A300%2Cregular%2C500%2C600%2C700%2C800%2C900%2C300italic%2Citalic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&amp;ver=4.2"
-          type="text/css" media="all">
-    <link rel="stylesheet" id="google-fonts-1-css"
-          href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto+Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRubik%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=auto&amp;ver=5.9.3"
-          type="text/css" media="all">
-    <link type="text/css" rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Google+Sans+Text:400&amp;text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93">
+    <?php include 'elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
     <!-- local CSS file-->
@@ -32,9 +25,12 @@ $_SESSION['menu'] = 'accueil';
     <title>MyInterimo : L’inter-agence en mode 3.0</title>
 </head>
 <body>
+<!-- navbar menu -->
 <?php include 'elem_menu.php' ?>
+
 <!-- grab some space to replace the fixed navbar -->
 <section class=" py-lg-0 py-md-4  py-0"></section>
+
 <div class="container-lg ">
 
 
@@ -416,158 +412,11 @@ $_SESSION['menu'] = 'accueil';
     </section>
 
     <!-- les chiffres de Myinterimo-->
-    <section id="chiffres" class="box d-block bg-primary container text-light p-5 my-5">
-        <div class="row  row-cols-auto justify-content-center align-items-center my-4">
-
-            <div class="col  col-12 col-md-auto d-flex justify-content-center align-items-center   ">
-                <h1 class="count  p-2">
-                    <span class="prefix">+</span>
-                    <span class="num" data-duration-value="6000" data-value="300">300</span>
-                    <span class="suffix">K</span>
-                </h1>
-                <h6 class="p-2 counter-title">Annonce <br> Active</h6>
-            </div>
-
-            <!--start split lines-->
-            <div class="d-flex d-none d-md-flex px-2" style="height: 75px;">
-                <div class="vr "></div>
-            </div>
-            <hr class="d-flex d-md-none d-md-flex " style="width: 100%;">
-            <!--end split lines-->
-
-            <div class="col  d-flex justify-content-center align-items-center col-md-auto col-12 ">
-                <h1 class="count p-2">
-                    <span class="prefex">+</span>
-                    <span class="num" data-duration-value="9000" data-value="8">8</span>
-                    <span class="suffix">K</span>
-                </h1>
-                <h6 class="p-2 counter-title">agence <br> immobilière</h6>
-
-            </div>
-
-            <!--start split lines-->
-            <div class="d-flex d-none d-md-flex px-2" style="height: 75px;">
-                <div class="vr "></div>
-            </div>
-            <hr class="d-flex d-md-none d-md-flex " style="width: 100%;">
-            <!--end split lines-->
-
-            <div class="col  d-flex justify-content-center align-items-center col-md-auto col-12">
-                <h1 class="count  m-2">
-                    <span class="prefix">+</span>
-                    <span class="num" data-duration-value="4000" data-value="15">15</span>
-                    <span class="suffix">K</span>
-                </h1>
-                <h6 class="p-2 counter-title">Agent <br> Commercial</h6>
-            </div>
-
-        </div>
-    </section>
+    <?php include 'elem_chiffres.php' ?>
 </div>
 
 <!-- des Témoignages -->
-<section class="my-5">
-    <div class="row justify-content-around ">
-        <h6 class="text-center">Témoignages</h6>
-        <h1 class="text-center fw-bolder">Ils parlent de MyInterimo</h1>
-        <p class="description text-center">Comme vos confrères, adhérez à MyInterimo. Inscrivez-vous dès à présent
-            pour inviter
-            vos amis et créer votre communauté.</p>
-
-    </div>
-    <div class="row justify-content-around ">
-        <main class="">
-            <div class="wrapper">
-                <div class="items ">
-                    <div class="item col col-lg-5  col-md-6 col-sm-8 col-10 align-items-center my-5">
-
-
-                        <div class="row">
-                            <p class="description">
-
-                                Je trouve que c’est une plateforme indispensable pour tout professionnel
-                                immobilier qui cherche
-                                à
-                                développer son activité et ses performances et surtout créer la différence.
-
-                            </p>
-                        </div>
-                        <div class="row d-flex align-items-center justify-content-start">
-                            <div class="col col-auto">
-                                <img src="img/clients/sebastien.jpg" alt="client-sebastien">
-                            </div>
-                            <div class="col col-auto ">
-                                <h4 class="row col-title">Sébastien Sebert</h4>
-                                <h5 class="row col-subtitle">Client MYINTERIMO</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item col col-lg-5  col-md-6 col-sm-8 col-10 align-items-center my-5">
-
-
-                        <div class="row">
-                            <p class="description">
-                                La base d’un investissement immobilier réussi est le partage et la connectivité
-                                et MyEspaceo a su relever ce défi à travers ses applications intuitives qui nous ont
-                                aidés.
-                            </p>
-                        </div>
-                        <div class="row d-flex align-items-center justify-content-start">
-                            <div class="col col-auto col-image">
-                                <img src="img/clients/laurence.jpg" alt="client-laurence">
-                            </div>
-                            <div class="col col-auto">
-                                <h4 class="row col-title">Laurence GrosJean</h4>
-                                <h5 class="row col-subtitle">Cliente MYINTERIMO</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item col col-lg-5  col-md-6 col-sm-8 col-10 align-items-center my-5">
-
-
-                        <div class="row">
-                            <p class="description">
-                                J’ai choisi MyInterimo pour plusieurs raisons, mais la principale est du regroupement
-                                de tous les services dont un agent immobilier aura besoin en une interface.
-                            </p>
-                        </div>
-                        <div class="row d-flex align-items-center justify-content-start">
-                            <div class="col col-auto col-image">
-                                <img src="img/clients/patrice.jpg" alt="client-patrice">
-                            </div>
-                            <div class="col col-auto">
-                                <h4 class="row col-title">Patrice Minder</h4>
-                                <h5 class="row col-subtitle">Client MYINTERIMO</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item col col-lg-5  col-md-6 col-sm-8 col-10 align-items-center my-5">
-
-
-                        <div class="row">
-                            <p class="description">
-                                Très bien conçu et développé, mais plus que tout, se base sur le partage, la
-                                collaboration et la
-                                transparence entre les professionnels immobiliers.
-                            </p>
-                        </div>
-                        <div class="row d-flex align-items-center justify-content-start">
-                            <div class="col col-auto col-image">
-                                <img src="img/clients/anis.jpg" alt="client-laurence">
-                            </div>
-                            <div class="col col-auto">
-                                <h4 class="row col-title">Anis Verdan</h4>
-                                <h5 class="row col-subtitle">Client MYINTERIMO</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </main>
-
-    </div>
-</section>
+<?php include 'elem_temoignages.php' ?>
 
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->

@@ -3,7 +3,7 @@ a {
     font-size: 13px;
 }
 
-h2 {
+.form-title {
     color: #1B2F46;
     font-size: 22px !important;
     font-weight: bold !important;
@@ -40,6 +40,7 @@ label {
     font-weight: 900;
     font-size: 17px;
     transition: 0.3s ease-in;
+    cursor: pointer;
 
 
 }
