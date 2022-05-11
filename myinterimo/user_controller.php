@@ -8,7 +8,7 @@ function saveUser($user)
     $count_email = loadOne("SELECT * FROM " . TABLE_USERS . " WHERE email LIKE '${user['email']}'");
     $count_siret = loadOne("SELECT * FROM " . TABLE_USERS . " WHERE n_siret LIKE '${user['n_siret']}'");
 
-    $errors = array();
+    $errors = array("");
     if ($count_siret != null) $errors[] = 'siret_error';
     if ($count_email != null) $errors[] = 'email_error';
     if ($count_phone != null) $errors[] = 'phone_error';

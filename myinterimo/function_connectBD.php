@@ -31,6 +31,10 @@ function loadOne($request)
 function execRequest($request)
 {
     $db = connectToDB();
-    $db->query($request);
+
+    $error =$db->query($request);
+
+    echo $error;
+
 }
 

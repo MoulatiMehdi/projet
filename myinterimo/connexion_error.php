@@ -18,7 +18,7 @@ function msg_error($error)
             </div>
         </div>';
 
-    echo '<script>alert("' . $error . '")</script>';
+    echo '<script>console.log("' . $error . '")</script>';
 
 }
 

@@ -34,21 +34,20 @@ if (isset($_POST['submitForm'])) {
     if ($validate == null) {
 
         $_POST = array();
-        header('Location:/index.php');
+        header('Location:/projet-pfe/myinterimo/index.php');
 
     } else {
-        if (array_search('siret_error', $validate,true)) {
+        if (array_search('siret_error', $validate, true)) {
             $n_siret_error = "SIRET deja utilisée.";
         }
-        if (array_search('email_error', $validate,true)) {
+        if (array_search('email_error', $validate, true)) {
             $email_error = "email deja utilisée.";
         }
-        if (array_search('phone_error', $validate,true)) {
+        if (array_search('phone_error', $validate, true)) {
             $phone_error = "N° télephone deja utilisée.";
         }
     }
-     var_dump($validate) ;
-    $_user = array();
+
 }
 
 ?>
@@ -70,7 +69,7 @@ if (isset($_POST['submitForm'])) {
 
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-0 start-50 p-3">
+<div class="toast-container position-absolute top-0 end-0 p-3">
     <!-- Position it: -->
     <!-- - `.toast-container` for spacing between toasts -->
     <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
@@ -127,10 +126,16 @@ if (isset($_POST['submitForm'])) {
                     </div>
                     <div class="col col-6 mb-2">
                         <label for="inputPhone" class="form-label">téléphone</label>
-                        <input value="<?php if (isset($_POST['telephone'])) echo htmlspecialchars($_POST['telephone']) ?>"
-                               name="telephone" type="text" class="form-control" id="inputPhone"
+                        <input value="<?php if (isset($_POST['telephone']) && empty($phone_error)) echo htmlspecialchars($_POST['telephone']) ?>"
+                               name="telephone" type="text"
+                               class="form-control " id="inputPhone"
                                pattern="^\+\d{1,3}[\s.-]\d{3}[\s.-]\d{6}$"
                                placeholder="+212-637-621862" required>
+                        <div class="invalid-feedback">
+                            N° ne respect pas la forme
+                        </div>
+
+
                     </div>
                     <div class="col col-6 mb-2">
                         <label for="inputGender" class="form-label">Civilité :</label>
@@ -142,10 +147,13 @@ if (isset($_POST['submitForm'])) {
                     </div>
                     <div class="col col-8 mb-2">
                         <label for="inputEmail">Email</label>
-                        <input value="<?php if (isset($_POST['email'])) echo htmlspecialchars($_POST['email']) ?>"
+                        <input value="<?php if (isset($_POST['email']) && !empty($email_error)) echo htmlspecialchars($_POST['email']) ?>"
                                name="email" type="Email" class="form-control" id="inputEmail"
                                pattern="^\w+(\.[\w]+)?@([\w]+\.)+\w{2,4}$"
                                placeholder="exemple@mail.com" required>
+                        <div class="invalid-feedback">
+                            saisir un email valide
+                        </div>
                     </div>
                     <div class="col col-8 mb-2">
                         <label for="inputPassword">Mot de Passe</label>
@@ -206,8 +214,13 @@ if (isset($_POST['submitForm'])) {
                         <label for="inputSIRET" class="form-label"> Numéro de SIRET(14 Chiffres) :</label>
                         <input name="n_siret" type="text" class="form-control" placeholder="N de SIRET" maxlength="14"
                                minlength="14"
-                               value="<?php if (isset($_POST['n_siret'])) echo htmlspecialchars($_POST['n_siret']) ?>"
+                               value="<?php
+                               if (isset($_POST['n_siret']) && !empty($n_siret_error)) echo htmlspecialchars($_POST['n_siret']);
+                               else echo '' ?>"
                                pattern="^\d{14}$" id="inputSIRET" required>
+                        <div class="invalid-feedback">
+                            saisir un valid SIRET
+                        </div>
                     </div>
                     <div class="col-md-6 mb-3">
                         <label for="inputCarteT" class="form-label"> Carte T de mon réseau :</label>
@@ -229,7 +242,7 @@ if (isset($_POST['submitForm'])) {
                 <div id="button-collector" class="col-12 d-flex justify-content-between ">
                     <input type="button" style="visibility:hidden" class="rectangle-button " id="prevBtn"
                            onclick="nextPrev(-1)" value="Précedent">
-                    <input type="button" class="rectangle-button " name="submitForm" id="nextBtn" onclick="nextPrev(+1)"
+                    <input type="button" class="rectangle-button " name="" id="nextBtn" onclick="nextPrev(+1)"
                            value="Suivant">
 
                 </div>
