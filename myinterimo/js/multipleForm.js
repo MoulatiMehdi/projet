@@ -64,7 +64,7 @@ function goToTab(n) {
 
     const x = document.getElementsByClassName("tab");
     // Exit the function if any field in the current tab is invalid:
-    if (!validateForm()) {
+    if (n>lastTab &&!validateForm()) {
         return false;
     }
 
