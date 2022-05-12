@@ -154,16 +154,19 @@ function validateSiret() {
 
     if (!siret.value.startsWith(siren.value)) {
         siret.setCustomValidity("N° SIRET doit commencer par N°SIREN");
+        siren.setCustomValidity("N° SIRET doit commencer par N°SIREN");
     } else {
         siret.setCustomValidity('');
+        siren.setCustomValidity('');
     }
 }
 
 password.onchange = validatePassword;
 confirmPassword.onkeyup = validatePassword;
 
-siret.onchange = validateSiret;
 siren.onkeyup = validateSiret;
+siret.onkeyup = validateSiret;
+
 
 
 showTab(currentTab); // Display the current tab

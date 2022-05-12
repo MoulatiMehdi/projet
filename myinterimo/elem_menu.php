@@ -1,8 +1,13 @@
 <?php
-if (isset($_SESSION['menu'])) {
-    $menu = $_SESSION['menu'];
-} else {
-    $menu = '';
+
+if (!isset($_SESSION)) session_start();
+
+$menu = $_SESSION['menu'] ?? null;
+$user = $_SESSION['user'] ?? null;
+
+if (isset($_POST['logout'])) {
+    unset($_SESSION['user']);
+    $user = null;
 }
 ?>
 
@@ -75,23 +80,33 @@ if (isset($_SESSION['menu'])) {
                     <?php endif ?>
                 </li>
                 <li class="nav-item p-sm-2">
-                    <?php if($menu=='contact'): ?>
-                    <a class="nav-link " href="contact.php">
-                        Contact
-                        <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
-                    </a>
+                    <?php if ($menu == 'contact'): ?>
+                        <a class="nav-link " href="contact.php">
+                            Contact
+                            <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
+                        </a>
                     <?php else: ?>
-                    <a class="nav-link " href="contact.php">
-                        Contact
-                        <hr>
-                    </a>
+                        <a class="nav-link " href="contact.php">
+                            Contact
+                            <hr>
+                        </a>
                     <?php endif ?>
                 </li>
             </ul>
-            <div class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
-                <a href="creer-un-compte.php" class="rectangle-button" style="height: 35px">se Connecter</a>
-                <a href="connexion.php" class="rectangle-button-white" style="height: 35px">Connexion</a>
-            </div>
+            <?php if ($user == null): ?>
+                <div class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
+                    <a href="creer-un-compte.php" class="rectangle-button" style="height: 35px">se Connecter</a>
+                    <a href="connexion.php" class="rectangle-button-white" style="height: 35px">Connexion</a>
+                </div>
+            <?php else: ?>
+                <form action="" method="post"
+                      class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
+
+                    <input type="submit" name="logout" class="rectangle-button-white" style="height: 35px"
+                           value="Déconnexion">
+                </form>
+            <?php endif ?>
+
         </div>
     </nav>
 </header>

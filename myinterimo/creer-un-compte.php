@@ -1,68 +1,51 @@
 <?php
 
+session_start();
+
 include 'user_controller.php';
 include 'connexion_error.php';
 
-$email_error = "";
-$phone_error = "";
-$n_siret_error = "";
+$error = array();
 
-
-/* Database credentials. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
-
-
-/* Attempt to connect to MySQL database */
-try {
-    $Myinterimo = connectToDB();
-    // Set the PDO error mode to exception
-    $Myinterimo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("ERROR: Could Not Connect to DATABASE => " . $e->getMessage());
-}
 if (isset($_POST) && !empty($_POST)) {
 
     $user = array();
     foreach ($_POST as $key => $value) {
         $user[$key] = htmlspecialchars($value);
-
     }
     $user['user_type'] = "USER";
     $user['mot_de_passe'] = sha1($_POST['mot_de_passe']);
+    $user['user_img'] = null;
 
-    if (isset($_FILES) && !empty($_FILES['user_img'])) {
+    if (isset($_FILES) && !empty($_FILES['user_img']['name'])) {
 
         if (!is_dir(USER_IMG_FOLDER))
-            mkdir(USER_IMG_FOLDER, 0777);
+            mkdir(USER_IMG_FOLDER, 777, true);
 
-        $chemin = USER_IMG_FOLDER . "/" . $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));
+        $extension = strtolower(strrchr($_FILES['user_img']['name'], "."));
+        $chemin = USER_IMG_FOLDER . "/" . $user['n_siret'] . $extension;
+
         $result = move_uploaded_file($_FILES['user_img']['tmp_name'], $chemin);
         if ($result) {
-            $user['user_img'] = $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));;
-        } else msg_error("Error de l'importation de la photo.");
+
+            $user['user_img'] = $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));
+        } else {
+            $_SESSION['error_phone'] = ERROR_PHOTO;
+        }
     }
 
+    $error = saveUser($user);
 
-    $validate = saveUser($user);
 
-
-    if ($validate == null) {
+    if ($error == null) {
 
         $_POST = array();
+        $_SESSION['user'] = $user;
         header('Location:' . MAIN_FOLDER . '/index.php');
 
-    } else {
-        if (array_search('siret_error', $validate, true)) {
-            $n_siret_error = "SIRET deja utilisée.";
-        }
-        if (array_search('email_error', $validate, true)) {
-            $email_error = "email deja utilisée.";
-        }
-        if (array_search('phone_error', $validate, true)) {
-            $phone_error = "N° télephone deja utilisée.";
-        }
 
     }
+
 }
 
 ?>
@@ -81,25 +64,49 @@ if (isset($_POST) && !empty($_POST)) {
           crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/steps.css">
+    <style>
+        #import-icon {
+            cursor: pointer;
+            z-index: 4;
+            border: 3px solid var(--color-main);
+
+            width: 76px;
+            height: 76px;
+
+            background: rgba(0, 0, 0, 0.5);
+            color: #faf9f9;
+
+            border-radius: 75px;
+            transition: 0.3s ease-out;
+
+        }
+
+        #import-icon:hover {
+
+            background: transparent;
+            color: transparent;
+            transition: 0.3s ease-in;
+        }
+    </style>
 
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-0 end-0 p-3">
+<div class="toast-container position-absolute top-50 start-50  p-3 "
+     style="z-index:5">
     <!-- Position it: -->
     <!-- - `.toast-container` for spacing between toasts -->
     <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
     <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
     <?php
 
-    if (!empty($phone_error)) {
-        msg_error($phone_error);
+    if (!empty($_SESSION['error_phone'])) {
+        msg_warning_toast($_SESSION['error_phone']);
+        unset($_SESSION['error_phone']);
     }
-    if (!empty($email_error)) {
-        msg_error($email_error);
+    foreach ($error as $value) {
+        msg_error_toast($value);
     }
-    if (!empty($n_siret_error)) {
-        msg_error($n_siret_error);
-    }
+
     ?>
 </div>
 <section class="container d-flex justify-content-center align-items-center w-100 h-100 ">
@@ -120,31 +127,38 @@ if (isset($_POST) && !empty($_POST)) {
                 <div class="tab row">
 
                     <div class="col col-12 mb-3">
-                        <h2 class="title text-center text-primary my-3 form-title"> Informations Personnel </h2>
+                        <h2 class="title text-center text-primary my-3 form-title"> Informations Personnelle </h2>
                         <hr>
                     </div>
-                    <div class="col col-12">
-                        <label for="file-input" class="d-flex justify-content-center">
-                            <i class="circle-icon fa-solid fa-camera fa-xl" style="cursor: pointer;"></i>
+                    <div class="col col-12 mb-3 d-flex justify-content-center align-items-center flex-column">
+                        <label for="fileInput" id="fileDisplayArea" class="circle-icon d-inline-flex"
+                               style="cursor: pointer; ">
+                            <i class="fa-solid fa-camera fa-xl position-absolute " id="import-icon"></i>
+                            <canvas class="circle-icon justify-content-center align-items-center position-absolute"
+                                    id="canvas"></canvas>
+
+
                         </label>
-                        <input id="file-input" type="file" accept="image/png,image/jpg,image/jpeg" name="user_img"
+                        <input id="fileInput" value="" type="file" maxlength="4" accept="image/png,image/jpg,image/jpeg"
+                               name="user_img"
                                hidden="hidden">
+                        <label id="fileInput" class="form-label">Photo de Profil</label>
                     </div>
-                    <div class="col col-md-6">
+                    <div class="col col-md-6 mb-3">
                         <label for="inputFirstName" class="form-label">Prénom</label>
                         <input value="<?php if (isset($_POST['prenom'])) echo htmlspecialchars($_POST['prenom']) ?>"
                                type="text" class="form-control" placeholder="Prenom *" name="prenom"
-                               pattern="([A-z0-9À-ž\s-]){2,}" id="inputFirstName" required>
+                               pattern="([A-zÀ-ž\s]){2,}" id="inputFirstName" required>
                     </div>
-                    <div class="col col-md-6 mb-2">
+                    <div class="col col-md-6 mb-3">
                         <label for="inputLastName" class="form-label">Nom</label>
                         <input value="<?php if (isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']) ?>"
                                type="text" class="form-control" placeholder="Nom *" name="nom"
-                               pattern="([A-z0-9À-ž\s-]){2,}" id="inputLastName" required>
+                               pattern="([A-zÀ-ž\s-]){2,}" id="inputLastName" required>
                     </div>
-                    <div class="col col-6 mb-2 position-relative">
+                    <div class="col col-6 mb-3 position-relative">
                         <label for="inputPhone" class="form-label">téléphone</label>
-                        <input value="<?php if (isset($_POST['telephone']) && empty($phone_error)) echo htmlspecialchars($_POST['telephone']) ?>"
+                        <input value="<?php if (isset($_POST['telephone']) && empty($error['phone'])) echo htmlspecialchars($_POST['telephone']) ?>"
                                name="telephone" type="text"
                                class="form-control " id="inputPhone"
                                pattern="^\+\d{1,3}[\s.-]\d{3}[\s.-]\d{6}$"
@@ -152,8 +166,6 @@ if (isset($_POST) && !empty($_POST)) {
                         <div class="invalid-tooltip">
                             N° ne respect pas la forme
                         </div>
-
-
                     </div>
                     <div class="col col-6 mb-2">
                         <label for="inputGender" class="form-label">Civilité :</label>
@@ -201,7 +213,7 @@ if (isset($_POST) && !empty($_POST)) {
                     </div>
                     <div class="col-md-6 mb-3 position-relative">
                         <label for="inputSIRET" class="form-label"> Numéro de SIRET(14 Chiffres) :</label>
-                        <input value="<?php if (isset($_POST['n_siret']) && empty($n_siret_error)) echo htmlspecialchars($_POST['n_siret']); ?>"
+                        <input value="<?php if (isset($_POST['n_siret']) && empty($error['siret'])) echo htmlspecialchars($_POST['n_siret']); ?>"
                                name="n_siret" type="text" class="form-control" placeholder="N de SIRET" maxlength="14"
                                minlength="14"
                                pattern="^\d{14}$" id="inputSIRET" required>
@@ -215,10 +227,6 @@ if (isset($_POST) && !empty($_POST)) {
                                name="carte_t_reseau" type="text" class="form-control" placeholder="Carte T de Réseau"
                                id="inputCarteT" required>
                     </div>
-                    <!--<div class="col-md-6" >
-                        <label for="inputCCI" class="form-label" > CCI :</label >
-                        <input name = "cii" type = "text" class="form-control" placeholder = "CCI" id = "inputCCI" required >
-                    </div > -->
                     <div class="col-md-6 mb-3 position-relative">
                         <label for="inputAdresse" class="form-label"> Adresse :</label>
                         <input name="adresse" type="text" class="form-control" placeholder="adresse" id="inputAdresse"
@@ -233,7 +241,7 @@ if (isset($_POST) && !empty($_POST)) {
                     </div>
                     <div class="col col-8 mb-2 position-relative">
                         <label for="inputEmail">Email</label>
-                        <input value="<?php if (isset($_POST['email']) && empty($email_error)) echo htmlspecialchars($_POST['email']) ?>"
+                        <input value="<?php if (isset($_POST['email']) && empty($error['email'])) echo htmlspecialchars($_POST['email']) ?>"
                                name="email" type="Email" class="form-control" id="inputEmail"
                                pattern="^\w+(\.[\w]+)?@([\w]+\.)+\w{2,4}$"
                                placeholder="exemple@mail.com" required>
@@ -241,7 +249,7 @@ if (isset($_POST) && !empty($_POST)) {
                             saisir un email valide
                         </div>
                     </div>
-                    <div class="col col-8 mb-2">
+                    <div class="col col-8 mb-2 position-relative">
                         <label for="inputPassword">Mot de Passe</label>
                         <input value="<?php if (isset($_POST['mot_de_passe'])) echo htmlspecialchars($_POST['mot_de_passe']) ?>"
                                name="mot_de_passe" type="password" class="form-control" id="inputPassword"
@@ -251,7 +259,7 @@ if (isset($_POST) && !empty($_POST)) {
                         </div>
                     </div>
 
-                    <div class="col col-8 mb-2">
+                    <div class="col col-8 mb-2 position-relative">
                         <label for="inputPasswordConfirm">Confirmation du Mot de Passe :</label>
                         <input value="<?php if (isset($_POST['confirm_mot_de_passe'])) echo htmlspecialchars($_POST['confirm_mot_de_passe']) ?>"
                                type="password" class="form-control" id="inputPasswordConfirm"
@@ -292,6 +300,7 @@ if (isset($_POST) && !empty($_POST)) {
 <!--fontAwesome Script-->
 <script src="./js/fontAwesome.js"></script>
 <script src="js/multipleForm.js"></script>
+<script src="js/displayImportImage.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script> $(document).ready(function () {
         $('.toast').toast('show');
