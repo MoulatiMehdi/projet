@@ -1,6 +1,7 @@
 <?php
 
 include 'user_controller.php';
+include 'connexion_error.php';
 
 $email_error = "";
 $phone_error = "";
@@ -19,7 +20,7 @@ try {
 } catch (PDOException $e) {
     die("ERROR: Could Not Connect to DATABASE => " . $e->getMessage());
 }
-if (isset($_POST['submitForm'])) {
+if (isset($_POST) && !empty($_POST)) {
 
     $user = array();
     foreach ($_POST as $key => $value) {
@@ -28,13 +29,27 @@ if (isset($_POST['submitForm'])) {
     }
     $user['user_type'] = "USER";
     $user['mot_de_passe'] = sha1($_POST['mot_de_passe']);
+
+    if (isset($_FILES) && !empty($_FILES['user_img'])) {
+
+        if (!is_dir(USER_IMG_FOLDER))
+            mkdir(USER_IMG_FOLDER, 0777);
+
+        $chemin = USER_IMG_FOLDER . "/" . $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));
+        $result = move_uploaded_file($_FILES['user_img']['tmp_name'], $chemin);
+        if ($result) {
+            $user['user_img'] = $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));;
+        } else msg_error("Error de l'importation de la photo.");
+    }
+
+
     $validate = saveUser($user);
 
 
     if ($validate == null) {
 
         $_POST = array();
-        header('Location:/projet-pfe/myinterimo/index.php');
+        header('Location:' . MAIN_FOLDER . '/index.php');
 
     } else {
         if (array_search('siret_error', $validate, true)) {
@@ -46,8 +61,8 @@ if (isset($_POST['submitForm'])) {
         if (array_search('phone_error', $validate, true)) {
             $phone_error = "N° télephone deja utilisée.";
         }
-    }
 
+    }
 }
 
 ?>
@@ -74,7 +89,7 @@ if (isset($_POST['submitForm'])) {
     <!-- - `.toast-container` for spacing between toasts -->
     <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
     <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php include 'connexion_error.php';
+    <?php
 
     if (!empty($phone_error)) {
         msg_error($phone_error);
@@ -86,8 +101,6 @@ if (isset($_POST['submitForm'])) {
         msg_error($n_siret_error);
     }
     ?>
-
-
 </div>
 <section class="container d-flex justify-content-center align-items-center w-100 h-100 ">
 
@@ -101,7 +114,8 @@ if (isset($_POST['submitForm'])) {
                 <div id="steps" class="d-flex position-absolute  justify-content-evenly align-items-center "></div>
 
             </div>
-            <form method="POST" action="" id="regForm" class="was-validated box row g-3 py-3 px-3">
+            <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="regForm"
+                  enctype="multipart/form-data" class="was-validated box row g-3 py-3 px-3">
 
                 <div class="tab row">
 
@@ -113,7 +127,7 @@ if (isset($_POST['submitForm'])) {
                         <label for="file-input" class="d-flex justify-content-center">
                             <i class="circle-icon fa-solid fa-camera fa-xl" style="cursor: pointer;"></i>
                         </label>
-                        <input id="file-input" type="file" accept="image/png,image/jpg,image/jpeg" name="user_image"
+                        <input id="file-input" type="file" accept="image/png,image/jpg,image/jpeg" name="user_img"
                                hidden="hidden">
                     </div>
                     <div class="col col-md-6">
@@ -187,11 +201,9 @@ if (isset($_POST['submitForm'])) {
                     </div>
                     <div class="col-md-6 mb-3 position-relative">
                         <label for="inputSIRET" class="form-label"> Numéro de SIRET(14 Chiffres) :</label>
-                        <input name="n_siret" type="text" class="form-control" placeholder="N de SIRET" maxlength="14"
+                        <input value="<?php if (isset($_POST['n_siret']) && empty($n_siret_error)) echo htmlspecialchars($_POST['n_siret']); ?>"
+                               name="n_siret" type="text" class="form-control" placeholder="N de SIRET" maxlength="14"
                                minlength="14"
-                               value="<?php
-                               if (isset($_POST['n_siret']) && !empty($n_siret_error)) echo htmlspecialchars($_POST['n_siret']);
-                               else echo '' ?>"
                                pattern="^\d{14}$" id="inputSIRET" required>
                         <div class="invalid-tooltip">
                             saisir un valid SIRET
@@ -221,7 +233,7 @@ if (isset($_POST['submitForm'])) {
                     </div>
                     <div class="col col-8 mb-2 position-relative">
                         <label for="inputEmail">Email</label>
-                        <input value="<?php if (isset($_POST['email']) && !empty($email_error)) echo htmlspecialchars($_POST['email']) ?>"
+                        <input value="<?php if (isset($_POST['email']) && empty($email_error)) echo htmlspecialchars($_POST['email']) ?>"
                                name="email" type="Email" class="form-control" id="inputEmail"
                                pattern="^\w+(\.[\w]+)?@([\w]+\.)+\w{2,4}$"
                                placeholder="exemple@mail.com" required>
@@ -253,7 +265,7 @@ if (isset($_POST['submitForm'])) {
                 <div id="button-collector" class="col-12 d-flex justify-content-between ">
                     <input type="button" style="visibility:hidden" class="rectangle-button " id="prevBtn"
                            onclick="nextPrev(-1)" value="Précedent">
-                    <input type="button" class="rectangle-button " name="" id="nextBtn" onclick="nextPrev(+1)"
+                    <input type="button" class="rectangle-button " id="nextBtn" onclick="nextPrev(+1)"
                            value="Suivant">
 
                 </div>
@@ -278,7 +290,7 @@ if (isset($_POST['submitForm'])) {
         crossorigin="anonymous"></script>
 
 <!--fontAwesome Script-->
-<script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
+<script src="./js/fontAwesome.js"></script>
 <script src="js/multipleForm.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script> $(document).ready(function () {

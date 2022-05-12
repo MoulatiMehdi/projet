@@ -29,7 +29,7 @@ $_SESSION['menu'] = 'contact';
 <!-- navBar menu-->
 <?php include 'elem_menu.php' ?>
 
-<!-- grap some space replace the fixed navbar space -->
+<!-- grap some space to replace the fixed navbar space -->
 <section class="p-5 "></section>
 
 <!-- Myinterimo Form and Location -->
@@ -173,7 +173,7 @@ $_SESSION['menu'] = 'contact';
 
 <?php include 'elem_footer.php' ?>
 </body>
-<script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
+<script src="./js/fontAwesome.js" ></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="js/draggble-slide.js"></script>
 <script src="js/validation.js"></script>

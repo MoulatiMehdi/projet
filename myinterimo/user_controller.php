@@ -1,6 +1,7 @@
 <?php
 include 'function_connectBD.php';
 
+const USER_IMG_FOLDER="img/user_img";
 function saveUser($user)
 {
 
@@ -13,13 +14,22 @@ function saveUser($user)
     if ($count_email != null) $errors[] = 'email_error';
     if ($count_phone != null) $errors[] = 'phone_error';
 
+    echo '<script>console.log("' . count($errors) . '")</script>';
 
-    if (array_count_values($errors)==0) {
-        $request = "INSERT INTO `myinterimo_users`(`n_siret`, `user_type`, `nom`, `prenom`, `civilite`, `telephone`, `email`, `mot_de_passe`, `nom_reseau`, `site_url`, `email_pro`, `n_siren`, `carte_t_reseau`, `adresse`, `user_image`)
-    VALUES ('${user['n_siret']}','${user['user_type']}','${user['nom']}','${user['prenom']}','${user['civilite']}','${user['telephone']}','${user['email']}','${user['mot_de_passe']}','${user['nom_reseau']}','${user['site_url']}','${user['email_pro']}','${user['n_siren']}','${user['carte_t_reseau']}','${user['adresse']}','${user['user_image']}')";
+    if (count($errors) == 1) {
+
+        $request = "INSERT INTO `myinterimo_users`(`n_siret`, `user_type`, `nom`, `prenom`, `civilite`, `telephone`, `email`, `mot_de_passe`, `nom_reseau`, `site_url`, `email_pro`, `n_siren`, `carte_t_reseau`, `adresse`, `user_img`)"
+            . " VALUES ('${user['n_siret']}','${user['user_type']}','${user['nom']}','${user['prenom']}','${user['civilite']}','${user['telephone']}','${user['email']}','${user['mot_de_passe']}','${user['nom_reseau']}','${user['site_url']}','${user['email_pro']}','${user['n_siren']}','${user['carte_t_reseau']}','${user['adresse']}','${user['user_img']}')";
 
         execRequest($request);
+
         return null;
     } else return $errors;
+
+}
+
+function findUserByEmail($email)
+{
+    return loadOne("SELECT * FROM ".TABLE_USERS." WHERE `email` LIKE '$email';");
 
 }

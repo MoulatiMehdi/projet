@@ -1,6 +1,5 @@
 <?php
-
-include 'function_connectBD.php';
+include 'user_controller.php';
 $error = "";
 
 /* Database credentials. Assuming you are running MySQL
@@ -22,12 +21,10 @@ if (isset($_POST['submit'])) {
     $email = htmlspecialchars($_POST['email']);
     $mot_de_passe = sha1($_POST['mot_de_passe']);
 
-    $find_email = $Myinterimo->prepare("SELECT email,mot_de_passe  FROM " . TABLE_USERS . " WHERE email LIKE (?) AND mot_de_passe LIKE (?)");
-    $find_email->execute(array($email, $mot_de_passe));
+    $user = findUserByEmail($email);
+    if ($user != null && $user['mot_de_passe'] === $mot_de_passe) {
 
-    if ($find_email->rowCount() == 1) {
-
-        header('Location:http://localhost:63342/projet-pfe/myinterimo/index.php');
+        header('Location:'.MAIN_FOLDER.'/index.php');
 
     } else {
         $error = "L'email ou le mot de passe est incorrect";
@@ -105,12 +102,13 @@ if (isset($_POST['submit'])) {
                     </svg>
                     <div class="alert alert-danger d-flex align-items-center" role="alert">
                         <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                        <div>'.$error.'</div>
+                        <div>' . $error . '</div>
                     </div>';
             ?>
             <div class="input-group mb-3 ">
                 <i class="fa-solid fa-envelope input-group-text  text-secondary bg-light" id="email-icon"></i>
-                <input name="email" type="text" class="form-control" placeholder="Votre e-mail"
+                <input value="<?php if (isset($_POST['email'])) echo $_POST['email'] ?>" name="email" type="text"
+                       class="form-control" placeholder="Votre e-mail"
                        aria-label="Votre e-mail"
                        aria-describedby="email-icon" required>
 
@@ -138,7 +136,7 @@ if (isset($_POST['submit'])) {
                 </p>
             </div>
             <div class="row justify-content-center mb-3">
-                <a href="#">cliquer ici</a>
+                <a href="./politique-de-confidentialite.php">cliquer ici</a>
             </div>
             <div class="row">
                 <p>COPYRIGHT 2021 MYESPACEO, TOUS DROITS RESERVES.</p>
@@ -167,5 +165,5 @@ if (isset($_POST['submit'])) {
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <!-- fontAwesome Script -->
-<script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
+<script src="./js/fontAwesome.js"></script>
 </html>

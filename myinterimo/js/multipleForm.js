@@ -46,14 +46,9 @@ function showTab(n) {
     if (n === (x.length - 1)) {
 
         document.getElementById("nextBtn").value = "Envoyer";
-        document.getElementById("nextBtn").type = "submit"
-        document.getElementById("nextBtn").name = "submitForm"
 
     } else {
         document.getElementById("nextBtn").value = "Suivent";
-        document.getElementById("nextBtn").type = "button"
-        document.getElementById("nextBtn").name = ""
-
     }
     // ... and run a function that displays the correct step indicator:
     fixStepIndicator(n);
@@ -64,18 +59,13 @@ function goToTab(n) {
 
     const x = document.getElementsByClassName("tab");
     // Exit the function if any field in the current tab is invalid:
-    if (n>lastTab &&!validateForm()) {
+    if (n > lastTab && !validateForm()) {
         return false;
     }
 
     if (x.length > currentTab) x[currentTab].style.display = "none"; // Hide the current tab:
 
     currentTab = n;// Increase or decrease the current tab by 1:
-
-    if (currentTab >= x.length) {// if you have reached the end of the form... :
-        document.getElementById("regForm").submit(); //...the form gets submitted:
-        return false;
-    }
 
     showTab(currentTab); // Otherwise, display the correct tab:
 

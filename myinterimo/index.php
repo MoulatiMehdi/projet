@@ -427,7 +427,7 @@ $_SESSION['menu'] = 'accueil';
 
 </body>
 <!-- fontAwesome Script -->
-<script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
+<script src="./js/fontAwesome.js" ></script>
 
 <!-- JavaScript Bundle with Popper(Boostrap) -->
 

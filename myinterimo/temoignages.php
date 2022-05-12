@@ -36,7 +36,7 @@ $_SESSION['menu'] = 'temoignages';
 <?php include 'elem_footer.php' ?>
 
 </body>
-<script src="https://kit.fontawesome.com/85c9736486.js" crossorigin="anonymous"></script>
+<script src="./js/fontAwesome.js"></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="js/draggble-slide.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
