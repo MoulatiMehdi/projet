@@ -444,7 +444,7 @@ $_SESSION['menu'] = 'accueil';
 
 </body>
 <!-- fontAwesome Script -->
-<script src="./js/fontAwesome.js" ></script>
+<script src="./js/fontAwesome.js"></script>
 
 <!-- JavaScript Bundle with Popper(Boostrap) -->
 

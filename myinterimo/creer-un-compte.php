@@ -299,32 +299,9 @@ if (isset($_POST) && !empty($_POST)) {
 <script src="js/multipleForm.js"></script>
 <script src="js/displayImportImage.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script> $(document).ready(function () {
+<script type="application/javascript">
+    $(document).ready(function () {
         $('.toast').toast('show');
     });
-
-    window.onload = function () {
-        let fileInput = document.getElementById('fileInput');
-
-        //by default
-        cropImage("./img/user_img/anonyme.svg");
-        if (fileInput !== undefined) {
-            fileInput.addEventListener('change', function () {
-                let file = fileInput.files[0];
-                let imageType = /image.*/;
-
-                if (file.type.match(imageType)) {
-                    let reader = new FileReader();
-
-
-                    reader.onload = function () {
-                        cropImage(reader.result.toString());
-                    }
-
-                    reader.readAsDataURL(file);
-                }
-            });
-        }
-    }
 </script>
 </html>

@@ -8,7 +8,7 @@ $user = $_SESSION['user'] ?? null;
 $currentFolder = '';
 $imgProfile = 'img/user_img/';
 
-if (isset($_SESSION['menu']) || $_SESSION['menu'] == 'pageNotFound') {
+if ($menu === 'pageNotFound') {
     $currentFolder = '/projet-pfe/myinterimo/';
     $imgProfile = $currentFolder . $imgProfile;
 }
@@ -104,47 +104,71 @@ if (isset($_POST['logout'])) {
                     <?php endif ?>
                 </li>
             </ul>
-            <?php if ($user == null): ?>
-                <div class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
+            <div class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
+                <?php if ($user == null): ?>
                     <a href="<?php echo $currentFolder ?>creer-un-compte.php" class="rectangle-button"
                        style="height: 35px">se Connecter</a>
                     <a href="<?php echo $currentFolder ?>connexion.php" class="rectangle-button-white"
                        style="height: 35px">Connexion</a>
-                </div>
-            <?php else:
+                <?php else:
 
-                if (empty($user['user_img']) || !file_exists($imgProfile . "/" . $user['user_img']))
-                    $imgProfile .= 'anonyme.svg';
-                else
-                    $imgProfile .= $user['user_img'];
-                ?>
-                <div class="dropdown align-items-center">
-                    <button class="btn rounded-circle d-flex image-profil" type="button" id="dropdownMenu2"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                        <canvas id="canvas"></canvas>
-                        <script src="js/displayImportImage.js">
-                            cropImage('<?php echo $imgProfile?>');
-                        </script>
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                        <li>
-                            <button class="dropdown-item" type="button">Profil</button>
-                        </li>
-                        <li>
-                            <button class="dropdown-item" type="button">Another action</button>
-                        </li>
-                        <li>
-                            <button class="dropdown-item" type="button">Something else here</button>
-                        </li>
-                    </ul>
-                </div>
-                <form action="" method="post"
-                      class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
-                    <input type="submit" name="logout" class="rectangle-button-white" style="height: 35px"
-                           value="Déconnexion">
-                </form>
-            <?php endif ?>
+                    if (empty($user['user_img']) || !file_exists($imgProfile . "/" . $user['user_img']))
+                        $imgProfile .= 'anonyme.svg';
+                    else
+                        $imgProfile .= $user['user_img'];
+                    ?>
+                    <div class="dropdown  align-items-center ">
+                        <button class="btn rounded-circle " type="button" id="menu-notification"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bell fa-xl text-primary"></i>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                99+
+                                <span class="visually-hidden">unread messages</span>
+                            </span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="menu-notification">
+                            <li>
+                                <a href="#" class="dropdown-item">Edit Profil</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Another action</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown  align-items-center ">
+                        <button class="btn rounded-circle " type="button"
+                                id="menu-profil" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="<?php echo $imgProfile ?>" id="image-profil" alt="" hidden="hidden">
+                            <canvas id="canvas" class="image-profil"></canvas>
+                            <script src="js/cropImage.js"></script>
 
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end"
+                            aria-labelledby="menu-profil">
+                            <li>
+                                <a href="#" class="dropdown-item">Edit Profil</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Another action</a>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+
+                                <form action="" method="post">
+                                    <button type="submit" name="logout" class="dropdown-item" style="height: 35px">
+                                    <span class="d-flex justify-content-start">
+                                        <i class="fa-solid fa-power-off me-2"></i>
+                                        Déconnexion
+                                    </span>
+                                    </button>
+                                </form>
+
+                            </li>
+                        </ul>
+                    </div>
+                <?php endif ?>
+            </div>
         </div>
     </nav>
 </header>
