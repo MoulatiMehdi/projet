@@ -118,13 +118,11 @@ if (isset($_POST['logout'])) {
                 else
                     $imgProfile .= $user['user_img'];
                 ?>
-
                 <div class="dropdown align-items-center">
                     <button class="btn rounded-circle d-flex image-profil" type="button" id="dropdownMenu2"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                        <canvas id="canvas" ></canvas>
+                        <canvas id="canvas"></canvas>
                         <script type="application/javascript" src="js/displayImportImage.js">
-
                             cropImage('<?php echo $imgProfile ?>');
                         </script>
                     </button>

@@ -88,40 +88,7 @@ if (isset($_POST) && !empty($_POST)) {
             transition: 0.3s ease-in;
         }
     </style>
-    <!--JavaScript Bundle with Popper(Boostrap)-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-            crossorigin="anonymous"></script>
 
-    <!--fontAwesome Script-->
-    <script src="./js/fontAwesome.js"></script>
-    <script src="js/multipleForm.js"></script>
-    <script src="js/displayImportImage.js">
-
-        window.onload = function () {
-            let fileInput = document.getElementById('fileInput');
-
-            //by default
-            cropImage("./img/user_img/anonyme.svg")
-
-            fileInput.addEventListener('change', function () {
-                let file = fileInput.files[0];
-                let imageType = /image.*/;
-
-                if (file.type.match(imageType)) {
-                    let reader = new FileReader();
-
-
-                    reader.onload = function () {
-                        cropImage(reader.result.toString());
-                    }
-
-                    reader.readAsDataURL(file);
-                }
-            });
-        }
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
@@ -321,11 +288,17 @@ if (isset($_POST) && !empty($_POST)) {
     </div>
 
 </section>
-<div>
-
-</div>
-
 </body>
+<!--JavaScript Bundle with Popper(Boostrap)-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
+<!--fontAwesome Script-->
+<script src="./js/fontAwesome.js"></script>
+<script src="js/multipleForm.js"></script>
+<script src="js/displayImportImage.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script> $(document).ready(function () {
         $('.toast').toast('show');
     }); </script>
