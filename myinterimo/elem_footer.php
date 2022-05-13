@@ -129,14 +129,3 @@
         </div>
     </div>
 </footer>
-
-<div class="toast-container position-absolute top-0 end-0 p-3">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
-    if(!isset($_SESSION)) session_start();
-    if (!empty($_SESSION['error_phone'])) msg_warning_toast($_SESSION['error_phone']);
-    ?>
-</div>

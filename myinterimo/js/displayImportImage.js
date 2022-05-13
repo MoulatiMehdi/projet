@@ -24,25 +24,3 @@ function cropImage(imagePath) {
     });
 }
 
-window.onload = function () {
-    let fileInput = document.getElementById('fileInput');
-
-    //by default
-    cropImage("./img/user_img/anonyme.svg")
-
-    fileInput.addEventListener('change', function () {
-        let file = fileInput.files[0];
-        let imageType = /image.*/;
-
-        if (file.type.match(imageType)) {
-            let reader = new FileReader();
-
-
-            reader.onload = function () {
-                cropImage(reader.result.toString());
-            }
-
-            reader.readAsDataURL(file);
-        }
-    });
-}

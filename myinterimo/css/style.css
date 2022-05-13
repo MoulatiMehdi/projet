@@ -36,9 +36,10 @@ section h1, section strong {
 
 }
 
-input{
+input {
     position: relative;
 }
+
 .count * {
     color: #FFFFFF;
     font-family: "Rubik", sans-serif;
@@ -232,11 +233,13 @@ button:focus, button:active {
     background-color: white;
 
 }
-.disabled{
+
+.disabled {
     opacity: 70%;
     cursor: default !important;
 }
-.rectangle-button:hover{
+
+.rectangle-button:hover {
 
     color: var(--color-main);
     outline: var(--color-main) 2px solid;
@@ -495,6 +498,13 @@ footer a {
 
 .animImgRight {
     animation: moveRight 3s ease-in-out;
+}
+
+.image-profil {
+    height: 50px;
+    width: 50px;
+    border: 2px solid var(--color-main);
+    border-radius: 50px;
 }
 
 iframe {

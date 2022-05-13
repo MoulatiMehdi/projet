@@ -46,6 +46,15 @@
             /*text-align: center;*/
         }
     </style>
+
+    <!-- fontAwesome Script -->
+    <script src="./js/fontAwesome.js"></script>
+
+    <!-- JavaScript Bundle with Popper(Boostrap) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
 <div class="toast-container position-absolute top-50 start-50  p-3 "
@@ -65,7 +74,7 @@
     ?>
 </div>
 <div class="container">
-<?php include 'elem_menu.php' ?>
+    <?php include 'elem_menu.php' ?>
     <!-- grab some space to replace the fixed navbar -->
     <section class=" my-5 py-3"></section>
     <section class="politique">
@@ -86,7 +95,7 @@
             Siège social : Leaseweb UK Ltd. 5 Merchant Square, Paddington . London W2 1AY – Royaume-Uni <br>
         </p>
         <p class="description"> Service clients : <a
-                href="mailto:customercare@leaseweb.com">customercare@leaseweb.com</a></p>
+                    href="mailto:customercare@leaseweb.com">customercare@leaseweb.com</a></p>
         <p class="description">MYINTERIMO collecte les informations personnelles fournies par les utilisateurs à
             l’occasion de leur visite
             sur le site. Cette collecte permet : L’établissement de statistiques générales sur le trafic sur le site ;
@@ -145,14 +154,6 @@
 
 
 </body>
-<!-- fontAwesome Script -->
-<script src="./js/fontAwesome.js" ></script>
-
-<!-- JavaScript Bundle with Popper(Boostrap) -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 
 
 </html>

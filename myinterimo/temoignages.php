@@ -1,5 +1,5 @@
 <?php
-session_start();
+if (!isset($_SESSION)) session_start();
 $_SESSION['menu'] = 'temoignages';
 ?>
 <!doctype html>
@@ -21,6 +21,11 @@ $_SESSION['menu'] = 'temoignages';
     <?php include 'elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
+
+    <script src="./js/fontAwesome.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
     <title>Témoignages - MyInterimo</title>
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
@@ -52,10 +57,8 @@ $_SESSION['menu'] = 'temoignages';
 <?php include 'elem_footer.php' ?>
 
 </body>
-<script src="./js/fontAwesome.js"></script>
+
 <!-- JavaScript Bundle with Popper -->
 <script src="js/draggble-slide.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+
 </html>

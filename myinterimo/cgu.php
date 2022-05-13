@@ -46,7 +46,16 @@
             /*text-align: center;*/
         }
     </style>
+    <script src="./js/fontAwesome.js"></script>
+
+    <!-- JavaScript Bundle with Popper(Boostrap) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+
 </head>
+
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
 <div class="toast-container position-absolute top-50 start-50  p-3 "
      style="z-index:5">
@@ -591,14 +600,6 @@
 <?php include 'elem_footer.php' ?>
 
 </body>
-<!-- fontAwesome Script -->
-<script src="./js/fontAwesome.js"></script>
-
-<!-- JavaScript Bundle with Popper(Boostrap) -->
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
 
 
 </html>

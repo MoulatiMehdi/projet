@@ -71,6 +71,13 @@ if (isset($_POST['submit'])) {
         }
     </style>
     <link rel="stylesheet" href="css/style.css">
+    <!-- JavaScript Bundle with Popper(Boostrap) -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+            crossorigin="anonymous"></script>
+    <!-- fontAwesome Script -->
+    <script src="./js/fontAwesome.js"></script>
 
 </head>
 <body class="container d-flex justify-content-center align-items-center">
@@ -138,11 +145,5 @@ if (isset($_POST['submit'])) {
     <img src="img/illustrations/login.png" class="col col-md-6 col-10 img-fluid mt-md-0 mt-5" alt="Myinterimo,house">
 </section>
 </body>
-<!-- JavaScript Bundle with Popper(Boostrap) -->
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-<!-- fontAwesome Script -->
-<script src="./js/fontAwesome.js"></script>
 </html>
