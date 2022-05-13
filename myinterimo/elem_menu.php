@@ -122,8 +122,8 @@ if (isset($_POST['logout'])) {
                     <button class="btn rounded-circle d-flex image-profil" type="button" id="dropdownMenu2"
                             data-bs-toggle="dropdown" aria-expanded="false">
                         <canvas id="canvas"></canvas>
-                        <script type="application/javascript" src="js/displayImportImage.js">
-                            cropImage('<?php echo $imgProfile ?>');
+                        <script src="js/displayImportImage.js">
+                            cropImage('<?php echo $imgProfile?>');
                         </script>
                     </button>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
