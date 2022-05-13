@@ -30,7 +30,7 @@ window.onload = function () {
     //by default
     cropImage("./img/user_img/anonyme.svg")
 
-    if (fileInput != null) {
+    if (fileInput !== undefined) {
         fileInput.addEventListener('change', function () {
             let file = fileInput.files[0];
             let imageType = /image.*/;
