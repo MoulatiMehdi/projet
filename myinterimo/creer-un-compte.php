@@ -217,8 +217,8 @@ if (isset($_POST) && !empty($_POST)) {
                                name="n_siret" type="text" class="form-control" placeholder="N de SIRET" maxlength="14"
                                minlength="14"
                                pattern="^\d{14}$" id="inputSIRET" required>
-                        <div class="invalid-tooltip">
-                            saisir un valid SIRET
+                        <div class="invalid-tooltip" id="siret_validation">
+                            Saisir un valid SIRET
                         </div>
                     </div>
                     <div class="col-md-6 mb-3 position-relative">

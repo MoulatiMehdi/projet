@@ -151,22 +151,27 @@ function validatePassword() {
 
 //
 function validateSiret() {
+    let tooltipSiret = document.getElementById('siret_validation');
 
-    if (!siret.value.startsWith(siren.value)) {
-        siret.setCustomValidity("N° SIRET doit commencer par N°SIREN");
-        siren.setCustomValidity("N° SIRET doit commencer par N°SIREN");
+    if (siret.value === "" ) tooltipSiret.innerText = "Saisir un valid SIRET.";
+    else if (!siret.value.startsWith(siren.value)) {
+        siret.setCustomValidity("Doit commencer par N°SIREN");
+        siren.setCustomValidity("Doit être au début de N°SIRET");
+        tooltipSiret.innerText = "Doit commencer par N°SIREN";
     } else {
+        tooltipSiret.innerText = "Saisir 14 chiffres.";
         siret.setCustomValidity('');
         siren.setCustomValidity('');
     }
+
+
 }
 
-password.onchange = validatePassword;
+password.onkeyup = validatePassword;
 confirmPassword.onkeyup = validatePassword;
 
 siren.onkeyup = validateSiret;
 siret.onkeyup = validateSiret;
-
 
 
 showTab(currentTab); // Display the current tab
