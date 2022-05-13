@@ -153,7 +153,7 @@ function validatePassword() {
 function validateSiret() {
     let tooltipSiret = document.getElementById('siret_validation');
 
-    if (siret.value === "" ) tooltipSiret.innerText = "Saisir un valid SIRET.";
+    if (siret.value === "") tooltipSiret.innerText = "Saisir un valid SIRET.";
     else if (!siret.value.startsWith(siren.value)) {
         siret.setCustomValidity("Doit commencer par N°SIREN");
         siren.setCustomValidity("Doit être au début de N°SIRET");

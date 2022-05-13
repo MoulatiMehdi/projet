@@ -99,9 +99,31 @@ if (isset($_POST['logout'])) {
                     <a href="connexion.php" class="rectangle-button-white" style="height: 35px">Connexion</a>
                 </div>
             <?php else: ?>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <span>DropDown</span>
+                        <img src="<?php
+                        if ($user['user_img'] == '' || !file_exists(USER_IMG_FOLDER . "/" . $user['user_img']))
+                            echo USER_IMG_FOLDER . '/' . 'anonyme.svg';
+                        else
+                            echo USER_IMG_FOLDER.'/'.$user['user_img'];?>"
+                             alt="photo profile">
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <li>
+                            <button class="dropdown-item" type="button">Profil</button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" type="button">Another action</button>
+                        </li>
+                        <li>
+                            <button class="dropdown-item" type="button">Something else here</button>
+                        </li>
+                    </ul>
+                </div>
                 <form action="" method="post"
                       class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
-
                     <input type="submit" name="logout" class="rectangle-button-white" style="height: 35px"
                            value="Déconnexion">
                 </form>

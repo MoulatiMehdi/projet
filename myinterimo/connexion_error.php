@@ -1,6 +1,6 @@
 <?php
 
-/**          @Toast_Messages        **/
+/**          @Toast_Messages        * */
 
 function msg_error_toast($error): void
 {
@@ -38,7 +38,7 @@ function msg_warning_toast($error): void
           </div>';
 }
 
-/**          @Alert_Messages        **/
+/**          @Alert_Messages        * */
 
 function msg_error_alert($error): void
 {

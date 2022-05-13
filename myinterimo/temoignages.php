@@ -23,7 +23,23 @@ $_SESSION['menu'] = 'temoignages';
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
     <title>Témoignages - MyInterimo</title>
 </head>
-<body>
+<body aria-live="polite" aria-atomic="true" class="position-relative ">
+<div class="toast-container position-absolute top-50 start-50  p-3 "
+     style="z-index:5">
+    <!-- Position it: -->
+    <!-- - `.toast-container` for spacing between toasts -->
+    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
+    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
+    <?php
+
+    if (!empty($_SESSION['error_phone'])) {
+        msg_warning_toast($_SESSION['error_phone']);
+        unset($_SESSION['error_phone']);
+    }
+
+
+    ?>
+</div>
 
 <?php include 'elem_menu.php' ?>
 <section class=" p-5 "></section>
