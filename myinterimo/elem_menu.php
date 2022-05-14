@@ -20,7 +20,28 @@ if (isset($_POST['logout'])) {
 }
 
 ?>
+<style>
 
+
+
+    .navbar ul.dropdown-menu::after {
+        --length-arrow: 13px;
+        position: absolute;
+
+        width: calc(var(--length-arrow) * 1.5);
+        height: calc(var(--length-arrow));
+        top: calc(var(--length-arrow) * -1);
+
+        right: 10px;
+
+        content: "";
+        display: block;
+        background: #343a40;
+        clip-path: polygon(50% 0, 100% 100%, 0 100%);
+
+    }
+
+</style>
 <header class="container">
     <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
         <a class="col col-md-4 col-auto" href="<?php echo $currentFolder ?>index.php">
@@ -104,7 +125,7 @@ if (isset($_POST['logout'])) {
                     <?php endif ?>
                 </li>
             </ul>
-            <div class="me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
+            <div class=" me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
                 <?php if ($user == null): ?>
                     <a href="<?php echo $currentFolder ?>creer-un-compte.php" class="rectangle-button"
                        style="height: 35px">se Connecter</a>
@@ -117,37 +138,58 @@ if (isset($_POST['logout'])) {
                     else
                         $imgProfile .= $user['user_img'];
                     ?>
-                    <div class="dropdown  align-items-center ">
-                        <button class="btn rounded-circle " type="button" id="menu-notification"
+                    <div class=" dropdown d-flex align-items-center " style="height: 100%">
+                        <button class="btn rounded-circle position-relative" type="button" id="menu-notification"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-bell fa-xl text-primary"></i>
                             <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                                 99+
-                                <span class="visually-hidden">unread messages</span>
+                                <span class="visually-hidden">notifications</span>
                             </span>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end"
+
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark "
                             aria-labelledby="menu-notification">
                             <li>
-                                <a href="#" class="dropdown-item">Edit Profil</a>
+                                <a href="#" class="dropdown-item ">Edit Profil</a>
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item">Another action</a>
+                                <a href="#" class="dropdown-item ">Favori</a>
                             </li>
                         </ul>
                     </div>
-                    <div class="dropdown  align-items-center ">
+                    <div class=" dropdown d-flex align-items-center ">
                         <button class="btn rounded-circle " type="button"
                                 id="menu-profil" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="<?php echo $imgProfile ?>" id="image-profil" alt="" hidden="hidden">
-                            <canvas id="canvas" class="image-profil"></canvas>
-                            <script src="js/cropImage.js"></script>
+                            <canvas  class="image-profil"></canvas>
+
 
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end"
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark"
                             aria-labelledby="menu-profil">
+                            <li class="row dropdown-header ">
+
+                                   <canvas  class="image-profil" height="40" width="40"></canvas>
+                                   <div class="col col-auto">
+                                       <h6 class="">
+                                           <?php echo $user['nom'] . " " . $user['prenom'] ?>
+                                       </h6>
+                                       <h6>
+                                           <?php echo $user['email'] ?>
+                                       </h6>
+                                   </div>
+
+
+                            </li>
+                            <li class="dropdown-divider"></li>
                             <li>
-                                <a href="#" class="dropdown-item">Edit Profil</a>
+                                <a href="#" class="dropdown-item">
+                                    <span class="d-flex align-items-center justify-content-start">
+                                        <i class="fa-solid fa-pencil fa-xs me-2"></i>
+                                        Edit Profil
+                                    </span>
+                                </a>
                             </li>
                             <li>
                                 <a href="#" class="dropdown-item">Another action</a>
@@ -158,7 +200,7 @@ if (isset($_POST['logout'])) {
                                 <form action="" method="post">
                                     <button type="submit" name="logout" class="dropdown-item" style="height: 35px">
                                     <span class="d-flex justify-content-start">
-                                        <i class="fa-solid fa-power-off me-2"></i>
+                                        <i class="fa-solid fa-power-off me-2 fa-sm"></i>
                                         Déconnexion
                                     </span>
                                     </button>
@@ -172,4 +214,5 @@ if (isset($_POST['logout'])) {
         </div>
     </nav>
 </header>
+<script src="js/cropImage.js"></script>
 

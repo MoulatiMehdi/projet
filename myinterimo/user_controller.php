@@ -1,7 +1,7 @@
 <?php
 include 'function_connectBD.php';
 
-const USER_IMG_FOLDER="img/user_img";
+const USER_IMG_FOLDER = "img/user_img";
 function saveUser($user): ?array
 {
 
@@ -30,6 +30,21 @@ function saveUser($user): ?array
 
 function findUserByEmail($email)
 {
-    return loadOne("SELECT * FROM ".TABLE_USERS." WHERE `email` LIKE '$email';");
+    return loadOne("SELECT * FROM " . TABLE_USERS . " WHERE `email` LIKE '$email';");
 
+}
+
+function deleteUserByEmail($email): void
+{
+    execRequest("DELETE FROM " . TABLE_USERS . " WHERE `email` LIKE '$email' ;");
+}
+
+function findUSerBySiret($siret)
+{
+    return loadOne("SELECT * FROM " . TABLE_USERS . " WHERE `n_siret` LIKE '$siret';");
+}
+
+function deleteUserBySiret($siret): void
+{
+    execRequest("DELETE FROM " . TABLE_USERS . " WHERE `email` LIKE '$siret' ;");
 }
