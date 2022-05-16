@@ -1,9 +1,12 @@
 <?php
 
 if (!isset($_SESSION)) session_start();
+echo $menu = null;
+echo $user = null;
 
-$menu = $_SESSION['menu'] ?? null;
-$user = $_SESSION['user'] ?? null;
+$menu = (isset($_SESSION['menu'])) ? $_SESSION['menu'] : null;
+$user = (isset($_SESSION['user'])) ? $_SESSION['user'] : null;
+
 
 $currentFolder = '';
 $imgProfile = 'img/user_img/';
@@ -22,22 +25,22 @@ if (isset($_POST['logout'])) {
 ?>
 <style>
 
-
-
     .navbar ul.dropdown-menu::after {
-        --length-arrow: 13px;
+        --length-arrow: 15px;
         position: absolute;
 
         width: calc(var(--length-arrow) * 1.5);
-        height: calc(var(--length-arrow));
-        top: calc(var(--length-arrow) * -1);
+        height: calc(var(--length-arrow) * 1.5);
 
-        right: 10px;
+        top: calc(var(--length-arrow) * -0.5);
+        right: calc(33px - 12px);
 
         content: "";
         display: block;
         background: #343a40;
-        clip-path: polygon(50% 0, 100% 100%, 0 100%);
+        clip-path: polygon(0 0, 100% 100%, 0 100%);
+        transform: rotateZ(135deg);
+        border-radius: 0 0 0 4px;
 
     }
 
@@ -126,7 +129,7 @@ if (isset($_POST['logout'])) {
                 </li>
             </ul>
             <div class=" me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
-                <?php if ($user == null): ?>
+                <?php if (empty($user)): ?>
                     <a href="<?php echo $currentFolder ?>creer-un-compte.php" class="rectangle-button"
                        style="height: 35px">se Connecter</a>
                     <a href="<?php echo $currentFolder ?>connexion.php" class="rectangle-button-white"
@@ -138,7 +141,8 @@ if (isset($_POST['logout'])) {
                     else
                         $imgProfile .= $user['user_img'];
                     ?>
-                    <div class=" dropdown d-flex align-items-center " style="height: 100%">
+                    <div class=" dropdown d-flex align-items-center justify-content-center"
+                         style="height: 60px; width: 66px;">
                         <button class="btn rounded-circle position-relative" type="button" id="menu-notification"
                                 data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-solid fa-bell fa-xl text-primary"></i>
@@ -150,49 +154,62 @@ if (isset($_POST['logout'])) {
 
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark "
                             aria-labelledby="menu-notification">
+                            <li class="dropdown-header text-light"><h6>Notification</h6></li>
+                            <li class="dropdown-divider "></li>
                             <li>
-                                <a href="#" class="dropdown-item ">Edit Profil</a>
+                                <a href="#" class="dropdown-item ">Notification 1</a>
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item ">Favori</a>
+                                <a href="#" class="dropdown-item ">Notification 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item ">Notification 3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item ">Notification 4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item ">Notification 5</a>
                             </li>
                         </ul>
                     </div>
-                    <div class=" dropdown d-flex align-items-center ">
+                    <div class=" dropdown d-flex">
                         <button class="btn rounded-circle " type="button"
                                 id="menu-profil" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="<?php echo $imgProfile ?>" id="image-profil" alt="" hidden="hidden">
-                            <canvas  class="image-profil"></canvas>
-
-
+                            <canvas class="image-profil"></canvas>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark"
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark "
                             aria-labelledby="menu-profil">
-                            <li class="row dropdown-header ">
+                            <li class="dropdown-header d-flex flex-rows align-items-center">
 
-                                   <canvas  class="image-profil" height="40" width="40"></canvas>
-                                   <div class="col col-auto">
-                                       <h6 class="">
-                                           <?php echo $user['nom'] . " " . $user['prenom'] ?>
-                                       </h6>
-                                       <h6>
-                                           <?php echo $user['email'] ?>
-                                       </h6>
-                                   </div>
-
+                                <canvas class="image-profil"
+                                        style="height: 70px !important; width: 70px !important;"></canvas>
+                                <div class="px-3">
+                                    <div class="text-light fs-6"><?php echo ucfirst($user['nom']) . " " . ucfirst($user['prenom']) ?></div>
+                                    <div><?php echo $user['email'] ?></div>
+                                    <a href="#" class="btn btn-primary d-inline-flex  mt-2">
+                                        <i class="fa-solid fa-pencil fa-xs me-2"></i>
+                                        Edit Profil
+                                    </a>
+                                </div>
 
                             </li>
                             <li class="dropdown-divider"></li>
                             <li>
-                                <a href="#" class="dropdown-item">
-                                    <span class="d-flex align-items-center justify-content-start">
-                                        <i class="fa-solid fa-pencil fa-xs me-2"></i>
-                                        Edit Profil
-                                    </span>
-                                </a>
+                                <a href="#" class="dropdown-item">Action 1 </a>
                             </li>
                             <li>
-                                <a href="#" class="dropdown-item">Another action</a>
+                                <a href="#" class="dropdown-item">Action 2</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Action 3</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Action 4</a>
+                            </li>
+                            <li>
+                                <a href="#" class="dropdown-item">Action 5</a>
                             </li>
                             <li class="dropdown-divider"></li>
                             <li>

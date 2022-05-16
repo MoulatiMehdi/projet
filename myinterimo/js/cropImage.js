@@ -6,8 +6,8 @@ function cropImage(imagePath) {
     //initialize the canvas object
     const canvas = document.getElementsByClassName('image-profil');
     for (let i = 0; i < canvas.length; i++) {
-
-        const ctx = canvas[i].getContext('2d');
+        console.log(canvas[i]);
+        let ctx = canvas[i].getContext('2d');
 
         //wait for the image to finish loading
         originalImage.addEventListener('load', function () {

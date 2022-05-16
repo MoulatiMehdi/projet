@@ -128,7 +128,7 @@ nav li:hover hr {
 
 }
 
-nav a {
+nav a.nav-link {
     font-size: 17px;
     color: black;
     font-weight: 600;
@@ -137,6 +137,10 @@ nav a {
 /*  footer    */
 footer {
     padding: 50px 50px;
+}
+
+.dropdown :is(a,button,.btn) {
+    font-size: 0.875rem !important;
 }
 
 footer > div {
@@ -169,8 +173,6 @@ nav ul, footer ul {
 a {
     text-align: center;
     text-decoration: none;
-    transition: 2s ease-out;
-
 }
 
 /* text */
@@ -218,6 +220,7 @@ button:focus, button:active {
     outline: 2px var(--color-main) solid;
     border: transparent solid;
     transition: 0.3s ease-in;
+
 
 }
 
@@ -271,6 +274,7 @@ button:focus, button:active {
     transition: ease-in 0.3s;
     color: white;
     background-color: var(--color-main);
+   ;
 
 }
 
@@ -353,6 +357,7 @@ i {
     border-radius: 5px !important;
 
     transition: 0.1s ease-out;
+
 
 }
 
@@ -503,8 +508,9 @@ footer a {
 .image-profil {
     height: 40px !important;
     width: 40px !important;
-    border: 3px solid var(--color-main);
+    outline: 3px solid var(--color-main);
     border-radius: 40px;
+
 }
 
 iframe {
