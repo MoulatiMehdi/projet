@@ -22,3 +22,24 @@ function displayTab(n) {
 }
 
 hideTabs();
+
+editPassword = document.getElementById('inputPassword');
+editConfirmPassword = document.getElementById('inputConfirmPassword');
+
+/* confirm the password method */
+function validatePassword() {
+    let tooltipConfirmPassword = document.getElementById('tooltipEditConfirmPassword');
+    if (password.value !== confirmPassword.value) {
+        tooltipConfirmPassword.innerText = "le Mot d passe n\'est pas identique";
+        confirmPassword.setCustomValidity('le Mot d passe n\'est pas identique');
+    } else {
+        confirmPassword.setCustomValidity('');
+        tooltipConfirmPassword.innerText = "saisir entre 8-32 characters.";
+    }
+}
+
+
+editPassword.onkeyup = validatePassword;
+editConfirmPassword.onkeyup = validatePassword;
+
+

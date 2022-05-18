@@ -13,6 +13,10 @@ const ERROR_PHONE = "Ce N° téléphone deja utilisé.";
 const ERROR_EMAIL = "Cet email deja utilisé.";
 const ERROR_PHOTO = "Error de l'importation de la photo.";
 const ERROR_PHOTO_SIZE = "la taille de photo maximale est 2Mo.";
+const ERROR_EDITING_PROFILE = "Un erreur est déclenché pendant la Mise à jour";
+const ERROR_PASSWORD = "Le Mot de Passe est incorrect";
+
+const SUCCESS_EDITING_PROFILE = "Mise à jour du profil réussie";
 
 function connectToDB(): PDO
 {
@@ -42,14 +46,15 @@ function loadOne($request)
 
 }
 
-function execRequest($request): void
+function execRequest($request): bool
 {
     $db = connectToDB();
     try {
         $db->query($request);
     } catch (PDOException $e) {
-        die("ERROR: Could Not Execute the Request => " . $e->getMessage());
+        return false;
     }
+    return true;
 
 }
 

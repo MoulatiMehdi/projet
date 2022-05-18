@@ -69,8 +69,8 @@ if (isset($_POST) && !empty($_POST)) {
 
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute bottom-0 start-0  p-3 "
-     style="z-index:5">
+<div class="toast-container position-absolute top-0 start-50  p-3 "
+     style="z-index:5; margin-top: 100px">
     <!-- Position it: -->
     <!-- - `.toast-container` for spacing between toasts -->
     <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
@@ -83,9 +83,7 @@ if (isset($_POST) && !empty($_POST)) {
     }
     foreach ($error as $value) {
         msg_error_toast($value);
-
     }
-
 
     ?>
 </div>
@@ -246,7 +244,7 @@ if (isset($_POST) && !empty($_POST)) {
                                name="mot_de_passe" type="password" class="form-control" id="inputPassword"
                                pattern="^.{8,32}$" placeholder="Mot de Passe" required>
                         <div class="invalid-tooltip ps-2">
-                            enter 8-32 characters.
+                            saisir entre 8-32 characters.
                         </div>
                     </div>
 

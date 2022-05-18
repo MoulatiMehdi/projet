@@ -18,13 +18,16 @@ if (isset($_POST) && !empty($_POST)) {
         if ($value == '') continue;
         $update_user[str_replace("update_", "", $key)] = htmlspecialchars($value);
     }
+    var_dump($_POST);
 
-
-    if ($_POST['current_mot_de_passe'] === sha1($_SESSION['user']['mot_de_passe']))
+    if (sha1($_POST['current_mot_de_passe']) === $_SESSION['user']['mot_de_passe'])
         $update_user['mot_de_passe'] = sha1($_POST['update_mot_de_passe']);
-    else
+    else{
         $update_user['mot_de_passe'] = '';
+    }
 
+
+    unset($update_user['current_mot_de_passe']);
     $update_user['user_img'] = $current_user['user_img'];
 
 
@@ -39,18 +42,22 @@ if (isset($_POST) && !empty($_POST)) {
             if ($result) {
                 $update_user['user_img'] = $update_user['n_siret'] . strtolower(strrchr($_FILES['update_user_img']['name'], "."));
             } else {
-                $_SESSION['error']['error_photo'] = ERROR_PHOTO . $_FILES['update_user_img']['size'];
+                $_SESSION['error']['photo'] = ERROR_PHOTO . $_FILES['update_user_img']['size'];
             }
         } else {
-            $_SESSION['error']['error_photo'] = ERROR_PHOTO_SIZE;
+            $_SESSION['error']['photo'] = ERROR_PHOTO_SIZE;
         }
 
     }
-
-
     $error = updateUser($update_user);
+    foreach ($error as $key => $value) {
+        $_SESSION['error'][$key] .= $value;
+    }
+
 
     header('Location:' . MAIN_FOLDER . '/modifier_profile.php');
+    var_dump($_POST);
+    var_dump($_SESSION['error']);
 
 
 }

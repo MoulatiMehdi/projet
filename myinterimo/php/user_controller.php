@@ -25,7 +25,7 @@ function validateUpdate($user): array
     $count_phone = loadOne("SELECT * FROM `" . TABLE_USERS . "` WHERE `telephone` LIKE '${user['telephone']}' AND `id` != '{$_SESSION['user']['id']}'");
     $count_email = loadOne("SELECT * FROM `" . TABLE_USERS . "` WHERE `email` LIKE '${user['email']}' AND `id`!= '{$_SESSION['user']['id']}'");
     $count_siret = loadOne("SELECT * FROM `" . TABLE_USERS . "` WHERE `n_siret` LIKE '${user['n_siret']}' AND `id` != '{$_SESSION['user']['id']}'");
-    $char_count = count_chars($user['mot_de_passe']);
+    $char_count = strlen($user['mot_de_passe']);
     if ($count_siret != null || !str_starts_with($user['n_siret'], $user['n_siren'])) {
         $errors['n_siret'] = ERROR_SIRET;
         unset($user['n_siret']);
@@ -41,8 +41,10 @@ function validateUpdate($user): array
         unset($user['phone']);
 
     }
-    if ($char_count < 8 || $char_count > 32) {
-        $errors['mot_de_passe'] = "Le Mot de Passe est incorrect";
+    if ($char_count == 0) {
+        unset($user ['mot_de_passe']);
+    } else if ($char_count < 8 || $char_count > 32) {
+        $errors['mot_de_passe'] = ERROR_PASSWORD;
         unset($user['mot_de_passe']);
     }
     return $errors;
@@ -79,9 +81,16 @@ function updateUser($user): ?array
         return $error;
     } else {
         $request = "UPDATE `" . TABLE_USERS . "` SET " . $setters . " WHERE `id` = '{$_SESSION['user']['id']}' ";
-        execRequest($request);
+        $test = execRequest($request);
+
+        if ($test) {
+            $_SESSION['success']['update'] = SUCCESS_EDITING_PROFILE;
+        } else {
+            $_SESSION['error']['edit'] = ERROR_EDITING_PROFILE;
+        }
         $_SESSION['user'] = findUserById($_SESSION['user']['id']);
         return null;
+
     }
 
 }

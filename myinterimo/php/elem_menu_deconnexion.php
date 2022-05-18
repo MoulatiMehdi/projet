@@ -12,7 +12,7 @@ if ($user != null) $_SESSION['imgProfile'] .= $user['user_img'];
 
 
 if ($menu === 'pageNotFound') {
-    $currentFolder = '/projet-pfe/myinterimo/';
+    $currentFolder = './projet-pfe/myinterimo/';
     $_SESSION['imgProfile'] = $currentFolder . $_SESSION['imgProfile'];
 }
 ?>
@@ -165,7 +165,8 @@ if ($menu === 'pageNotFound') {
                             </li>
                             <li class="dropdown-divider"></li>
                             <li>
-                                <a href="./deconnexion.php" class="dropdown-item" style="height: 35px">
+                                <a href="<?php echo $currentFolder ?>deconnexion.php" class="dropdown-item"
+                                   style="height: 35px">
                                     <span class="d-flex justify-content-start">
                                         <i class="fa-solid fa-power-off me-2 fa-sm"></i>
                                         Déconnexion
@@ -175,7 +176,7 @@ if ($menu === 'pageNotFound') {
                             </li>
                         </ul>
                     </div>
-                    <script src="js/cropImage.js"></script>
+                    <script src="<?php echo $currentFolder ?>js/cropImage.js"></script>
                     <script>
                         cropImage("<?php echo $_SESSION['imgProfile'] ?>", 'image-profil');
                     </script>
