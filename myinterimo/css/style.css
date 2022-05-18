@@ -273,8 +273,7 @@ button:focus, button:active {
     border: 2px transparent solid;
     transition: ease-in 0.3s;
     color: white;
-    background-color: var(--color-main);
-   ;
+    background-color: var(--color-main);;
 
 }
 
@@ -505,11 +504,54 @@ footer a {
     animation: moveRight 3s ease-in-out;
 }
 
+#user-image {
+    cursor: pointer;
+    z-index: 4;
+    border: 3px solid var(--color-main);
+
+    width: 76px;
+    height: 76px;
+
+    background: rgba(0, 0, 0, 0.5);
+    color: #faf9f9;
+
+    border-radius: 75px;
+    transition: 0.3s ease-out;
+
+}
+
+.navbar ul.dropdown-menu::after {
+    --length-arrow: 14px;
+    position: absolute;
+
+    width: calc(var(--length-arrow) * 1.5);
+    height: calc(var(--length-arrow) * 1.5);
+
+    top: calc(var(--length-arrow) * -0.75);
+    right: calc(33px - 12px);
+
+    content: "";
+    display: block;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, .15);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+    transform: rotateZ(135deg);
+    border-radius: 0 0 0 4px;
+
+}
+
+i#user-image:hover {
+
+    background: transparent;
+    color: transparent;
+    transition: 0.3s ease-in;
+}
+
 .image-profil {
     height: 40px !important;
     width: 40px !important;
     outline: 3px solid var(--color-main);
-    border-radius: 40px;
+    border-radius: 100%;
 
 }
 

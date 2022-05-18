@@ -1,7 +1,10 @@
-<?php ?>
+<?php
+session_start();
+$_SESSION['menu'] = 'cgu';
+?>
 <!doctype html>
 <html lang="en">
-<head >
+<head>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -14,7 +17,7 @@
 
 
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
     <!-- local CSS file-->
@@ -76,7 +79,7 @@
     ?>
 </div>
 
-<?php include 'elem_menu.php' ?>
+<?php include 'php/elem_menu_deconnexion.php' ?>
 <div class="container ">
 
     <!-- grab some space to replace the fixed navbar -->
@@ -599,9 +602,18 @@
     </section>
 
 </div>
-<?php include 'elem_footer.php' ?>
+<?php include 'php/elem_footer.php' ?>
+
 
 </body>
+<!-- JavaScript Bundle with Popper(Boostrap) -->
+<script src="./js/fontAwesome.js"></script>
 
+<!-- JavaScript Bundle with Popper(Boostrap) -->
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+<!--JavaScript for draggble-slide -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </html>

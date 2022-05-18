@@ -17,7 +17,7 @@ $_SESSION['menu'] = 'contact';
     <link rel="stylesheet" href="css/draggble-slide.css">
 
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon"
           href="./img/logo/cropped-favicon-2.png"
@@ -44,7 +44,7 @@ $_SESSION['menu'] = 'contact';
 
 
 <!-- navBar menu-->
-<?php include 'elem_menu.php' ?>
+<?php include 'php/elem_menu_deconnexion.php' ?>
 
 <!-- grap some space to replace the fixed navbar space -->
 <section class="p-5 "></section>
@@ -182,19 +182,19 @@ $_SESSION['menu'] = 'contact';
 </div>
 
 <!-- les Témoignages -->
-<?php include 'elem_temoignages.php' ?>
+<?php include 'php/elem_temoignages.php' ?>
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
-<?php include 'site_webs_entreprise.php' ?>
+<?php include 'php/site_webs_entreprise.php' ?>
 </div>
 
-<?php include 'elem_footer.php' ?>
+<?php include 'php/elem_footer.php' ?>
 </body>
 <script src="./js/fontAwesome.js" ></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="js/draggble-slide.js"></script>
 <script src="js/validation.js"></script>
-<script src="send_email.php"></script>
+<script src="php/send_email.php"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

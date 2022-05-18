@@ -17,17 +17,17 @@
         </div>
         <div class="col col-md-6 ">
             <div class="row row-cols-auto justify-content-around ">
-                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4 " src="img/logo/logo_prolan.png"
+                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4 " src="./img/logo/logo_prolan.png"
                      alt="logo_prolan">
-                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="img/logo/logo_myoffrimo.png"
+                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="./img/logo/logo_myoffrimo.png"
                      alt="logo_myespaceo">
-                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="img/logo/logo_myinterimo-1.png"
+                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="./img/logo/logo_myinterimo-1.png"
                      alt="logo_myinterimo">
-                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="img/logo/logo_MyOptimeo.png"
+                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="./img/logo/logo_MyOptimeo.png"
                      alt="logo_MyOptimeo">
-                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="img/logo/logo_mysolusoft.png"
+                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4" src="./img/logo/logo_mysolusoft.png"
                      alt="logo_mysolusoft">
-                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4 " src="img/logo/logo_myespaceo.png"
+                <img class="col col-md-6  col-sm-4 col-6  p-md-3 p-sm-4 py-4 " src="./img/logo/logo_myespaceo.png"
                      alt="logo_myespaceo">
             </div>
 

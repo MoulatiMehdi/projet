@@ -12,6 +12,7 @@ const ERROR_SIRET = "Ce N° SIRET deja exist.";
 const ERROR_PHONE = "Ce N° téléphone deja utilisé.";
 const ERROR_EMAIL = "Cet email deja utilisé.";
 const ERROR_PHOTO = "Error de l'importation de la photo.";
+const ERROR_PHOTO_SIZE = "la taille de photo maximale est 2Mo.";
 
 function connectToDB(): PDO
 {
@@ -33,6 +34,7 @@ function loadOne($request)
 {
     $db = connectToDB();
     $column = $db->query($request);
+
     if ($data = $column->fetch()) {
         return $data;
     }

@@ -18,7 +18,7 @@ $_SESSION['menu'] = 'temoignages';
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/draggble-slide.css">
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
 
@@ -46,15 +46,15 @@ $_SESSION['menu'] = 'temoignages';
     ?>
 </div>
 
-<?php include 'elem_menu.php' ?>
+<?php include 'php/elem_menu_deconnexion.php' ?>
 <section class=" p-5 "></section>
 <!-- des Témoignages -->
-<?php include 'elem_temoignages.php' ?>
+<?php include 'php/elem_temoignages.php' ?>
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
-    <?php include 'site_webs_entreprise.php' ?>
+    <?php include 'php/site_webs_entreprise.php' ?>
 </div>
-<?php include 'elem_footer.php' ?>
+<?php include 'php/elem_footer.php' ?>
 
 </body>
 

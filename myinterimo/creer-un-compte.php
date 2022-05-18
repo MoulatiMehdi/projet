@@ -2,8 +2,9 @@
 
 if (!isset($_SESSION)) session_start();
 
-include 'user_controller.php';
-include 'connexion_error.php';
+include 'php/user_controller.php';
+include 'php/connexion_error.php';
+if (isset($_SESSION['user'])) header('Location:' . MAIN_FOLDER . '/index.php');
 
 $error = array();
 
@@ -15,36 +16,36 @@ if (isset($_POST) && !empty($_POST)) {
     }
     $user['user_type'] = "USER";
     $user['mot_de_passe'] = sha1($_POST['mot_de_passe']);
-    $user['user_img'] = null;
+    $user['user_img'] = 'anonyme.svg';
 
     if (isset($_FILES) && !empty($_FILES['user_img']['name'])) {
 
         if (!is_dir(USER_IMG_FOLDER))
             mkdir(USER_IMG_FOLDER, 777, true);
 
-        $extension = strtolower(strrchr($_FILES['user_img']['name'], "."));
-        $chemin = USER_IMG_FOLDER . "/" . $user['n_siret'] . $extension;
+        if ($_FILES['user_img']['size']) {
+            $extension = strtolower(strrchr($_FILES['user_img']['name'], "."));
+            $chemin = USER_IMG_FOLDER . "/" . $user['n_siret'] . $extension;
 
-        $result = move_uploaded_file($_FILES['user_img']['tmp_name'], $chemin);
-        if ($result) {
-
-            $user['user_img'] = $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));
-        } else {
-            $_SESSION['error_phone'] = ERROR_PHOTO;
+            $result = move_uploaded_file($_FILES['user_img']['tmp_name'], $chemin);
+            if ($result) {
+                $user['user_img'] = $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));
+            } else {
+                $_SESSION['error_photo'] = ERROR_PHOTO;
+            }
         }
+
     }
 
     $error = saveUser($user);
-
-
     if ($error == null) {
 
         $_POST = array();
-        $_SESSION['user'] = $user;
+        unset($_SESSION['user']);
+        $_SESSION['user'] = findUserByEmail($user['email']);
         header('Location:' . MAIN_FOLDER . '/index.php');
-
-
     }
+
 
 }
 
@@ -56,7 +57,7 @@ if (isset($_POST) && !empty($_POST)) {
     <meta charset="UTF-8">
     <title>Créer un compte - Myinterimo</title>
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- Bootstrap CSS -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -64,35 +65,11 @@ if (isset($_POST) && !empty($_POST)) {
           crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/steps.css">
-    <style>
-        #import-icon {
-            cursor: pointer;
-            z-index: 4;
-            border: 3px solid var(--color-main);
-
-            width: 76px;
-            height: 76px;
-
-            background: rgba(0, 0, 0, 0.5);
-            color: #faf9f9;
-
-            border-radius: 75px;
-            transition: 0.3s ease-out;
-
-        }
-
-        #import-icon:hover {
-
-            background: transparent;
-            color: transparent;
-            transition: 0.3s ease-in;
-        }
-    </style>
 
 
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-50 start-50  p-3 "
+<div class="toast-container position-absolute bottom-0 start-0  p-3 "
      style="z-index:5">
     <!-- Position it: -->
     <!-- - `.toast-container` for spacing between toasts -->
@@ -100,13 +77,15 @@ if (isset($_POST) && !empty($_POST)) {
     <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
     <?php
 
-    if (!empty($_SESSION['error_phone'])) {
-        msg_warning_toast($_SESSION['error_phone']);
-        unset($_SESSION['error_phone']);
+    if (!empty($_SESSION['error_photo'])) {
+        msg_warning_toast($_SESSION['error_photo']);
+        unset($_SESSION['error_photo']);
     }
     foreach ($error as $value) {
         msg_error_toast($value);
+
     }
+
 
     ?>
 </div>
@@ -123,20 +102,20 @@ if (isset($_POST) && !empty($_POST)) {
 
             </div>
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="regForm"
-                  enctype="multipart/form-data" class="was-validated box row g-3 py-3 px-3">
+                  enctype="multipart/form-data" class="was-validated box row g-3 py-3 px-3" novalidate>
 
                 <div class="tab row">
 
                     <div class="col col-12 mb-3">
-                        <h2 class="title text-center text-primary my-3 form-title"> Informations Personnelle </h2>
+                        <h2 class="text-center text-primary my-3 form-title"> Informations Personnelle </h2>
                         <hr>
                     </div>
                     <div class="col col-12 mb-3 d-flex justify-content-center align-items-center flex-column">
                         <label for="fileInput" id="fileDisplayArea" class="circle-icon d-inline-flex"
                                style="cursor: pointer; ">
-                            <i class="fa-solid fa-camera fa-xl position-absolute " id="import-icon"></i>
-                            <canvas class="circle-icon justify-content-center align-items-center position-absolute"
-                                    id="canvas"></canvas>
+                            <i class="fa-solid fa-camera fa-xl position-absolute " id="user-image"></i>
+                            <canvas class="circle-icon justify-content-center align-items-center position-absolute canvas"
+                            ></canvas>
 
 
                         </label>
@@ -156,6 +135,17 @@ if (isset($_POST) && !empty($_POST)) {
                         <input value="<?php if (isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']) ?>"
                                type="text" class="form-control" placeholder="Nom *" name="nom"
                                pattern="([A-zÀ-ž\s-]){2,}" id="inputLastName" required>
+                    </div>
+                    <div class="col col-6 mb-2 position-relative">
+                        <label for="inputDate" class="form-label">Date de Naissance :</label>
+                        <input id="inputDate" type="date" class="form-control" name="date_naiss"
+                               min="<?php
+                               $tomorrow = mktime(0, 0, 0, date("m"), date("d"), date("Y") - 100);
+                               echo date("Y-m-d", $tomorrow) ?>"
+                               max="<?php
+                               $tomorrow = mktime(0, 0, 0, date("m"), date("d"), date("Y") - 18);
+                               echo date("Y-m-d", $tomorrow) ?>"
+                               required>
                     </div>
                     <div class="col col-6 mb-3 position-relative">
                         <label for="inputPhone" class="form-label">téléphone</label>
@@ -181,7 +171,7 @@ if (isset($_POST) && !empty($_POST)) {
                 </div>
                 <div class="tab row">
                     <div class="col col-12 mb-3">
-                        <h2 class="title text-center text-primary my-3 form-title"> Informations Professionnelle </h2>
+                        <h2 class="text-center text-primary my-3 form-title"> Informations Professionnelle </h2>
                         <hr>
                     </div>
                     <div class="col-md-6 mb-3 position-relative">
@@ -237,7 +227,7 @@ if (isset($_POST) && !empty($_POST)) {
                 </div>
                 <div class="tab row">
                     <div class="col col-12 mb-3">
-                        <h2 class="title text-center text-primary my-3 form-title"> Connexion </h2>
+                        <h2 class="text-center text-primary my-3 form-title"> Connexion </h2>
                         <hr>
                     </div>
                     <div class="col col-8 mb-2 position-relative">
@@ -296,12 +286,35 @@ if (isset($_POST) && !empty($_POST)) {
 
 <!--fontAwesome Script-->
 <script type="application/javascript" src="./js/fontAwesome.js"></script>
+<script type="application/javascript" src="./js/validation.js"></script>
 <script type="application/javascript" src="js/multipleForm.js"></script>
-<script type="application/javascript" src="js/displayImportImage.js"></script>
+<script type="application/javascript" src="js/cropImage.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script type="application/javascript">
     $(document).ready(function () {
         $('.toast').toast('show');
     });
+    cropImage("./img/user_img/anonyme.svg", 'canvas');
+    window.onload = function () {
+        let fileInput = document.getElementById('fileInput');
+        //by default
+        if (fileInput !== undefined) {
+            fileInput.addEventListener('change', function () {
+                let file = fileInput.files[0];
+                let imageType = /image.*/;
+
+                if (file.type.match(imageType)) {
+                    let reader = new FileReader();
+
+
+                    reader.onload = function () {
+                        cropImage(reader.result.toString(), 'canvas');
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+    }
 </script>
 </html>

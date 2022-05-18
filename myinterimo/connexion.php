@@ -1,23 +1,22 @@
 <?php
-if (!isset($_SESSION)) session_start();
+session_start();
 
-include 'user_controller.php';
-include 'connexion_error.php';
+include 'php/user_controller.php';
+include 'php/connexion_error.php';
 $error = "";
-
-
+if (isset($_SESSION['user'])) header('Location:' . MAIN_FOLDER . '/index.php');
 if (isset($_POST['submit'])) {
 
     $email = htmlspecialchars($_POST['email']);
     $mot_de_passe = sha1($_POST['mot_de_passe']);
 
     $user = findUserByEmail($email);
+    unset($_SESSION['user']);
     if ($user != null && $user['mot_de_passe'] === $mot_de_passe) {
         $_SESSION['user'] = $user;
         header('Location:' . MAIN_FOLDER . '/index.php');
 
     } else {
-        unset($_SESSION['user']);
         $error = "L'email ou le mot de passe est incorrect";
     }
 
@@ -29,7 +28,7 @@ if (isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <title>Connexion - Myinterimo</title>
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- Bootstrap CSS -->
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"

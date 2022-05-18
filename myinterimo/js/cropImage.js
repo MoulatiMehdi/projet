@@ -1,12 +1,11 @@
-function cropImage(imagePath) {
+function cropImage(imagePath, canvasClass) {
     //create an image object from the path
     const originalImage = new Image();
     originalImage.src = imagePath;
 
     //initialize the canvas object
-    const canvas = document.getElementsByClassName('image-profil');
+    const canvas = document.getElementsByClassName(canvasClass);
     for (let i = 0; i < canvas.length; i++) {
-        console.log(canvas[i]);
         let ctx = canvas[i].getContext('2d');
 
         //wait for the image to finish loading
@@ -23,12 +22,5 @@ function cropImage(imagePath) {
             ctx.drawImage(originalImage, X, Y, Width, Height, 0, 0, Width, Height);
         });
     }
-
 }
 
-window.onload = function () {
-
-    let image = document.getElementById('image-profil');
-    cropImage(image.src);
-
-}

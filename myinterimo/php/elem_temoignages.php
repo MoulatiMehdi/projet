@@ -26,7 +26,7 @@
                         </div>
                         <div class="row d-flex align-items-center justify-content-start">
                             <div class="col col-auto">
-                                <img src="img/clients/sebastien.jpg" alt="client-sebastien">
+                                <img src="./img/clients/sebastien.jpg" alt="client-sebastien">
                             </div>
                             <div class="col col-auto ">
                                 <h4 class="row col-title">Sébastien Sebert</h4>
@@ -46,7 +46,7 @@
                         </div>
                         <div class="row d-flex align-items-center justify-content-start">
                             <div class="col col-auto col-image">
-                                <img src="img/clients/laurence.jpg" alt="client-laurence">
+                                <img src="./img/clients/laurence.jpg" alt="client-laurence">
                             </div>
                             <div class="col col-auto">
                                 <h4 class="row col-title">Laurence GrosJean</h4>
@@ -65,7 +65,7 @@
                         </div>
                         <div class="row d-flex align-items-center justify-content-start">
                             <div class="col col-auto col-image">
-                                <img src="img/clients/patrice.jpg" alt="client-patrice">
+                                <img src="./img/clients/patrice.jpg" alt="client-patrice">
                             </div>
                             <div class="col col-auto">
                                 <h4 class="row col-title">Patrice Minder</h4>
@@ -85,7 +85,7 @@
                         </div>
                         <div class="row d-flex align-items-center justify-content-start">
                             <div class="col col-auto col-image">
-                                <img src="img/clients/anis.jpg" alt="client-laurence">
+                                <img src="./img/clients/anis.jpg" alt="client-laurence">
                             </div>
                             <div class="col col-auto">
                                 <h4 class="row col-title">Anis Verdan</h4>

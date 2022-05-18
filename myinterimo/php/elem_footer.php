@@ -38,7 +38,7 @@
                 </div>
             </div>
             <img class="mt-5 col col-lg-3 col-md-4 col-sm-7 col-10 justify-content-center animImgRight"
-                 src="img/phoneScreenShot/telecharger_myinterimo_footer.png"
+                 src="./img/phoneScreenShot/telecharger_myinterimo_footer.png"
                  alt="telecharger_myinterimo_footer-phone">
 
         </div
@@ -50,7 +50,7 @@
 
     <div class="row mt-5">
         <div class="col d-flex  justify-content-center">
-            <img src="img/logo/logo-250.png" alt="MyinterimoLogo">
+            <img src="./img/logo/logo-250.png" alt="MyinterimoLogo">
         </div>
     </div>
     <div class="row row-cols-auto  my-4">
@@ -73,10 +73,10 @@
                 <strong class=" text-sm-start text-center">Entreprise</strong>
                 <ul>
                     <li class="description  text-sm-start text-center">
-                        <a href="politique-de-confidentialite.php">politique de confidentialité</a>
+                        <a href="./politique-de-confidentialite.php">politique de confidentialité</a>
                     </li>
-                    <li class="description text-sm-start text-center"><a href="cgu.php">CGU</a></li>
-                    <li class="description text-sm-start text-center"><a href="mentions-legales.php">Mentions
+                    <li class="description text-sm-start text-center"><a href="./cgu.php">CGU</a></li>
+                    <li class="description text-sm-start text-center"><a href="./mentions-legales.php">Mentions
                             légales</a></li>
                 </ul>
             </div>

@@ -14,15 +14,18 @@ let displaySteps = (function () {
     return function () {
         if (!executed) {
             const x = document.getElementsByClassName("tab");
-            if (steps_div.innerText === "")
+
+            for (let i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+                executed = true;
+            }
+
+            if (steps_div !== null && steps_div.innerText === "")
                 for (let i = 0; i < x.length; i++) {
-                    x[i].style.display = "none";
                     steps_div.innerHTML += '<a class=\"step col-auto\" onclick=\"goToTab(' + i + ')\" id=\"step' + (i + 1) + '\">' + (i + 1) + '</a>';
-                    executed = true;
                 }
+
             numberTabs = x.length;
-
-
         }
     };
 })();
@@ -85,7 +88,9 @@ function nextPrev(n) {
     currentTab = currentTab + n;// Increase or decrease the current tab by 1:
 
     if (currentTab >= x.length) {// if you have reached the end of the form... :
-        document.getElementById("regForm").submit(); //...the form gets submitted:
+        let form = document.getElementById("regForm");
+
+        form.submit(); //...the form gets submitted:
         return false;
     }
 

@@ -1,50 +1,21 @@
 <?php
 
 if (!isset($_SESSION)) session_start();
-echo $menu = null;
-echo $user = null;
 
 $menu = (isset($_SESSION['menu'])) ? $_SESSION['menu'] : null;
 $user = (isset($_SESSION['user'])) ? $_SESSION['user'] : null;
 
-
 $currentFolder = '';
-$imgProfile = 'img/user_img/';
+$_SESSION['imgProfile'] = 'img/user_img/';
+
+if ($user != null) $_SESSION['imgProfile'] .= $user['user_img'];
+
 
 if ($menu === 'pageNotFound') {
     $currentFolder = '/projet-pfe/myinterimo/';
-    $imgProfile = $currentFolder . $imgProfile;
+    $_SESSION['imgProfile'] = $currentFolder . $_SESSION['imgProfile'];
 }
-
-
-if (isset($_POST['logout'])) {
-    unset($_SESSION['user']);
-    $user = null;
-}
-
 ?>
-<style>
-
-    .navbar ul.dropdown-menu::after {
-        --length-arrow: 15px;
-        position: absolute;
-
-        width: calc(var(--length-arrow) * 1.5);
-        height: calc(var(--length-arrow) * 1.5);
-
-        top: calc(var(--length-arrow) * -0.5);
-        right: calc(33px - 12px);
-
-        content: "";
-        display: block;
-        background: #343a40;
-        clip-path: polygon(0 0, 100% 100%, 0 100%);
-        transform: rotateZ(135deg);
-        border-radius: 0 0 0 4px;
-
-    }
-
-</style>
 <header class="container">
     <nav class="navbar navbar-expand-md navbar-light bg-light d-flex justify-content-around fixed-top">
         <a class="col col-md-4 col-auto" href="<?php echo $currentFolder ?>index.php">
@@ -134,13 +105,9 @@ if (isset($_POST['logout'])) {
                        style="height: 35px">se Connecter</a>
                     <a href="<?php echo $currentFolder ?>connexion.php" class="rectangle-button-white"
                        style="height: 35px">Connexion</a>
-                <?php else:
+                <?php else: ?>
 
-                    if (empty($user['user_img']) || !file_exists($imgProfile . "/" . $user['user_img']))
-                        $imgProfile .= 'anonyme.svg';
-                    else
-                        $imgProfile .= $user['user_img'];
-                    ?>
+
                     <div class=" dropdown d-flex align-items-center justify-content-center"
                          style="height: 60px; width: 66px;">
                         <button class="btn rounded-circle position-relative" type="button" id="menu-notification"
@@ -152,9 +119,9 @@ if (isset($_POST['logout'])) {
                             </span>
                         </button>
 
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark "
+                        <ul class="dropdown-menu dropdown-menu-end  "
                             aria-labelledby="menu-notification">
-                            <li class="dropdown-header text-light"><h6>Notification</h6></li>
+                            <li class="dropdown-header text-dark"><h6>Notification</h6></li>
                             <li class="dropdown-divider "></li>
                             <li>
                                 <a href="#" class="dropdown-item ">Notification 1</a>
@@ -176,19 +143,20 @@ if (isset($_POST['logout'])) {
                     <div class=" dropdown d-flex">
                         <button class="btn rounded-circle " type="button"
                                 id="menu-profil" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="<?php echo $imgProfile ?>" id="image-profil" alt="" hidden="hidden">
+                            <img src="<?php echo $_SESSION['imgProfile'] ?>" id="image-profil" alt="" hidden="hidden">
                             <canvas class="image-profil"></canvas>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark "
+                        <ul class="dropdown-menu dropdown-menu-end "
                             aria-labelledby="menu-profil">
                             <li class="dropdown-header d-flex flex-rows align-items-center">
 
                                 <canvas class="image-profil"
                                         style="height: 70px !important; width: 70px !important;"></canvas>
                                 <div class="px-3">
-                                    <div class="text-light fs-6"><?php echo ucfirst($user['nom']) . " " . ucfirst($user['prenom']) ?></div>
+                                    <div class="text-dark fs-6"><?php echo ucfirst($user['nom']) . " " . ucfirst($user['prenom']) ?></div>
                                     <div><?php echo $user['email'] ?></div>
-                                    <a href="#" class="btn btn-primary d-inline-flex  mt-2">
+                                    <a href="<?php echo $currentFolder ?>modifier_profile.php"
+                                       class="btn btn-primary d-inline-flex  mt-2">
                                         <i class="fa-solid fa-pencil fa-xs me-2"></i>
                                         Edit Profil
                                     </a>
@@ -197,39 +165,23 @@ if (isset($_POST['logout'])) {
                             </li>
                             <li class="dropdown-divider"></li>
                             <li>
-                                <a href="#" class="dropdown-item">Action 1 </a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item">Action 2</a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item">Action 3</a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item">Action 4</a>
-                            </li>
-                            <li>
-                                <a href="#" class="dropdown-item">Action 5</a>
-                            </li>
-                            <li class="dropdown-divider"></li>
-                            <li>
-
-                                <form action="" method="post">
-                                    <button type="submit" name="logout" class="dropdown-item" style="height: 35px">
+                                <a href="./deconnexion.php" class="dropdown-item" style="height: 35px">
                                     <span class="d-flex justify-content-start">
                                         <i class="fa-solid fa-power-off me-2 fa-sm"></i>
                                         Déconnexion
                                     </span>
-                                    </button>
-                                </form>
+                                </a>
 
                             </li>
                         </ul>
                     </div>
+                    <script src="js/cropImage.js"></script>
+                    <script>
+                        cropImage("<?php echo $_SESSION['imgProfile'] ?>", 'image-profil');
+                    </script>
                 <?php endif ?>
             </div>
         </div>
     </nav>
 </header>
-<script src="js/cropImage.js"></script>
 

@@ -12,7 +12,7 @@
 
 
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
     <!-- local CSS file-->
@@ -74,7 +74,7 @@
     ?>
 </div>
 <div class="container">
-    <?php include 'elem_menu.php' ?>
+    <?php include 'php/elem_menu_deconnexion.php' ?>
     <!-- grab some space to replace the fixed navbar -->
     <section class=" my-5 py-3"></section>
     <section class="politique">
@@ -150,7 +150,7 @@
 
 
 </div>
-<?php include 'elem_footer.php' ?>
+<?php include 'php/elem_footer.php' ?>
 
 
 </body>

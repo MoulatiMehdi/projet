@@ -20,7 +20,7 @@ $_SESSION['menu'] = 'fonctionnalite';
     <link rel="stylesheet" href="css/draggble-slide.css">
 
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon"
           href="img/logo/cropped-favicon-2.png"
@@ -44,7 +44,7 @@ $_SESSION['menu'] = 'fonctionnalite';
 </div>
 
 <!-- navbar menu -->
-<?php include 'elem_menu.php' ?>
+<?php include 'php/elem_menu_deconnexion.php' ?>
 <div class="container-lg">
 
     <!-- grab some space to replace the fixedNavBar -->
@@ -237,20 +237,20 @@ $_SESSION['menu'] = 'fonctionnalite';
     </section>
 
     <!-- les chiffres de Myinterimo-->
-    <?php include 'elem_chiffres.php' ?>
+    <?php include 'php/elem_chiffres.php' ?>
 
 </div>
 
 <!-- des Témoignages -->
-<?php include 'elem_temoignages.php' ?>
+<?php include 'php/elem_temoignages.php' ?>
 
 <div class="container-lg">
 
     <!-- tous les Sites web de l'entreprise-->
-    <?php include 'site_webs_entreprise.php' ?>
+    <?php include 'php/site_webs_entreprise.php' ?>
 
 </div>
-<?php include 'elem_footer.php' ?>
+<?php include 'php/elem_footer.php' ?>
 
 </body>
 

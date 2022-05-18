@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION)) session_start();
+session_start();
 $_SESSION['menu'] = 'accueil';
 ?>
 <!doctype html>
@@ -14,9 +14,8 @@ $_SESSION['menu'] = 'accueil';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
     <!-- local CSS file-->
@@ -43,7 +42,7 @@ $_SESSION['menu'] = 'accueil';
 </div>
 
 <!-- navbar menu -->
-<?php include 'elem_menu.php' ?>
+<?php include 'php/elem_menu_deconnexion.php' ?>
 
 <!-- grab some space to replace the fixed navbar -->
 <section class=" py-lg-0 py-md-4  py-0"></section>
@@ -74,8 +73,7 @@ $_SESSION['menu'] = 'accueil';
                         Découvrez Myintermino
                         <i class="fa-solid fa-arrow-right fa-xl " style="padding-left: 10px"></i>
                     </a>
-
-                    <!-- Modal -->
+                    <!-- Modal  de video  youtube-->
                     <div class="modal fade" id="MyinterimoYoutubeVideo" tabindex="-1"
                          aria-labelledby="MyinterimoYoutubeVideoLabel"
                          aria-hidden="true">
@@ -429,18 +427,18 @@ $_SESSION['menu'] = 'accueil';
     </section>
 
     <!-- les chiffres de Myinterimo-->
-    <?php include 'elem_chiffres.php' ?>
+    <?php include 'php/elem_chiffres.php' ?>
 </div>
 
 <!-- des Témoignages -->
-<?php include 'elem_temoignages.php' ?>
+<?php include 'php/elem_temoignages.php' ?>
 
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
-    <?php include 'site_webs_entreprise.php' ?>
+    <?php include 'php/site_webs_entreprise.php' ?>
 </div>
 
-<?php include 'elem_footer.php' ?>
+<?php include 'php/elem_footer.php' ?>
 
 </body>
 <!-- fontAwesome Script -->

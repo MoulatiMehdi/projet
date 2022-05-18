@@ -1,5 +1,5 @@
 <?php
-if (!isset($_SESSION)) session_start();
+ session_start();
 $_SESSION['menu'] = 'faq';
 ?>
 <!doctype html>
@@ -17,7 +17,7 @@ $_SESSION['menu'] = 'faq';
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/draggble-slide.css">
     <!-- fonts-->
-    <?php include 'elem_fonts.php' ?>
+    <?php include 'php/elem_fonts.php' ?>
     <!-- icon -->
     <link rel="icon"
           href="img/logo/cropped-favicon-2.png"
@@ -42,7 +42,7 @@ $_SESSION['menu'] = 'faq';
     ?>
 </div>
 <div class="container-lg">
-    <?php include 'elem_menu.php' ?>
+    <?php include 'php/elem_menu_deconnexion.php' ?>
     <!-- information -->
     <section id="section1" class="row  row-cols-auto justify-content-around align-items-center py-3 px-3">
         <img class="animImgLeft col col-md-6 col-sm-10 "
@@ -283,16 +283,16 @@ $_SESSION['menu'] = 'faq';
     </section>
 
     <!-- les chiffres de Myinterimo-->
-    <?php include 'elem_chiffres.php' ?>
+    <?php include 'php/elem_chiffres.php' ?>
 </div>
 
 <!-- des Témoignages -->
-<?php include 'elem_temoignages.php' ?>
+<?php include 'php/elem_temoignages.php' ?>
 
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
-<?php include 'site_webs_entreprise.php' ?></div>
-<?php include 'elem_footer.php' ?>
+<?php include 'php/site_webs_entreprise.php' ?></div>
+<?php include 'php/elem_footer.php' ?>
 
 </body>
 <script src="./js/fontAwesome.js" ></script>
