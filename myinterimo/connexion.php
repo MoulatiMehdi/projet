@@ -17,13 +17,13 @@ if (isset($_POST['submit'])) {
         header('Location:' . MAIN_FOLDER . '/index.php');
 
     } else {
-        $error = "L'email ou le mot de passe est incorrect";
+        $error = ERROR_EMAIL_OR_PASSWORD;
     }
 
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Connexion - Myinterimo</title>

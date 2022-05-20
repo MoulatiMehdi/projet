@@ -50,7 +50,6 @@ function validateUpdate($user): array
     return $errors;
 }
 
-
 function saveUser($user): ?array
 {
 
@@ -106,7 +105,6 @@ function findUserByEmail($email)
     return loadOne("SELECT * FROM `" . TABLE_USERS . "` WHERE `email` LIKE '$email';");
 
 }
-
 
 function findUSerBySiret($siret)
 {

@@ -8,7 +8,7 @@ include 'php/connexion_error.php';
 if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
 
     <!-- Required meta tags -->
@@ -23,20 +23,14 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 
     <!-- fonts-->
     <?php include 'php/elem_fonts.php' ?>
+
     <!-- icon -->
     <link rel="icon" href="img/logo/cropped-favicon-2.png" sizes="32x32">
+
     <!-- local CSS file-->
     <link rel="stylesheet" href="css/style.css">
     <title>Modifier le Profile - Myinterimo</title>
     <style>
-        .politique section {
-            margin: 35px 0;
-        }
-
-        a {
-            font-size: 15px;
-            color: var(--color-main);
-        }
 
         h5, h3 {
             font-family: "Rubik", sans-serif;
@@ -68,7 +62,6 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
     <script src="./js/fontAwesome.js"></script>
 
     <!-- JavaScript Bundle with Popper(Boostrap) -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
@@ -76,7 +69,7 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 </head>
 
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute  h-100 top-0 start-50 p-4"
+<div class="toast-container position-absolute  top-0 start-50 p-4"
      style="z-index:5; margin-top: 100px">
     <!-- Position it: -->
     <!-- - `.toast-container` for spacing between toasts -->
@@ -85,7 +78,7 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
     <?php
     if (isset($error) && !empty($error)) {
         if (!empty($_SESSION['error']['photo'])) {
-            msg_warning_toast($_SESSION['error_photo']);
+            msg_warning_toast($_SESSION['error']['photo']);
             unset($_SESSION['error']['photo']);
         }
         foreach ($error as $key => $value) {
@@ -152,19 +145,22 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
                 <div class="card-header">
                     <ul class=" nav nav-tabs card-header-tabs">
                         <li class="nav-item step">
-                            <a class="nav-link active" onclick="displayTab(0)" aria-current="page" href="#">Information
-                                Générale</a>
+                            <a class="nav-link active" onclick="displayTab(0)" aria-current="page" href="#">
+                                Information Générale
+                            </a>
                         </li>
                         <li class="nav-item step">
                             <a class="nav-link" aria-current="page" onclick="displayTab(1)" href="#">Coordonnées</a>
                         </li>
                         <li class="nav-item step">
-                            <a class="nav-link" aria-current="page" onclick="displayTab(2)" href="#">Information
-                                Professional</a>
+                            <a class="nav-link" aria-current="page" onclick="displayTab(2)" href="#">
+                                Information Professional
+                            </a>
                         </li>
                         <li class="nav-item step">
-                            <a class="nav-link" aria-current="page" onclick="displayTab(3)" href="#">Changer le Mot de
-                                Passe</a>
+                            <a class="nav-link" aria-current="page" onclick="displayTab(3)" href="#">
+                                Changer le Mot de Passe
+                            </a>
                         </li>
 
                     </ul>
@@ -186,7 +182,6 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
                                    type="text" class="form-control" placeholder="Nom *" name="update_nom"
                                    pattern="([A-zÀ-ž\s-]){2,}" id="inputLastName" required>
                         </div>
-
                         <div class="col col-6 mb-2">
                             <label for="inputGender" class="form-label">Civilité :</label>
                             <select name="update_civilite" class="form-select " aria-label="example"

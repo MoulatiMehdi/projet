@@ -22,7 +22,7 @@ if (isset($_POST) && !empty($_POST)) {
 
     if (sha1($_POST['current_mot_de_passe']) === $_SESSION['user']['mot_de_passe'])
         $update_user['mot_de_passe'] = sha1($_POST['update_mot_de_passe']);
-    else{
+    else {
         $update_user['mot_de_passe'] = '';
     }
 
@@ -50,14 +50,11 @@ if (isset($_POST) && !empty($_POST)) {
 
     }
     $error = updateUser($update_user);
-    foreach ($error as $key => $value) {
-        $_SESSION['error'][$key] .= $value;
-    }
-
-
+    if ($error != null)
+        foreach ($error as $key => $value) {
+            $_SESSION['error'][$key] .= $value;
+        }
     header('Location:' . MAIN_FOLDER . '/modifier_profile.php');
-    var_dump($_POST);
-    var_dump($_SESSION['error']);
 
 
 }

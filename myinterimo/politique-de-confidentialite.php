@@ -3,7 +3,7 @@ session_start();
 $_SESSION['menu'] = "politique_de_confidentialite";
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -75,9 +75,9 @@ $_SESSION['menu'] = "politique_de_confidentialite";
     <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
     <?php
 
-    if (!empty($_SESSION['error_phone'])) {
-        msg_warning_toast($_SESSION['error_phone']);
-        unset($_SESSION['error_phone']);
+    if (!empty($_SESSION['error']['phone'])) {
+        msg_warning_toast($_SESSION['error']['phone']);
+        unset($_SESSION['error']['phone']);
     }
 
 

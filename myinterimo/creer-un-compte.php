@@ -31,7 +31,7 @@ if (isset($_POST) && !empty($_POST)) {
             if ($result) {
                 $user['user_img'] = $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));
             } else {
-                $_SESSION['error_photo'] = ERROR_PHOTO;
+                $_SESSION['error']['photo'] = ERROR_PHOTO;
             }
         }
 
@@ -52,7 +52,7 @@ if (isset($_POST) && !empty($_POST)) {
 ?>
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <title>Créer un compte - Myinterimo</title>
@@ -77,9 +77,9 @@ if (isset($_POST) && !empty($_POST)) {
     <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
     <?php
 
-    if (!empty($_SESSION['error_photo'])) {
-        msg_warning_toast($_SESSION['error_photo']);
-        unset($_SESSION['error_photo']);
+    if (!empty($_SESSION['error']['photo'])) {
+        msg_warning_toast($_SESSION['error']['photo']);
+        unset($_SESSION['error']['photo']);
     }
     foreach ($error as $value) {
         msg_error_toast($value);
@@ -100,7 +100,7 @@ if (isset($_POST) && !empty($_POST)) {
 
             </div>
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="regForm"
-                  enctype="multipart/form-data" class="was-validated box row g-3 py-3 px-3" novalidate>
+                  enctype="multipart/form-data" class="was-validated box row g-3 py-3 px-3" >
 
                 <div class="tab row">
 
@@ -148,7 +148,7 @@ if (isset($_POST) && !empty($_POST)) {
                     <div class="col col-6 mb-3 position-relative">
                         <label for="inputPhone" class="form-label">téléphone</label>
                         <input value="<?php if (isset($_POST['telephone']) && empty($error['phone'])) echo htmlspecialchars($_POST['telephone']) ?>"
-                               name="telephone" type="text"
+                               name="telephone" type="tel"
                                class="form-control " id="inputPhone"
                                pattern="^\+\d{1,3}[\s.-]\d{3}[\s.-]\d{6}$"
                                placeholder="+212-637-621862" required>

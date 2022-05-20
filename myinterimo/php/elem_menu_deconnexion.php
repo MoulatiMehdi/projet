@@ -43,34 +43,64 @@ if ($menu === 'pageNotFound') {
                     <?php endif ?>
 
                 </li>
-                <li class="nav-item p-sm-2">
-                    <?php if ($menu == 'fonctionnalite'): ?>
-                        <a class="nav-link active" href="<?php echo $currentFolder ?>fonctionnalite.php">
-                            Fonctionnalités
-                            <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
-                        </a>
-                    <?php else: ?>
-                        <a class="nav-link " href="<?php echo $currentFolder ?>fonctionnalite.php">
-                            Fonctionnalités
-                            <hr>
-                        </a>
-                    <?php endif ?>
+                <?php if (!isset($_SESSION['user'])): ?>
+                    <li class="nav-item p-sm-2">
+                        <?php if ($menu == 'fonctionnalite'): ?>
+                            <a class="nav-link active" href="<?php echo $currentFolder ?>fonctionnalite.php">
+                                Fonctionnalités
+                                <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
+                            </a>
+                        <?php else: ?>
+                            <a class="nav-link " href="<?php echo $currentFolder ?>fonctionnalite.php">
+                                Fonctionnalités
+                                <hr>
+                            </a>
+                        <?php endif ?>
 
-                </li>
-                <li class="nav-item p-sm-2">
-                    <?php if ($menu == 'temoignages'): ?>
-                        <a class="nav-link active" href="<?php echo $currentFolder ?>temoignages.php">
-                            Témoignages
-                            <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
-                        </a>
-                    <?php else: ?>
-                        <a class="nav-link " href="<?php echo $currentFolder ?>temoignages.php">
-                            Témoignages
-                            <hr>
-                        </a>
-                    <?php endif ?>
+                    </li>
+                    <li class="nav-item p-sm-2">
+                        <?php if ($menu == 'temoignages'): ?>
+                            <a class="nav-link active" href="<?php echo $currentFolder ?>temoignages.php">
+                                Témoignages
+                                <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
+                            </a>
+                        <?php else: ?>
+                            <a class="nav-link " href="<?php echo $currentFolder ?>temoignages.php">
+                                Témoignages
+                                <hr>
+                            </a>
+                        <?php endif ?>
+                    </li>
+                <?php else: ?>
+                    <li class="nav-item p-sm-2">
+                        <?php if ($menu == 'fonctionnalite'): ?>
+                            <a class="nav-link active" href="<?php echo $currentFolder ?>#">
+                                Statistiques
+                                <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
+                            </a>
+                        <?php else: ?>
+                            <a class="nav-link " href="<?php echo $currentFolder ?>fonctionnalite.php">
+                                Statistiques
+                                <hr>
+                            </a>
+                        <?php endif ?>
 
-                </li>
+                    </li>
+                    <li class="nav-item p-sm-2">
+                        <?php if ($menu == 'temoignages'): ?>
+                            <a class="nav-link active" href="<?php echo $currentFolder ?>temoignages.php">
+                                Témoignages
+                                <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
+                            </a>
+                        <?php else: ?>
+                            <a class="nav-link " href="<?php echo $currentFolder ?>temoignages.php">
+                                Témoignages
+                                <hr>
+                            </a>
+                        <?php endif ?>
+                    </li>
+                <?php endif; ?>
+
                 <li class="nav-item p-sm-2">
                     <?php if ($menu == 'faq'): ?>
                         <a class="nav-link active" href="<?php echo $currentFolder ?>faq.php">
@@ -161,14 +191,42 @@ if ($menu === 'pageNotFound') {
                                         Edit Profil
                                     </a>
                                 </div>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li>
+                                <a href="<?php echo $currentFolder ?>creer_announce.php" class="dropdown-item">
+                                    <span class="d-flex justify-content-start">
+                                        <i class="fa-solid fa-plus fa-xl"></i>
+                                        Créer un Announce
+                                    </span>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="<?php echo $currentFolder ?>" class="dropdown-item"
+                                >
+                                    <span class="d-flex justify-content-start">
+                                        <i class="fa-regular fa-heart fa-xl"></i>
+                                        Mes Favoris
+                                    </span>
+                                </a>
+
+                            </li>
+                            <li>
+                                <a href="<?php echo $currentFolder ?>" class="dropdown-item"
+                                >
+                                    <span class="d-flex justify-content-start">
+                                        <i class="fa-solid fa-bullhorn fa-xl"></i>
+                                        Mes Announce
+                                    </span>
+                                </a>
 
                             </li>
                             <li class="dropdown-divider"></li>
                             <li>
-                                <a href="<?php echo $currentFolder ?>deconnexion.php" class="dropdown-item"
-                                   style="height: 35px">
+                                <a href="<?php echo $currentFolder ?>deconnexion.php" class="dropdown-item">
                                     <span class="d-flex justify-content-start">
-                                        <i class="fa-solid fa-power-off me-2 fa-sm"></i>
+                                        <i class="fa-solid fa-power-off  fa-lg"></i>
                                         Déconnexion
                                     </span>
                                 </a>
@@ -185,4 +243,23 @@ if ($menu === 'pageNotFound') {
         </div>
     </nav>
 </header>
+<style>
+
+    .navbar .dropdown-menu li > a > span {
+        height: 40px !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navbar .dropdown-menu li a span i {
+        margin-right: 10px;
+        width: 21px;
+        height: 21px;
+        display: flex;
+        justify-content: center;
+    }
+
+</style>
 
