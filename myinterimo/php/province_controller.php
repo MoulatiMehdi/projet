@@ -4,7 +4,7 @@ const TABLE_PROVINCE = 'province';
 
 function findProvinceByRegion($region): array
 {
-    return load("SELECT `province`,`region` FROM " . TABLE_PROVINCE . " WHERE `region`= '$region' ORDER BY `province`");
+    return load("SELECT `id`,`province`,`region` FROM " . TABLE_PROVINCE . " WHERE `region`= '$region' ORDER BY `province`");
 }
 
 function printProvinceOptions($region): void

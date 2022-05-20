@@ -162,8 +162,10 @@ include 'php/ville_controller.php';
                                         Province
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <select name="ville" class="form-select col-auto" id="inputProvince" disabled
+                                    <select name="province" class="form-select col-auto" id="inputProvince" disabled
                                             required>
+                                        <option value="" disabled="" class="text-center" selected>-- PROVINCE --
+                                        </option>
 
                                     </select>
 
@@ -173,7 +175,7 @@ include 'php/ville_controller.php';
                                         Ville
                                         <span class="text-danger">*</span>
                                     </label>
-                                    <select name="ville" class="form-select col-auto" id="inputVille" disabled required>
+                                    <select name="ville" class="form-select col-auto" id="inputVille" required>
                                         <option value="" disabled="" class="text-center" selected>-- VILLE --</option>
                                     </select>
 
@@ -234,22 +236,34 @@ include 'php/ville_controller.php';
     let provinces = [];
     <?php
     $region = array();
-    $ville = array();
+    $provinces = "";
     foreach (findAllRegions() as $key => $value) {
         $region[$value['id']] = $value['region'];
     }
 
     foreach ($region as $key => $value) {
         echo "regions[$key]=[";
-        foreach (findProvinceByRegion($key) as $regionKey => $regionValue) {
-            echo "\"" . $regionValue['province'] . "\",";
+        foreach (findProvinceByRegion($key) as $regionKey => $province) {
+            echo "[\"" . $province['province'] . "\",\"" . $province['id'] . "\"],";
+
+            $provinces .= "provinces[{$province['id']}]=[";
+
+            foreach (findVilleByProvince($province['id']) as $provinceKey => $ville) {
+                $provinces .= "\"" . $ville['ville'] . "\",";
+
+            }
+            $provinces .= "];\n";
+
 
         }
         echo "];\n";
     }
+    echo $provinces;
 
 
     ?>
+    console.log(regions);
+    console.log(provinces);
 
 
 </script>

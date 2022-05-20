@@ -8,6 +8,7 @@ regionValue = region.value;
 villeValue = ville.value;
 
 validateRegion();
+
 region.onchange = validateRegion;
 province.onchange = validateProvince;
 ville.onchange = validateVille;
@@ -36,11 +37,10 @@ function validateProvince() {
     } else {
         province.setCustomValidity('');
         ville.disable = false;
-
         ville.innerHTML = '<option value="" class="text-center"  selected>-- VILLE --</option>\n';
-        for (let i = 0; i < provinces[provinces.value].length; i++) {
+        for (let i = 0; i < provinces[province.value].length; i++) {
             ville.innerHTML += '<option value="' + i.toString() +
-                '" >' + provinces[provinces.value][i].toString() + '</option>\n';
+                '" >' + provinces[province.value][i].toString() + '</option>\n';
         }
 
     }
@@ -57,14 +57,14 @@ function validateRegion() {
 
         province.innerHTML = '<option value="" class="text-center" selected>-- PROVINCE --</option>\n';
         for (let i = 0; i < regions[region.value].length; i++) {
-            province.innerHTML += '<option value="' + i.toString() +
-                '" >' + regions[region.value][i].toString() + '</option>\n';
+            let line = regions[region.value][i];
+            province.innerHTML += '<option value="' + line[1].toString() +
+                '" >' + line[0].toString() + '</option>\n';
         }
 
 
     }
 }
-
 
 
 
