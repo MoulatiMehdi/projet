@@ -21,14 +21,16 @@ function displayTab(n) {
     currentTab = n;
 }
 
-hideTabs();
 
-editPassword = document.getElementById('inputPassword');
-editConfirmPassword = document.getElementById('inputConfirmPassword');
+let password = document.getElementById('inputPassword');
+let confirmPassword = document.getElementById('inputConfirmPassword');
+let oldPassword = document.getElementById('inputCurrentPassword');
 
 /* confirm the password method */
 function validatePassword() {
     let tooltipConfirmPassword = document.getElementById('tooltipEditConfirmPassword');
+
+
     if (password.value !== confirmPassword.value) {
         tooltipConfirmPassword.innerText = "le Mot d passe n\'est pas identique";
         confirmPassword.setCustomValidity('le Mot d passe n\'est pas identique');
@@ -36,10 +38,31 @@ function validatePassword() {
         confirmPassword.setCustomValidity('');
         tooltipConfirmPassword.innerText = "saisir entre 8-32 characters.";
     }
+
+
 }
 
+function required() {
+    console.log(password.value);
+    console.log(confirmPassword.value);
+    console.log(oldPassword.value);
 
-editPassword.onkeyup = validatePassword;
-editConfirmPassword.onkeyup = validatePassword;
+    if (password.value !== "" || oldPassword.value !== "" || confirmPassword.value !== "") {
+        password.required = true;
+        oldPassword.required = true;
+        confirmPassword.required = true;
+    } else {
+        password.required = false;
+        oldPassword.required = false;
+        confirmPassword.required = false;
+
+    }
+}
+
+hideTabs();
+password.oninput = validatePassword;
+confirmPassword.oninput = validatePassword;
+oldPassword.oninput = required;
+
 
 

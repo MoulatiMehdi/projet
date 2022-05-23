@@ -6,7 +6,9 @@ function cropImage(imagePath, canvasClass) {
     //initialize the canvas object
     const canvas = document.getElementsByClassName(canvasClass);
     for (let i = 0; i < canvas.length; i++) {
+        canvas[i].style.display = "flex"
         let ctx = canvas[i].getContext('2d');
+
 
         //wait for the image to finish loading
         originalImage.addEventListener('load', function () {

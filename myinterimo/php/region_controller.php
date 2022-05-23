@@ -9,7 +9,7 @@ function findAllRegions(): array
 function printRegionOptions(): void
 {
     $region = findAllRegions();
-    foreach ($region as $key => $value) {
+    foreach ($region as $value) {
         echo "<option value='{$value['id']}'> {$value['region']}  </option>\n";
 
     }

@@ -100,7 +100,7 @@ if (isset($_POST) && !empty($_POST)) {
 
             </div>
             <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="regForm"
-                  enctype="multipart/form-data" class="was-validated box row g-3 py-3 px-3" >
+                  enctype="multipart/form-data" class="was-validated box row g-3 py-3 px-3">
 
                 <div class="tab row">
 
@@ -123,19 +123,22 @@ if (isset($_POST) && !empty($_POST)) {
                         <label id="fileInput" class="form-label">Photo de Profil</label>
                     </div>
                     <div class="col col-md-6 mb-3">
-                        <label for="inputFirstName" class="form-label">Prénom</label>
+                        <label for="inputFirstName" class="form-label">Prénom <span class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['prenom'])) echo htmlspecialchars($_POST['prenom']) ?>"
                                type="text" class="form-control" placeholder="Prenom *" name="prenom"
                                pattern="([A-zÀ-ž\s]){2,}" id="inputFirstName" required>
                     </div>
                     <div class="col col-md-6 mb-3">
-                        <label for="inputLastName" class="form-label">Nom</label>
+                        <label for="inputLastName" class="form-label">Nom <span class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['nom'])) echo htmlspecialchars($_POST['nom']) ?>"
                                type="text" class="form-control" placeholder="Nom *" name="nom"
                                pattern="([A-zÀ-ž\s-]){2,}" id="inputLastName" required>
                     </div>
                     <div class="col col-6 mb-2 position-relative">
-                        <label for="inputDate" class="form-label">Date de Naissance :</label>
+                        <label for="inputDate" class="form-label">Date de Naissance <span class="text-danger">*</span>
+                        </label>
                         <input id="inputDate" type="date" class="form-control" name="date_naiss"
                                min="<?php
                                $tomorrow = mktime(0, 0, 0, date("m"), date("d"), date("Y") - 100);
@@ -146,18 +149,20 @@ if (isset($_POST) && !empty($_POST)) {
                                required>
                     </div>
                     <div class="col col-6 mb-3 position-relative">
-                        <label for="inputPhone" class="form-label">téléphone</label>
+                        <label for="inputPhone" class="form-label">téléphone <span class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['telephone']) && empty($error['phone'])) echo htmlspecialchars($_POST['telephone']) ?>"
                                name="telephone" type="tel"
                                class="form-control " id="inputPhone"
-                               pattern="^\+\d{1,3}[\s.-]\d{3}[\s.-]\d{6}$"
-                               placeholder="+212-637-621862" required>
+                               pattern="^06\d{8}$"
+                               placeholder="06XXXXXXXX" required>
                         <div class="invalid-tooltip">
                             N° ne respect pas la forme
                         </div>
                     </div>
                     <div class="col col-6 mb-2">
-                        <label for="inputGender" class="form-label">Civilité :</label>
+                        <label for="inputGender" class="form-label">Civilité <span class="text-danger">*</span>
+                        </label>
                         <select name="civilite" class="form-select " aria-label="example" id="inputGender">
                             <option selected>Monsieur</option>
                             <option value="1">Madame</option>
@@ -193,7 +198,9 @@ if (isset($_POST) && !empty($_POST)) {
                                placeholder="exemple@mail.com" required>
                     </div>
                     <div class="col-md-6 mb-3 position-relative">
-                        <label for="inputSIREN" class="form-label"> Numéro de SIREN(9 Chiffres) </label>
+                        <label for="inputSIREN" class="form-label"> Numéro de SIREN(9 Chiffres) <span
+                                    class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['n_siren'])) echo htmlspecialchars($_POST['n_siren']) ?>"
                                name="n_siren" type="text" class="form-control" placeholder="N de SIREN"
                                maxlength="9" minlength="9"
@@ -201,7 +208,9 @@ if (isset($_POST) && !empty($_POST)) {
                                id="inputSIREN" required>
                     </div>
                     <div class="col-md-6 mb-3 position-relative">
-                        <label for="inputSIRET" class="form-label"> Numéro de SIRET(14 Chiffres) :</label>
+                        <label for="inputSIRET" class="form-label"> Numéro de SIRET(14 Chiffres)
+                            <span class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['n_siret']) && empty($error['siret'])) echo htmlspecialchars($_POST['n_siret']); ?>"
                                name="n_siret" type="text" class="form-control" placeholder="N de SIRET" maxlength="14"
                                minlength="14"
@@ -229,7 +238,8 @@ if (isset($_POST) && !empty($_POST)) {
                         <hr>
                     </div>
                     <div class="col col-8 mb-2 position-relative">
-                        <label for="inputEmail">Email</label>
+                        <label for="inputEmail">Email <span class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['email']) && empty($error['email'])) echo htmlspecialchars($_POST['email']) ?>"
                                name="email" type="Email" class="form-control" id="inputEmail"
                                pattern="^\w+(\.[\w]+)?@([\w]+\.)+\w{2,4}$"
@@ -239,7 +249,8 @@ if (isset($_POST) && !empty($_POST)) {
                         </div>
                     </div>
                     <div class="col col-8 mb-2 position-relative">
-                        <label for="inputPassword">Mot de Passe</label>
+                        <label for="inputPassword">Mot de Passe <span class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['mot_de_passe'])) echo htmlspecialchars($_POST['mot_de_passe']) ?>"
                                name="mot_de_passe" type="password" class="form-control" id="inputPassword"
                                pattern="^.{8,32}$" placeholder="Mot de Passe" required>
@@ -249,7 +260,9 @@ if (isset($_POST) && !empty($_POST)) {
                     </div>
 
                     <div class="col col-8 mb-2 position-relative">
-                        <label for="inputPasswordConfirm">Confirmation du Mot de Passe :</label>
+                        <label for="inputPasswordConfirm">Confirmation du Mot de Passe <span
+                                    class="text-danger">*</span>
+                        </label>
                         <input value="<?php if (isset($_POST['confirm_mot_de_passe'])) echo htmlspecialchars($_POST['confirm_mot_de_passe']) ?>"
                                type="password" class="form-control" id="inputPasswordConfirm"
                                name="confirm_mot_de_passe" placeholder="Confirmer Mot de Passe" required>

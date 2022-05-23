@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `region` (
 -- Contenu de la table `region`
 --
 
-INSERT INTO `region` (`id`, `region`) VALUES
+REPLACE `region` (`id`, `region`) VALUES
 (1, 'Tanger-Tétouan-Al Hoceïma'),
 (2, 'l''Oriental'),
 (3, 'Fès-Meknès'),
@@ -87,7 +87,7 @@ CREATE TABLE IF NOT EXISTS `ville` (
 -- Contenu de la table `ville`
 --
 
-INSERT INTO `ville` (`id`, `ville`, `region`) VALUES
+REPLACE `ville` (`id`, `ville`, `region`) VALUES
 (1, 'Aïn Harrouda', 6),
 (2, 'Ben Yakhlef', 6),
 (3, 'Bouskoura', 6),

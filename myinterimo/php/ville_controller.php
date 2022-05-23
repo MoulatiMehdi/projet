@@ -2,7 +2,7 @@
 
 const TABLE_VILLES = 'ville';
 
-function findVilleByProvince($province): array
+function findVilleByRegion($region): array
 {
-    return load("SELECT `ville`,`province` FROM " . TABLE_VILLES . " WHERE `province`= '$province' ORDER BY `ville`");
+    return load("SELECT `ville` FROM " . TABLE_VILLES . " WHERE `region`= '$region' ORDER BY `ville`");
 }

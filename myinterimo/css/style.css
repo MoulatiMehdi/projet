@@ -246,12 +246,12 @@ button:focus, button:active {
 
 }
 
-.disabled {
-    opacity: 70%;
+.rectangle-button:disabled {
+    opacity: 50%;
     cursor: default !important;
 }
 
-.rectangle-button:hover {
+.rectangle-button:hover:not(:disabled) {
 
     color: var(--color-main);
     outline: var(--color-main) 2px solid;
@@ -547,6 +547,18 @@ footer a {
     transform: rotateZ(135deg);
     border-radius: 0 0 0 4px;
 
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 

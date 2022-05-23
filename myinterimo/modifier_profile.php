@@ -211,8 +211,8 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
                             <input value="<?php if (isset($_SESSION['user']['telephone']) && empty($error['phone'])) echo htmlspecialchars($_SESSION['user']['telephone']) ?>"
                                    name="update_telephone" type="text"
                                    class="form-control " id="inputPhone"
-                                   pattern="^\+\d{1,3}[\s.-]\d{3}[\s.-]\d{6}$"
-                                   placeholder="+212-637-621862" required>
+                                   pattern="^06\d{8}$"
+                                   placeholder="06XXXXXXXX" required>
                             <div class="invalid-tooltip">
                                 N° ne respect pas la forme
                             </div>
@@ -344,27 +344,7 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
     });
 
     cropImage("<?php echo $_SESSION['imgProfile'] ?>", 'canvas');
-    window.onload = function () {
-        let fileInput = document.getElementById('fileId');
 
-        //by default
-        if (fileInput !== undefined) {
-            fileInput.addEventListener('change', function () {
-                let file = fileInput.files[0];
-                let imageType = /image.*/;
-                if (file.type.match(imageType)) {
-                    let reader = new FileReader();
-
-
-                    reader.onload = function () {
-                        cropImage(reader.result.toString(), 'canvas');
-                    }
-
-                    reader.readAsDataURL(file);
-                }
-            });
-        }
-    }
 </script>
 
 

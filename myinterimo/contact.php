@@ -105,7 +105,7 @@ $_SESSION['menu'] = 'contact';
 </section>
 
 <!-- Myinterimo information for Contact -->
-<div class="container-lg my-5">
+<div class="container my-5">
     <section class="row justify-content-center align-items-center  px-3">
         <div class="col col-md-4 col-12 p-3">
             <div class="fonction row  align-items-center justify-content-center ">
@@ -181,16 +181,17 @@ $_SESSION['menu'] = 'contact';
 
 </div>
 
-<!-- les Témoignages -->
 <?php include 'php/elem_temoignages.php' ?>
-<div class="container-lg">
+<div class="container">
+    <!-- les Témoignages -->
+
     <!-- tous les Sites web de l'entreprise-->
-<?php include 'php/site_webs_entreprise.php' ?>
+    <?php include 'php/site_webs_entreprise.php' ?>
 </div>
 
 <?php include 'php/elem_footer.php' ?>
 </body>
-<script src="./js/fontAwesome.js" ></script>
+<script src="./js/fontAwesome.js"></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="js/draggble-slide.js"></script>
 <script src="js/validation.js"></script>

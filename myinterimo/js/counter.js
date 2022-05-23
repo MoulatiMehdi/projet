@@ -25,7 +25,7 @@ window.addEventListener('scroll', function () {
                 }, {
                     duration: $(this).data('duration-value'),
                     easing: 'swing',
-                     step:function () {
+                    step: function () {
                         $(this).text(Math.ceil(this.Counter));
 
                     },
@@ -38,15 +38,12 @@ window.addEventListener('scroll', function () {
         isAnimated = false;
     }
     /* move img after scroll */
-    $('section img').each(function (index,e) {
-        if(isInViewport(e)){
+    $('section img').each(function (index, e) {
+        if (isInViewport(e)) {
             $(e).animate({
-                left:'+=100px'
-            },'slow')
-
-            console.log('right');
-        }
-        else{
+                left: '+=100px'
+            }, 'slow')
+        } else {
 
         }
     })

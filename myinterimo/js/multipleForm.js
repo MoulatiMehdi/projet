@@ -172,11 +172,11 @@ function validateSiret() {
 
 }
 
-password.onkeyup = validatePassword;
-confirmPassword.onkeyup = validatePassword;
+password.oninput = validatePassword;
+confirmPassword.oninput = validatePassword;
 
-siren.onkeyup = validateSiret;
-siret.onkeyup = validateSiret;
+siren.oninput = validateSiret;
+siret.oninput = validateSiret;
 
 
 showTab(currentTab); // Display the current tab
