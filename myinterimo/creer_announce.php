@@ -3,11 +3,12 @@ session_start();
 header('Content-type: text/html; charset=UTF-8');
 
 $error = $_SESSION['error'] ?? null;
-$_SESSION['menu'] = "edit_profile";
+$_SESSION['menu'] = "create_announce";
 
 if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 
 include 'php/user_controller.php';
+include 'php/create_announce.php';
 include 'php/connexion_error.php';
 include 'php/region_controller.php';
 include 'php/ville_controller.php';
@@ -114,8 +115,7 @@ include 'php/ville_controller.php';
         <div class="row justify-content-around align-items-center p-4 ">
             <div class="col col-7">
                 <form method="post" action="php/create_announce.php" class="was-validated card  row py-4 px-5 g-3 "
-                      id="regForm"
-                      style="min-height: 520px">
+                      id="regForm" enctype="multipart/form-data" style="min-height: 520px">
                     <div class="tab row ">
                         <div class="col col-12 text-center form-title">
                             Les informations Générales
@@ -126,7 +126,7 @@ include 'php/ville_controller.php';
                                 Type d'Immobilier
                                 <span class="text-danger">*</span>
                             </label>
-                            <select name="category" id="inputCategory" class="form-select" required>
+                            <select name="type_immobilier" id="inputCategory" class="form-select" required>
                                 <option disabled class="text-center" value="" selected>
                                     -- TYPE IMMOBILIER --
                                 </option>
@@ -144,7 +144,8 @@ include 'php/ville_controller.php';
                                 Type de Transaction
                                 <span class="text-danger">*</span>
                             </label>
-                            <select name="type" class="form-select col-auto" id="inputTypeTransaction" required>
+                            <select name="type_transaction" class="form-select col-auto" id="inputTypeTransaction"
+                                    required>
                                 <option value="" disabled selected class="text-center">
                                     -- TYPE DE TRANSACTION --
                                 </option>
@@ -248,7 +249,7 @@ include 'php/ville_controller.php';
                                 <div class="col col-auto mb-3">
 
                                     <label for="selectSalleBain" class="form-label">Salle de bain</label>
-                                    <select id="selectSalleBain" name="salleBain" class="form-select">
+                                    <select id="selectSalleBain" name="salle_bain" class="form-select">
                                         <option value="" disabled="" selected>Choisissez</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
@@ -295,7 +296,7 @@ include 'php/ville_controller.php';
                                 <div class="col col-auto mb-3">
 
                                     <label for="selectAgeBien" class="form-label">Âge du Bien</label>
-                                    <select id="selectAgeBien" name="ageBien" class="form-select">
+                                    <select id="selectAgeBien" name="age_bien" class="form-select">
                                         <option value="" disabled="" selected>Choisissez</option>
                                         <option value="0">Neuf</option>
                                         <option value="1">1-5 ans</option>
@@ -324,7 +325,7 @@ include 'php/ville_controller.php';
                                 <div class="col col-6 mb-3">
                                     <label for="inputFraisSyndic" class="form-label">Frais de Syndic (Par Mois)</label>
                                     <div class=" input-group">
-                                        <input id="inputFraisSyndic" min="1" name="fraisSyndic" placeholder="0"
+                                        <input id="inputFraisSyndic" min="1" name="frais_syndic" placeholder="0"
                                                type="number"
                                                class="form-control"
                                                value="">
@@ -335,7 +336,7 @@ include 'php/ville_controller.php';
                                 <div class="col col-6 mb-3">
                                     <label for="inputSurfaceTotale" class="form-label">Surface totale</label>
                                     <div class=" input-group">
-                                        <input id="inputSurfaceTotale" min="1" name="surfaceTotale" placeholder="0"
+                                        <input id="inputSurfaceTotale" min="1" name="surface_totale" placeholder="0"
                                                type="number" class="form-control"
                                                value="">
                                         <span class="input-group-text" id="m²">m²</span>
@@ -345,7 +346,7 @@ include 'php/ville_controller.php';
                                 <div class="col col-6 mb-3">
                                     <label for="inputSurfaceSoupente" class="form-label">Surface Soupente</label>
                                     <div class=" input-group">
-                                        <input id="inputSurfaceSoupente" min="1" name="surfaceSoupente" placeholder="0"
+                                        <input id="inputSurfaceSoupente" min="1" name="surface_soupente" placeholder="0"
                                                type="number"
                                                class="form-control"
                                                value="">
@@ -356,7 +357,7 @@ include 'php/ville_controller.php';
                                 <div class="col col-6 mb-3">
                                     <label for="inputSurfaceHabitable" class="form-label">Surface habitable</label>
                                     <div class=" input-group">
-                                        <input id="inputSurfaceHabitable" min="1" name="surfaceHabitable"
+                                        <input id="inputSurfaceHabitable" min="1" name="surface_habitable"
                                                placeholder="0"
                                                type="number"
                                                class="form-control"
@@ -374,105 +375,105 @@ include 'php/ville_controller.php';
                                 <div class="col col-auto">
                                     <input id="inputAscenseur" name="ascenseur" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputAscenseur" class="checkInput">Ascenseur</label>
                                 </div>
 
                                 <div class="col col-auto">
                                     <input id="inputSecurite" name="securite" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputSecurite" class="checkInput">Sécurité</label>
 
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputClima" name="clima" type="checkbox" class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputClima" class="checkInput">Climatisation</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputChauffage" name="chauffage" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputChauffage" class="checkInput">Chauffage</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputParking" name="parking" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputParking" class="checkInput">Parking</label>
                                 </div>
 
                                 <div class="col col-auto">
-                                    <input id="inputCableTel" name="cableTel" type="checkbox"
+                                    <input id="inputCableTel" name="cable_tel" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputCableTel" class="checkInput">Câblage téléphonique</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputTerrasse" name="terrasse" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputTerrasse" class="checkInput">Terrasse</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputGarage" name="garage" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputGarage" class="checkInput">Garage</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputBalcon" name="balcon" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputBalcon" class="checkInput">Balcon</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputMeuble" name="meuble" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputMeuble" class="checkInput">Meublé</label>
                                 </div>
                                 <div class="col col-auto">
-                                    <input id="inputCuisineEquipee" name="cuisineEquipee" type="checkbox"
+                                    <input id="inputCuisineEquipee" name="cuisine_equipee" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputCuisineEquipee" class="checkInput">Cuisine équipée</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputJardin" name="jardin" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputJardin" class="checkInput">Jardin</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputPiscine" name="piscine" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputPiscine" class="checkInput">Piscine</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputConcierge" name="concierge" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputConcierge" class="checkInput">Concierge</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputDuplex" name="duplex" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputDuplex" class="checkInput">Duplex</label>
                                 </div>
                                 <div class="col col-auto">
                                     <input id="inputLoti" name="loti" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputLoti" class="checkInput">Loti</label>
                                 </div>
                                 <div class="col col-auto">
-                                    <input id="inputTerrainTitre" name="terrainTitre" type="checkbox"
+                                    <input id="inputTerrainTitre" name="terrain_titre" type="checkbox"
                                            class="form-check-input d-none"
-                                           value="false" hidden>
+                                           value="true" hidden>
                                     <label for="inputTerrainTitre" class="checkInput">Titre</label>
                                 </div>
                             </div>
@@ -510,7 +511,7 @@ include 'php/ville_controller.php';
 
                         </div>
                         <div id="addImage" role="button" tabindex="0" class="dropBox col col-5">
-                            <input accept="image/*" multiple="" id="inputFile" type="file" tabindex="-1"
+                            <input accept="image/*" multiple="" name="images[]" id="inputFile" type="file" tabindex="-1"
                                    style="display: none;">
                             <svg class="av-icon" height="64" width="64" viewBox="0 0 24 24"
                                  xmlns="http://www.w3.org/2000/svg" aria-labelledby="ImagesTitleID"
