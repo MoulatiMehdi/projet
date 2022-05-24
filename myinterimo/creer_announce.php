@@ -112,15 +112,16 @@ include 'php/ville_controller.php';
 
         </div>
         <div class="row justify-content-around align-items-center p-4 ">
-            <div class="col col-6">
-                <form method="post" class="was-validated card  row py-4 px-5 g-3 " id="regForm"
-                      style="height: 520px;">
+            <div class="col col-7">
+                <form method="post" action="php/create_announce.php" class="was-validated card  row py-4 px-5 g-3 "
+                      id="regForm"
+                      style="min-height: 520px">
                     <div class="tab row ">
-                        <div class="col text-center form-title">
+                        <div class="col col-12 text-center form-title">
                             Les informations Générales
-                            <hr style="opacity: 100%; color: var(--color-main); height: 3px; border-radius: 2px;">
+                            <hr>
                         </div>
-                        <div class="col col-10 mb-3 ">
+                        <div class="col col-auto mb-3 ">
                             <label for="inputCategory" class="form-label">
                                 Type d'Immobilier
                                 <span class="text-danger">*</span>
@@ -131,14 +132,14 @@ include 'php/ville_controller.php';
                                 </option>
                                 <option value="1">Appartements</option>
                                 <option value="2">Maisons et Villas</option>
-                                <option value="4">Magasin, Commerces et Locaux industriels</option>
+                                <option value="3">Magasin, Commerces et Locaux industriels</option>
+                                <option value="4">Bureaux et Plateaux</option>
                                 <option value="5">Terrains et Fermes</option>
-                                <option value="7">Bureaux et Plateaux</option>
-                                <option value="8">autre</option>
+                                <option value="6">autre</option>
 
                             </select>
                         </div>
-                        <div class="col col-10 mb-3">
+                        <div class="col col-auto mb-3">
                             <label for="inputTypeTransaction" class="form-label">
                                 Type de Transaction
                                 <span class="text-danger">*</span>
@@ -155,7 +156,7 @@ include 'php/ville_controller.php';
                                 <option value="6">Demande de location</option>
                             </select>
                         </div>
-                        <div class="col col-6 mb-3">
+                        <div class="col col-auto mb-3">
                             <label for="inputRegion" class="form-label">
                                 Région
                                 <span class="text-danger">*</span>
@@ -165,7 +166,7 @@ include 'php/ville_controller.php';
                                 <?php printRegionOptions(); ?>
                             </select>
                         </div>
-                        <div class="col col-6 mb-3">
+                        <div class="col col-auto mb-3">
                             <label for="inputVille" class="form-label">
                                 Ville
                                 <span class="text-danger">*</span>
@@ -175,7 +176,7 @@ include 'php/ville_controller.php';
                             </select>
 
                         </div>
-                        <div class="col col-10 mb-3">
+                        <div class="col col-auto mb-3">
                             <label for="inputAdresse" class="form-label">
                                 Adresse
                             </label>
@@ -186,23 +187,23 @@ include 'php/ville_controller.php';
                     <div class="tab row ">
                         <div class="col col-12 mb-3 text-center form-title">
                             Description d' Announce
-                            <hr style="opacity: 100%; color: var(--color-main); height: 3px; border-radius: 2px;">
+                            <hr>
                         </div>
-                        <div class="col col-6  mb-3">
+                        <div class="col col-8  mb-3">
                             <label for="titreAnnounce" class="form-label">
                                 Titre de announce
                                 <span class="text-danger">*</span>
                             </label>
                             <input id="titreAnnounce" type="text" name="titre" class="form-control" required>
                         </div>
-                        <div class="col col-6 mb-3">
+                        <div class="col col-4 mb-3">
                             <label for="prix" class="form-label">
                                 Prix<span class="text-danger">*</span>
                             </label>
                             <div class=" input-group">
-                                <input id="prix" type="number" name="prix" class="form-control col col-6"
+                                <input id="prix" type="number" name="prix" class="form-control"
                                        placeholder="0"
-                                       aria-describedby="dhs" required>
+                                       aria-describedby="dhs">
                                 <span class="input-group-text" id="dhs">Dhs</span>
                             </div>
                         </div>
@@ -221,14 +222,14 @@ include 'php/ville_controller.php';
                     <div class="tab row ">
                         <div class="col col-12 mb-3 text-center form-title">
                             Description de Bien
-                            <hr style="opacity: 100%; color: var(--color-main); height: 3px; border-radius: 2px;">
+                            <hr>
                         </div>
                         <div class="col-12">
                             <div class="row" id="allInput">
                                 <div class="col col-auto mb-3">
                                     <label for="selectChambres" class="form-label">Chambres</label>
                                     <select id="selectChambres" name="chambres" class="form-select">
-                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="" disabled="" selected>Choisissez</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -248,7 +249,7 @@ include 'php/ville_controller.php';
 
                                     <label for="selectSalleBain" class="form-label">Salle de bain</label>
                                     <select id="selectSalleBain" name="salleBain" class="form-select">
-                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="" disabled="" selected>Choisissez</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -264,7 +265,7 @@ include 'php/ville_controller.php';
 
                                     <label for="selectSalons" class="form-label">Salons</label>
                                     <select id="selectSalons" name="salons" class="form-select">
-                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="" disabled="" selected>Choisissez</option>
                                         <option value="0">0</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -280,7 +281,7 @@ include 'php/ville_controller.php';
 
                                     <label for="selectEtage" class="form-label">Etage</label>
                                     <select id="selectEtage" name="etages" class="form-select">
-                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="" disabled="" selected>Choisissez</option>
                                         <option value="0">Rez de chaussée</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -295,7 +296,7 @@ include 'php/ville_controller.php';
 
                                     <label for="selectAgeBien" class="form-label">Âge du Bien</label>
                                     <select id="selectAgeBien" name="ageBien" class="form-select">
-                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="" disabled="" selected>Choisissez</option>
                                         <option value="0">Neuf</option>
                                         <option value="1">1-5 ans</option>
                                         <option value="2">6-10 ans</option>
@@ -323,7 +324,7 @@ include 'php/ville_controller.php';
                                 <div class="col col-6 mb-3">
                                     <label for="inputFraisSyndic" class="form-label">Frais de Syndic (Par Mois)</label>
                                     <div class=" input-group">
-                                        <input id="inputFraisSyndic" min="1" name="FraisSyndic" placeholder="0"
+                                        <input id="inputFraisSyndic" min="1" name="fraisSyndic" placeholder="0"
                                                type="number"
                                                class="form-control"
                                                value="">
@@ -370,21 +371,13 @@ include 'php/ville_controller.php';
                         <div class="col col-12 mt-3 text-center">
                             <div class="row mb-3 justify-content-center">Détails supplémentaires</div>
                             <div class="row row-cols-auto p-3" id="allCheckBox">
-                                <div class="col col-auto ">
-                                    <input id="inputLoti" name="loti" type="checkbox" class="form-check-input d-none"
-                                           value="false">
-                                    <label for="inputLoti" class="checkInput ">
-                                        Loti
-                                    </label>
-                                </div>
                                 <div class="col col-auto">
-                                    <input id="inputTitre" name="terrainTitre" type="checkbox"
+                                    <input id="inputAscenseur" name="ascenseur" type="checkbox"
                                            class="form-check-input d-none"
                                            value="false" hidden>
-                                    <label for="inputTitre" class="checkInput">
-                                        Titré
-                                    </label>
+                                    <label for="inputAscenseur" class="checkInput">Ascenseur</label>
                                 </div>
+
                                 <div class="col col-auto">
                                     <input id="inputSecurite" name="securite" type="checkbox"
                                            class="form-check-input d-none"
@@ -409,12 +402,7 @@ include 'php/ville_controller.php';
                                            value="false" hidden>
                                     <label for="inputParking" class="checkInput">Parking</label>
                                 </div>
-                                <div class="col col-auto">
-                                    <input id="inputAscenseur" name="ascenseur" type="checkbox"
-                                           class="form-check-input d-none"
-                                           value="false" hidden>
-                                    <label for="inputAscenseur" class="checkInput">Ascenseur</label>
-                                </div>
+
                                 <div class="col col-auto">
                                     <input id="inputCableTel" name="cableTel" type="checkbox"
                                            class="form-check-input d-none"
@@ -473,7 +461,20 @@ include 'php/ville_controller.php';
                                     <input id="inputDuplex" name="duplex" type="checkbox"
                                            class="form-check-input d-none"
                                            value="false" hidden>
-                                    <label for="inputDuplex" class="checkInput">Duplex</label></div>
+                                    <label for="inputDuplex" class="checkInput">Duplex</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputLoti" name="loti" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputLoti" class="checkInput">Loti</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputTerrainTitre" name="terrainTitre" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputTerrainTitre" class="checkInput">Titre</label>
+                                </div>
                             </div>
                         </div>
 
@@ -481,7 +482,7 @@ include 'php/ville_controller.php';
                     <div class="tab row row-cols-auto justify-content-center">
                         <div class="col col-12 text-center form-title">
                             Images de Bien
-                            <hr style="opacity: 100%; color: var(--color-main); height: 3px; border-radius: 2px;">
+                            <hr>
                         </div>
                         <div class="dropBox position-relative" style="display:none">
                             <canvas class="dropBox0 position-absolute w-100 h-100"></canvas>
@@ -548,7 +549,7 @@ include 'php/ville_controller.php';
 
                     </div>
                     <div id="button-collector"
-                         class="col col-12 p-4 d-flex justify-content-between position-absolute bottom-0 start-0">
+                         class="col col-12 d-flex justify-content-between bottom-0 start-0">
                         <input type="button" style="visibility:hidden" class="rectangle-button " id="prevBtn"
                                onclick="prevTab()" value="Précedent">
                         <input type="button" class="rectangle-button " id="nextBtn" onclick="nextTab()"
@@ -557,7 +558,7 @@ include 'php/ville_controller.php';
                 </form>
 
             </div>
-            <img src="img/illustrations/imageMyspace.png" class="col col-auto "
+            <img src="img/illustrations/imageMyspace.png" class="col col-4 "
                  alt="Myinterimo,house">
         </div>
 
@@ -603,6 +604,7 @@ include 'php/ville_controller.php';
 </script>
 <script src="js/region.js"></script>
 <script src="js/chooseImages.js"></script>
+<script src="js/pickInput.js"></script>
 
 
 </html>

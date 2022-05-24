@@ -121,6 +121,12 @@ label {
     border-radius: 0.8rem;
 }
 
+.form-title hr{
+    opacity: 100%;
+    color: var(--color-main);
+    height: 3px;
+    border-radius: 2px;
+}
 .dropBox {
     display: flex;
     flex-direction: column;

@@ -143,8 +143,9 @@ function validateTab() {
     if (form.checkValidity()) {
         nextBtn.disabled = false;
         if (currentTab === lastTab) {
+
             progressBar.style.width = 100 * (lastTab + 2) / (numberTabs + 1) + "%";
-            lastTab += 1;
+            if (currentTab === numberTabs - 1) lastTab = lastTab + 1;
         }
 
         steps[(currentTab + 1) % numberTabs].disabled = false;
@@ -154,8 +155,7 @@ function validateTab() {
     }
 }
 
-
-//startForm();
+startForm();
 
 let descAnnounce = document.getElementById('description');
 

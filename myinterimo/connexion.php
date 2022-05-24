@@ -90,7 +90,7 @@ if (isset($_POST['submit'])) {
                 <h6>Bienvenue dans votre monde immobilier !</h6>
             </div>
             <?php if (!empty($error)) msg_error_alert($error); ?>
-            <div class="input-group mb-3 ">
+            <div class="input-group mb-3 " style="height: 40px">
                 <i class="fa-solid fa-envelope input-group-text  text-secondary bg-light" id="email-icon"></i>
                 <input value="<?php if (isset($_POST['email'])) echo $_POST['email'] ?>" name="email" type="text"
                        class="form-control" placeholder="Votre e-mail"
@@ -99,7 +99,7 @@ if (isset($_POST['submit'])) {
 
             </div>
 
-            <div class="input-group mb-3 ">
+            <div class="input-group mb-3" style=" height: 40px">
                 <i class="fa-solid fa-key input-group-text text-secondary bg-light " id="password-icon"></i>
                 <input type="password" class="form-control " placeholder="Mot de passe" aria-label="Mot de Passe"
                        name="mot_de_passe" aria-describedby="password-icon" required>
