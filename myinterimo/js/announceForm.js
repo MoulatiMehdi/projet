@@ -155,7 +155,7 @@ function validateTab() {
 }
 
 
-startForm();
+//startForm();
 
 let descAnnounce = document.getElementById('description');
 

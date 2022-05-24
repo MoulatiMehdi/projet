@@ -185,12 +185,12 @@ include 'php/ville_controller.php';
                     </div>
                     <div class="tab row ">
                         <div class="col col-12 mb-3 text-center form-title">
-                            Description de Bien
+                            Description d' Announce
                             <hr style="opacity: 100%; color: var(--color-main); height: 3px; border-radius: 2px;">
                         </div>
                         <div class="col col-6  mb-3">
                             <label for="titreAnnounce" class="form-label">
-                                Titre de l'announce
+                                Titre de announce
                                 <span class="text-danger">*</span>
                             </label>
                             <input id="titreAnnounce" type="text" name="titre" class="form-control" required>
@@ -201,13 +201,14 @@ include 'php/ville_controller.php';
                             </label>
                             <div class=" input-group">
                                 <input id="prix" type="number" name="prix" class="form-control col col-6"
+                                       placeholder="0"
                                        aria-describedby="dhs" required>
                                 <span class="input-group-text" id="dhs">Dhs</span>
                             </div>
                         </div>
                         <div class="col col-12 mb-3">
                             <label for="description" class="form-label">
-                                Description Announce
+                                Description sur announce
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="position-relative">
@@ -216,10 +217,265 @@ include 'php/ville_controller.php';
                                 <span id="descriptionLength" class="position-absolute bottom-0 end-0 p-2">0/4000</span>
                             </div>
                         </div>
-
-
                     </div>
                     <div class="tab row ">
+                        <div class="col col-12 mb-3 text-center form-title">
+                            Description de Bien
+                            <hr style="opacity: 100%; color: var(--color-main); height: 3px; border-radius: 2px;">
+                        </div>
+                        <div class="col-12">
+                            <div class="row" id="allInput">
+                                <div class="col col-auto mb-3">
+                                    <label for="selectChambres" class="form-label">Chambres</label>
+                                    <select id="selectChambres" name="chambres" class="form-select">
+                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">10+</option>
+                                    </select>
+
+                                </div>
+
+                                <div class="col col-auto mb-3">
+
+                                    <label for="selectSalleBain" class="form-label">Salle de bain</label>
+                                    <select id="selectSalleBain" name="salleBain" class="form-select">
+                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7+</option>
+                                    </select>
+                                </div>
+
+                                <div class="col col-auto mb-3">
+
+                                    <label for="selectSalons" class="form-label">Salons</label>
+                                    <select id="selectSalons" name="salons" class="form-select">
+                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7+</option>
+                                    </select>
+                                </div>
+
+                                <div class="col col-auto mb-3">
+
+                                    <label for="selectEtage" class="form-label">Etage</label>
+                                    <select id="selectEtage" name="etages" class="form-select">
+                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="0">Rez de chaussée</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7+</option>
+                                    </select>
+                                </div>
+                                <div class="col col-auto mb-3">
+
+                                    <label for="selectAgeBien" class="form-label">Âge du Bien</label>
+                                    <select id="selectAgeBien" name="ageBien" class="form-select">
+                                        <option value="" disabled="">Choisissez</option>
+                                        <option value="0">Neuf</option>
+                                        <option value="1">1-5 ans</option>
+                                        <option value="2">6-10 ans</option>
+                                        <option value="3">11-20 ans</option>
+                                        <option value="4">21+ ans</option>
+                                    </select>
+                                </div>
+                                <div class="col col-auto mb-3">
+                                    <label for="inputZoning" class="form-label">
+                                        Zoning<span class="text-danger">*</span>
+                                    </label>
+                                    <select name="zoning" id="inputZoning" class="form-select">
+                                        <option disabled class="text-center" value="" selected>
+                                            -- Zoning --
+                                        </option>
+                                        <option value="1"> Agricole</option>
+                                        <option value="2">Immeuble</option>
+                                        <option value="4">Industriel</option>
+                                        <option value="5">Maison</option>
+                                        <option value="7">Service public</option>
+                                        <option value="8">Villa</option>
+                                    </select>
+
+                                </div>
+                                <div class="col col-6 mb-3">
+                                    <label for="inputFraisSyndic" class="form-label">Frais de Syndic (Par Mois)</label>
+                                    <div class=" input-group">
+                                        <input id="inputFraisSyndic" min="1" name="FraisSyndic" placeholder="0"
+                                               type="number"
+                                               class="form-control"
+                                               value="">
+                                        <span class="input-group-text" id="Dhs">Dhs</span>
+                                    </div>
+                                </div>
+
+                                <div class="col col-6 mb-3">
+                                    <label for="inputSurfaceTotale" class="form-label">Surface totale</label>
+                                    <div class=" input-group">
+                                        <input id="inputSurfaceTotale" min="1" name="surfaceTotale" placeholder="0"
+                                               type="number" class="form-control"
+                                               value="">
+                                        <span class="input-group-text" id="m²">m²</span>
+                                    </div>
+                                </div>
+
+                                <div class="col col-6 mb-3">
+                                    <label for="inputSurfaceSoupente" class="form-label">Surface Soupente</label>
+                                    <div class=" input-group">
+                                        <input id="inputSurfaceSoupente" min="1" name="surfaceSoupente" placeholder="0"
+                                               type="number"
+                                               class="form-control"
+                                               value="">
+                                        <span class="input-group-text" id="m²">m²</span>
+                                    </div>
+                                </div>
+
+                                <div class="col col-6 mb-3">
+                                    <label for="inputSurfaceHabitable" class="form-label">Surface habitable</label>
+                                    <div class=" input-group">
+                                        <input id="inputSurfaceHabitable" min="1" name="surfaceHabitable"
+                                               placeholder="0"
+                                               type="number"
+                                               class="form-control"
+                                               value="">
+                                        <span class="input-group-text" id="m²">m²</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col col-12 mt-3 text-center">
+                            <div class="row mb-3 justify-content-center">Détails supplémentaires</div>
+                            <div class="row row-cols-auto p-3" id="allCheckBox">
+                                <div class="col col-auto ">
+                                    <input id="inputLoti" name="loti" type="checkbox" class="form-check-input d-none"
+                                           value="false">
+                                    <label for="inputLoti" class="checkInput ">
+                                        Loti
+                                    </label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputTitre" name="terrainTitre" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputTitre" class="checkInput">
+                                        Titré
+                                    </label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputSecurite" name="securite" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputSecurite" class="checkInput">Sécurité</label>
+
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputClima" name="clima" type="checkbox" class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputClima" class="checkInput">Climatisation</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputChauffage" name="chauffage" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputChauffage" class="checkInput">Chauffage</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputParking" name="parking" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputParking" class="checkInput">Parking</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputAscenseur" name="ascenseur" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputAscenseur" class="checkInput">Ascenseur</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputCableTel" name="cableTel" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputCableTel" class="checkInput">Câblage téléphonique</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputTerrasse" name="terrasse" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputTerrasse" class="checkInput">Terrasse</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputGarage" name="garage" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputGarage" class="checkInput">Garage</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputBalcon" name="balcon" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputBalcon" class="checkInput">Balcon</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputMeuble" name="meuble" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputMeuble" class="checkInput">Meublé</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputCuisineEquipee" name="cuisineEquipee" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputCuisineEquipee" class="checkInput">Cuisine équipée</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputJardin" name="jardin" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputJardin" class="checkInput">Jardin</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputPiscine" name="piscine" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputPiscine" class="checkInput">Piscine</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputConcierge" name="concierge" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputConcierge" class="checkInput">Concierge</label>
+                                </div>
+                                <div class="col col-auto">
+                                    <input id="inputDuplex" name="duplex" type="checkbox"
+                                           class="form-check-input d-none"
+                                           value="false" hidden>
+                                    <label for="inputDuplex" class="checkInput">Duplex</label></div>
+                            </div>
+                        </div>
 
                     </div>
                     <div class="tab row row-cols-auto justify-content-center">
