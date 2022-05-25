@@ -26,8 +26,8 @@ function saveCategory($user): bool
 
 function tableTarget($user)
 {
-    $request="";
-   // $request = "INSERT INTO "
+    $request = "";
+    // $request = "INSERT INTO "
     switch ($user['type_immobilier']) {
         case CATEGORY_APPARTEMENT :
             $request .= TABLE_APPARTEMENT;
