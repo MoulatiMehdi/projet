@@ -2,8 +2,8 @@
 
 if (!isset($_SESSION)) session_start();
 
-include 'php/user_controller.php';
-include 'php/connexion_error.php';
+include 'php/controller_user.php';
+include 'php/messages.php';
 if (isset($_SESSION['user'])) header('Location:' . MAIN_FOLDER . '/index.php');
 
 $error = array();

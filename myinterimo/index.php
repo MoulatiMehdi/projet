@@ -43,7 +43,7 @@ $_SESSION['menu'] = 'accueil';
 </div>
 
 <!-- navbar menu -->
-<?php include 'php/elem_menu_deconnexion.php' ?>
+<?php include 'php/elem_menu.php' ?>
 
 <!-- grab some space to replace the fixed navbar -->
 <section class=" py-lg-0 py-md-4  py-0"></section>
@@ -450,7 +450,7 @@ $_SESSION['menu'] = 'accueil';
 
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
-    <?php include 'php/site_webs_entreprise.php' ?>
+    <?php include 'php/elem_webSiteLogos.php' ?>
 </div>
 
 <?php include 'php/elem_footer.php' ?>

@@ -66,18 +66,31 @@ function textHtmlElement(inputs, inputsText) {
 }
 
 typeTransaction.disabled = true;
-inputsText.push([], ['salons', 'chambres', 'etages', 'salle_bain', 'surface_totale', 'surface_habitable', 'age_bien', 'frais_syndic'], ['salons', 'chambres', 'etages', 'salle_bain', 'surface_totale', 'surface_habitable', 'age_bien'], ['nbr_pieces', 'etages', 'surface_totale', 'frais_syndic', 'surface_soupente'], ['salle_bain', 'surface_totale', 'surface_soupente'], ['surface_totale', 'zoning'], []);
-checkBoxesText.push([], ['ascenseur', 'balcon', 'terrasse', 'meuble', 'clima', 'chauffage', 'cuisine_equipe', 'concierge', 'securite', 'parking', 'duplex'], ['garage', 'balcon', 'terrasse', 'meuble', 'clima', 'chauffage', 'cuisine_equipe', 'jardin', 'piscine', 'securite', 'parking'], ['ascenseur', 'cable_Tel', 'clima', 'chauffage', 'securite', 'parking', 'terrasse'], ['clima', 'chauffage', 'parking', 'securité'], ['loti', 'terrain_titre'], []);
+ville.disabled = true;
+typeTransaction.options.setselectedIndex = 0;
+ville.options.setselectedIndex = 0;
+
+inputsText.push(
+    [],
+    ['salons', 'chambres', 'etages', 'salle_bain', 'surface_totale', 'surface_habitable', 'age_bien', 'frais_syndic'],
+    ['salons', 'chambres', 'etages', 'salle_bain', 'surface_totale', 'surface_habitable', 'age_bien'],
+    ['nbr_pieces', 'etages', 'surface_totale', 'frais_syndic', 'surface_soupente'],
+    ['salle_bain', 'surface_totale', 'surface_soupente'], ['surface_totale', 'zoning'],
+    []);
+checkBoxesText.push(
+    [],
+    ['ascenseur', 'balcon', 'terrasse', 'meuble', 'clima', 'chauffage', 'cuisine_equipe', 'concierge', 'securite', 'parking', 'duplex'],
+    ['garage', 'balcon', 'terrasse', 'meuble', 'clima', 'chauffage', 'cuisine_equipe', 'jardin', 'piscine', 'securite', 'parking'],
+    ['ascenseur', 'cable_Tel', 'clima', 'chauffage', 'securite', 'parking', 'terrasse'], ['clima', 'chauffage', 'parking', 'securité'],
+    ['loti', 'terrain_titre'],
+    []);
 
 for (let i = 0; i < typeImmobilier.length; i++) {
     formByImmobilier[i].push(textHtmlElement(selects.children, inputsText[i]));
     formByImmobilier[i].push(textHtmlElement(checkBoxes.children, checkBoxesText[i]));
-
 }
 
-console.log(formByImmobilier);
-
-typeImmobilier.oninput = function () {
+typeImmobilier.onchange = function () {
 
     typeTransaction.disabled = false;
     if (this.selectedIndex > 2) {
@@ -91,12 +104,13 @@ typeImmobilier.oninput = function () {
     document.getElementById('allInput').innerHTML = "";
     document.getElementById('allCheckBox').innerHTML = "";
     let line = parseInt(typeImmobilier.value);
-    console.log(line);
-    console.log(!isNaN(line));
+
+
     if (!isNaN(line)) {
-        for (let j = 0; j < formByImmobilier[line][0].length; j++) document.getElementById('allInput').innerHTML += formByImmobilier[line][0][j].outerHTML;
-        for (let j = 0; j < formByImmobilier[line][1].length; j++) document.getElementById('allCheckBox').innerHTML += formByImmobilier[line][1][j].outerHTML;
-        console.log(formByImmobilier[line]);
+        for (let j = 0; j < formByImmobilier[line][0].length; j++)
+            document.getElementById('allInput').innerHTML += formByImmobilier[line][0][j].outerHTML;
+        for (let j = 0; j < formByImmobilier[line][1].length; j++)
+            document.getElementById('allCheckBox').innerHTML += formByImmobilier[line][1][j].outerHTML;
     }
 
 }
@@ -113,8 +127,8 @@ typeTransaction.onchange = function () {
 
 
 validateRegion();
-region.oninput = validateRegion;
-ville.oninput = validateVille;
+region.onchange = validateRegion;
+ville.onchange = validateVille;
 
 
 

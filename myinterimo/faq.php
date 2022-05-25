@@ -42,7 +42,7 @@ $_SESSION['menu'] = 'faq';
     ?>
 </div>
 <div class="container-lg">
-    <?php include 'php/elem_menu_deconnexion.php' ?>
+    <?php include 'php/elem_menu.php' ?>
     <!-- information -->
     <section id="section1" class="row  row-cols-auto justify-content-around align-items-center py-3 px-3">
         <img class="animImgLeft col col-md-6 col-sm-10 "
@@ -291,7 +291,7 @@ $_SESSION['menu'] = 'faq';
 
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
-<?php include 'php/site_webs_entreprise.php' ?></div>
+<?php include 'php/elem_webSiteLogos.php' ?></div>
 <?php include 'php/elem_footer.php' ?>
 
 </body>

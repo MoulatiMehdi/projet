@@ -3,8 +3,8 @@ session_start();
 $error = $_SESSION['error'] ?? null;
 $_SESSION['menu'] = "edit_profile";
 
-include 'php/user_controller.php';
-include 'php/connexion_error.php';
+include 'php/controller_user.php';
+include 'php/messages.php';
 if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 ?>
 <!doctype html>
@@ -95,7 +95,7 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 
     ?>
 </div>
-<?php include 'php/elem_menu_deconnexion.php' ?>
+<?php include 'php/elem_menu.php' ?>
 <div class="container ">
 
     <!-- grab some space to replace the fixed navbar -->

@@ -44,7 +44,7 @@ $_SESSION['menu'] = 'fonctionnalite';
 </div>
 
 <!-- navbar menu -->
-<?php include 'php/elem_menu_deconnexion.php' ?>
+<?php include 'php/elem_menu.php' ?>
 <div class="container-lg">
 
     <!-- grab some space to replace the fixedNavBar -->
@@ -247,7 +247,7 @@ $_SESSION['menu'] = 'fonctionnalite';
 <div class="container-lg">
 
     <!-- tous les Sites web de l'entreprise-->
-    <?php include 'php/site_webs_entreprise.php' ?>
+    <?php include 'php/elem_webSiteLogos.php' ?>
 
 </div>
 <?php include 'php/elem_footer.php' ?>

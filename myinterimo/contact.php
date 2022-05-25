@@ -44,7 +44,7 @@ $_SESSION['menu'] = 'contact';
 
 
 <!-- navBar menu-->
-<?php include 'php/elem_menu_deconnexion.php' ?>
+<?php include 'php/elem_menu.php' ?>
 
 <!-- grap some space to replace the fixed navbar space -->
 <section class="p-5 "></section>
@@ -186,7 +186,7 @@ $_SESSION['menu'] = 'contact';
     <!-- les Témoignages -->
 
     <!-- tous les Sites web de l'entreprise-->
-    <?php include 'php/site_webs_entreprise.php' ?>
+    <?php include 'php/elem_webSiteLogos.php' ?>
 </div>
 
 <?php include 'php/elem_footer.php' ?>

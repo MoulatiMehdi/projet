@@ -14,15 +14,5 @@ if (isset($_POST) && !empty($_POST)) {
     }
     var_dump($announce);
 
-    if (isset($_FILES) && !empty($_FILES['images'])) {
-
-    }
-    $error = saveAnnounce($announce);
-    if ($error != false)
-        foreach ($error as $key => $value) {
-            $_SESSION['error'][$key] .= $value;
-        }
-    header('Location:' . MAIN_FOLDER . '/modifier_profile.php');
-
 
 }

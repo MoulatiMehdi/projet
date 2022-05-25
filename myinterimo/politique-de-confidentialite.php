@@ -83,7 +83,7 @@ $_SESSION['menu'] = "politique_de_confidentialite";
 
     ?>
 </div>
-<?php include 'php/elem_menu_deconnexion.php' ?>
+<?php include 'php/elem_menu.php' ?>
 <div class="container">
     <!-- grab some space to replace the fixed navbar -->
     <section class=" my-5 py-3"></section>

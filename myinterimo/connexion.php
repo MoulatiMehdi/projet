@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include 'php/user_controller.php';
-include 'php/connexion_error.php';
+include 'php/controller_user.php';
+include 'php/messages.php';
 $error = "";
 if (isset($_SESSION['user'])) header('Location:' . MAIN_FOLDER . '/index.php');
 if (isset($_POST['submit'])) {

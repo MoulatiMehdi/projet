@@ -74,7 +74,7 @@
     ?>
 </div>
 <div class="container">
-    <?php include 'php/elem_menu_deconnexion.php' ?>
+    <?php include 'php/elem_menu.php' ?>
     <!-- grab some space to replace the fixed navbar -->
     <section class=" my-5 py-3"></section>
     <section class="politique">

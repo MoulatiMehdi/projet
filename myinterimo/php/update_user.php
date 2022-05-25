@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include 'user_controller.php';
-include 'connexion_error.php';
+include 'controller_user.php';
+include 'messages.php';
 
 
 $current_user = $_SESSION['user'] ?? header("Location: deconnexion.php");

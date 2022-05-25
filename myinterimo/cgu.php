@@ -79,7 +79,7 @@ $_SESSION['menu'] = 'cgu';
     ?>
 </div>
 
-<?php include 'php/elem_menu_deconnexion.php' ?>
+<?php include 'php/elem_menu.php' ?>
 <div class="container ">
 
     <!-- grab some space to replace the fixed navbar -->

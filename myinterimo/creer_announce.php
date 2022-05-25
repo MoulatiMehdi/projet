@@ -7,11 +7,11 @@ $_SESSION['menu'] = "create_announce";
 
 if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 
-include 'php/user_controller.php';
+include 'php/controller_user.php';
 include 'php/create_announce.php';
-include 'php/connexion_error.php';
-include 'php/region_controller.php';
-include 'php/ville_controller.php';
+include 'php/messages.php';
+include 'php/controller_region.php';
+include 'php/controller_ville.php';
 
 
 ?>
@@ -96,7 +96,7 @@ include 'php/ville_controller.php';
 
     ?>
 </div>
-<?php include 'php/elem_menu_deconnexion.php' ?>
+<?php include 'php/elem_menu.php' ?>
 <div class="container ">
 
     <!-- grab some space to replace the fixed navbar -->
@@ -127,9 +127,7 @@ include 'php/ville_controller.php';
                                 <span class="text-danger">*</span>
                             </label>
                             <select name="type_immobilier" id="inputCategory" class="form-select" required>
-                                <option disabled class="text-center" value="" selected>
-                                    -- TYPE IMMOBILIER --
-                                </option>
+                                <option disabled class="text-center" value="" selected>-- TYPE IMMOBILIER --</option>
                                 <option value="1">Appartements</option>
                                 <option value="2">Maisons et Villas</option>
                                 <option value="3">Magasin, Commerces et Locaux industriels</option>
@@ -162,7 +160,7 @@ include 'php/ville_controller.php';
                                 Région
                                 <span class="text-danger">*</span>
                             </label>
-                            <select name="region" class="form-select col-auto" id="inputRegion" required>
+                            <select name="id_region" class="form-select col-auto" id="inputRegion" required>
                                 <option value="" disabled selected class="text-center">-- REGION --</option>
                                 <?php printRegionOptions(); ?>
                             </select>
@@ -172,7 +170,7 @@ include 'php/ville_controller.php';
                                 Ville
                                 <span class="text-danger">*</span>
                             </label>
-                            <select name="ville" class="form-select col-auto" id="inputVille" required>
+                            <select name="id_ville" class="form-select col-auto" id="inputVille" required>
                                 <option value="" disabled class="text-center" selected>-- VILLE --</option>
                             </select>
 
@@ -387,7 +385,8 @@ include 'php/ville_controller.php';
 
                                 </div>
                                 <div class="col col-auto">
-                                    <input id="inputClima" name="clima" type="checkbox" class="form-check-input d-none"
+                                    <input id="inputClima" name="climatisation" type="checkbox"
+                                           class="form-check-input d-none"
                                            value="true" hidden>
                                     <label for="inputClima" class="checkInput">Climatisation</label>
                                 </div>
