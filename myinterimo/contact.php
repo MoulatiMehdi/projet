@@ -25,29 +25,12 @@ $_SESSION['menu'] = 'contact';
     <title>Contact - MyInterimo</title>
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-50 start-50  p-3 "
-     style="z-index:5">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
-
-    if (!empty($_SESSION['error']['phone'])) {
-        msg_warning_toast($_SESSION['error']['phone']);
-        unset($_SESSION['error']['phone']);
-    }
-
-
-    ?>
-</div>
 
 
 <!-- navBar menu-->
-<?php include 'php/elem_menu.php' ?>
-
-<!-- grap some space to replace the fixed navbar space -->
-<section class="p-5 "></section>
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php' ?>
 
 <!-- Myinterimo Form and Location -->
 <section class="row row-cols-auto p-3 justify-content-around align-items-center">
@@ -193,7 +176,6 @@ $_SESSION['menu'] = 'contact';
 </body>
 <script src="./js/fontAwesome.js"></script>
 <!-- JavaScript Bundle with Popper -->
-<script src="js/draggble-slide.js"></script>
 <script src="js/validation.js"></script>
 <script src="php/send_email.php"></script>
 

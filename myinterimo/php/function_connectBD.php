@@ -13,7 +13,7 @@ const ERROR_SIRET = "Ce N° SIRET deja exist.";
 const ERROR_PHONE = "Ce N° téléphone deja utilisé.";
 const ERROR_EMAIL = "Cet email deja utilisé.";
 const ERROR_PHOTO = "Error de l'importation de la photo.";
-const ERROR_PHOTO_SIZE = "la taille de photo maximale est 2Mo.";
+const ERROR_PHOTO_SIZE = "la taille d'image doit être inférieur à 2Mo.";
 const ERROR_EDITING_PROFILE = "Un erreur est déclenché pendant la Mise à jour de Profile";
 const ERROR_PASSWORD = "Le Mot de Passe est incorrect";
 const ERROR_EMAIL_OR_PASSWORD = "L'email ou le mot de passe est incorrect";
@@ -46,7 +46,7 @@ function loadOne($request)
 
 }
 
-function execRequest($request): bool
+function execRequest($request): ?string
 {
     $db = connectToDB();
     try {
@@ -56,5 +56,11 @@ function execRequest($request): bool
     }
     return true;
 
+}
+
+function getLastInsertID(): bool|string
+{
+    $db = connectToDB();
+    return $db->lastInsertId();
 }
 

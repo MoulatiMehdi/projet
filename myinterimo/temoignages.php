@@ -29,36 +29,22 @@ $_SESSION['menu'] = 'temoignages';
     <title>Témoignages - MyInterimo</title>
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-50 start-50  p-3 "
-     style="z-index:5">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php' ?>
 
-    if (!empty($_SESSION['error']['phone'])) {
-        msg_warning_toast($_SESSION['error']['phone']);
-        unset($_SESSION['error']['phone']);
-    }
-
-
-    ?>
-</div>
-
-<?php include 'php/elem_menu.php' ?>
-<section class=" p-5 "></section>
 <!-- des Témoignages -->
 <?php include 'php/elem_temoignages.php' ?>
+
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
     <?php include 'php/elem_webSiteLogos.php' ?>
 </div>
+
 <?php include 'php/elem_footer.php' ?>
 
 </body>
 
 <!-- JavaScript Bundle with Popper -->
-<script src="js/draggble-slide.js"></script>
 
 </html>

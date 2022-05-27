@@ -44,4 +44,5 @@
         </div>
 
     </div>
+    <script src="./js/counter.js"></script>
 </section>

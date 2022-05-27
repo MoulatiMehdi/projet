@@ -77,11 +77,13 @@ inputsText.push(
     ['nbr_pieces', 'etages', 'surface_totale', 'frais_syndic', 'surface_soupente'],
     ['salle_bain', 'surface_totale', 'surface_soupente'], ['surface_totale', 'zoning'],
     []);
+
 checkBoxesText.push(
     [],
     ['ascenseur', 'balcon', 'terrasse', 'meuble', 'clima', 'chauffage', 'cuisine_equipe', 'concierge', 'securite', 'parking', 'duplex'],
     ['garage', 'balcon', 'terrasse', 'meuble', 'clima', 'chauffage', 'cuisine_equipe', 'jardin', 'piscine', 'securite', 'parking'],
-    ['ascenseur', 'cable_Tel', 'clima', 'chauffage', 'securite', 'parking', 'terrasse'], ['clima', 'chauffage', 'parking', 'securité'],
+    ['ascenseur', 'cable_tel', 'clima', 'chauffage', 'securite', 'parking', 'terrasse'],
+    ['clima', 'chauffage', 'parking', 'securite'],
     ['loti', 'terrain_titre'],
     []);
 

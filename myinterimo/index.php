@@ -1,7 +1,9 @@
 <?php
 session_start();
 $_SESSION['menu'] = 'accueil';
-
+include 'php/function_connectBD.php';
+include 'php/controller_announce.php';
+$announces = findAllAnnounces();
 ?>
 <!doctype html>
 <html lang="fr">
@@ -25,34 +27,74 @@ $_SESSION['menu'] = 'accueil';
     <title>MyInterimo : L’inter-agence en mode 3.0</title>
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-50 start-50  p-3 "
-     style="z-index:5">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php' ?>
 
-    if (!empty($_SESSION['error']['phone'])) {
-        msg_warning_toast($_SESSION['error']['phone']);
-        unset($_SESSION['error']['phone']);
-    }
+<div class="container-lg ">
+    <?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])):
+        ?>
+        <section class="box d-block  mt-5 w-100 h-100 shadow-sm ">
+            <div class="row p-3 justify-content-center align-items-center ">
+                <div class="col">
+                    <div class="row justify-content-center align-items-center">
+                        <div class="col col-auto">
+                            <h6 class="text-center fw-bold" style='font-family: " Rubik", Helvetica,Arial, serif'>
+                                Filter:
+                            </h6>
+                        </div>
+                        <div class="col col-auto">
+                            <label>
+                                <input type="text" placeholder="Ville" class="form-control shadow-sm">
+                            </label>
+                        </div>
+                        <div class="col col-auto">
+                            <label>
+                                <input type="text" placeholder="Agence" class="form-control shadow-sm">
+                            </label>
+                        </div>
+                        <div class="col">
+                            <label>
+                                <select name="type_immobilier" id="inputCategory"
+                                        class="form-select shadow-sm">
+                                    <option disabled class="text-center " value="" selected>Type</option>
+                                    <option value="1">Appartements</option>
+                                    <option value="2">Maisons et Villas</option>
+                                    <option value="4">Magasin, Commerces et Locaux industriels</option>
+                                    <option value="3">Bureaux et Plateaux</option>
+                                    <option value="5">Terrains et Fermes</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div class="col col-auto">
+                            <label for="inputPrix">
+                                <select name="prix" id="inputPrix" class="form-select shadow-sm">
+                                    <option disabled class="text-center" value="" selected>Prix</option>
+                                    <option value="10000">10000</option>
+                                    <option value="2">20000</option>
+                                    <option value="4">40000</option>
+                                    <option value="5">50000</option>
+                                    <option value="3">30000</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div class="col col-auto circle-button-white " role="button">
+                            <i class="fa-solid fa-arrows-rotate fa-lg"></i>
+                        </div>
+                        <div class="col col-auto circle-button-white" role="button">
+                            <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+                        </div>
+                    </div>
+                    <div class="row mb-5 mt-3" id="allAnnounce">
+                    </div>
+                </div>
 
 
-    ?>
-</div>
+            </div>
 
-<!-- navbar menu -->
-<?php include 'php/elem_menu.php' ?>
-
-<!-- grab some space to replace the fixed navbar -->
-<section class=" py-lg-0 py-md-4  py-0"></section>
-<?php if (isset($_SESSION['user']) && !empty($_SESSION['user'])):
-    ?>
-
-
-<?php else : ?>
-    <div class="container-lg ">
+        </section>
+    <?php else : ?>
 
 
         <!-- découvrez Myinterimo -->
@@ -440,10 +482,11 @@ $_SESSION['menu'] = 'accueil';
         </section>
 
         <!-- les chiffres de Myinterimo-->
-        <?php include 'php/elem_chiffres.php' ?>
-    </div>
-<?php endif; ?>
 
+        <?php include 'php/elem_chiffres.php' ?>
+    <?php endif; ?>
+
+</div>
 
 <!-- des Témoignages -->
 <?php include 'php/elem_temoignages.php' ?>
@@ -465,9 +508,8 @@ $_SESSION['menu'] = 'accueil';
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 <!--JavaScript for draggble-slide -->
-<script src="js/draggble-slide.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="js/counter.js"></script>
+
 
 <script type="text/javascript">
     $(document).ready(function () {

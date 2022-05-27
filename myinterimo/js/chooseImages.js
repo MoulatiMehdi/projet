@@ -47,10 +47,8 @@ button.onclick = function () {
 }
 
 function checkFiles(files, max) {
-    console.log(list.files);
     for (let i = 0; i < max && i < files.length; i++) {
         list.items.add(files[i]);
     }
     inputFiles.files = list.files;
-    console.log(inputFiles.files);
 }

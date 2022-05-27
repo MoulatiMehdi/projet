@@ -2,7 +2,6 @@
 session_start();
 
 include 'controller_user.php';
-include 'messages.php';
 
 
 $current_user = $_SESSION['user'] ?? header("Location: deconnexion.php");
@@ -42,10 +41,10 @@ if (isset($_POST) && !empty($_POST)) {
             if ($result) {
                 $update_user['user_img'] = $update_user['n_siret'] . strtolower(strrchr($_FILES['update_user_img']['name'], "."));
             } else {
-                $_SESSION['error']['photo'] = ERROR_PHOTO . $_FILES['update_user_img']['size'];
+                $_SESSION['warning']['photo'] = ERROR_PHOTO;
             }
         } else {
-            $_SESSION['error']['photo'] = ERROR_PHOTO_SIZE;
+            $_SESSION['warning']['photo'] = ERROR_PHOTO_SIZE;
         }
 
     }
@@ -54,7 +53,13 @@ if (isset($_POST) && !empty($_POST)) {
         foreach ($error as $key => $value) {
             $_SESSION['error'][$key] .= $value;
         }
+    else {
+        $_SESSION['success']['update'] = "Le compte à éte modifier avec success";
+    }
     header('Location:' . MAIN_FOLDER . '/modifier_profile.php');
 
 
+} else {
+    $_SESSION['error']['form'] = "les fichiers envoyés sont dépasser la limite.";
+    header("Location:" . MAIN_FOLDER . "/modifier_profile.php");
 }

@@ -98,3 +98,5 @@ VALUES ('Tanger-Assilah', 1),
 
        ('Oued Ed Dahab', 12),
        ('Aousserd', 12);
+
+commit;

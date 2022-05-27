@@ -1,5 +1,5 @@
 <?php
- session_start();
+session_start();
 $_SESSION['menu'] = 'faq';
 ?>
 <!doctype html>
@@ -25,24 +25,10 @@ $_SESSION['menu'] = 'faq';
     <title>FAQ - MyInterimo</title>
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-50 start-50  p-3 "
-     style="z-index:5">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
-
-    if (!empty($_SESSION['error']['phone'])) {
-        msg_warning_toast($_SESSION['error']['phone']);
-        unset($_SESSION['error']['phone']);
-    }
-
-
-    ?>
-</div>
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php' ?>
 <div class="container-lg">
-    <?php include 'php/elem_menu.php' ?>
     <!-- information -->
     <section id="section1" class="row  row-cols-auto justify-content-around align-items-center py-3 px-3">
         <img class="animImgLeft col col-md-6 col-sm-10 "
@@ -291,18 +277,17 @@ $_SESSION['menu'] = 'faq';
 
 <div class="container-lg">
     <!-- tous les Sites web de l'entreprise-->
-<?php include 'php/elem_webSiteLogos.php' ?></div>
+    <?php include 'php/elem_webSiteLogos.php' ?></div>
 <?php include 'php/elem_footer.php' ?>
 
 </body>
-<script src="./js/fontAwesome.js" ></script>
+<script src="./js/fontAwesome.js"></script>
 <!-- JavaScript Bundle with Popper -->
-<script src="js/draggble-slide.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="js/counter.js"></script>
+
 
 </html>

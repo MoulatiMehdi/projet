@@ -98,4 +98,5 @@
         </main>
 
     </div>
+    <script src="./js/draggble-slide.js"></script>
 </section>

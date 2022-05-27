@@ -61,29 +61,13 @@ $_SESSION['menu'] = 'cgu';
 
 </head>
 
-<body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-50 start-50  p-3 "
-     style="z-index:5">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
+<body aria-live="polite" aria-atomic="true" class="position-relative translate-middle-x translate-middle">
 
-    if (!empty($_SESSION['error']['phone'])) {
-        msg_warning_toast($_SESSION['error']['phone']);
-        unset($_SESSION['error']['phone']);
-    }
-
-
-    ?>
-</div>
-
-<?php include 'php/elem_menu.php' ?>
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php'
+?>
 <div class="container ">
-
-    <!-- grab some space to replace the fixed navbar -->
-    <section class=" my-5 py-3"></section>
     <section class="politique">
         <section>
             <p>Date d’entrée en vigueur : 12 janvier 2022</p>

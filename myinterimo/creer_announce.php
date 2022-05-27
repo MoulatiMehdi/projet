@@ -8,8 +8,6 @@ $_SESSION['menu'] = "create_announce";
 if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 
 include 'php/controller_user.php';
-include 'php/create_announce.php';
-include 'php/messages.php';
 include 'php/controller_region.php';
 include 'php/controller_ville.php';
 
@@ -61,7 +59,27 @@ include 'php/controller_ville.php';
         }
     </style>
     <script src="./js/fontAwesome.js"></script>
+    <script>
 
+        let regions = [];
+        <?php
+        $region = array();
+        foreach (findAllRegions() as $key => $value) {
+            $region[$value['id']] = $value['region'];
+        }
+
+        foreach ($region as $key => $value) {
+            echo "regions[$key]=[";
+            foreach (findVilleByRegion($key) as $regionKey => $ville) {
+                echo "\"" . $ville['ville'] . "\",";
+            }
+            echo "];\n";
+        }
+
+        ?>
+
+
+    </script>
     <!-- JavaScript Bundle with Popper(Boostrap) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
@@ -70,37 +88,11 @@ include 'php/controller_ville.php';
 </head>
 
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute  top-0 start-50 p-4"
-     style="z-index:5; margin-top: 100px">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
-    if (isset($error) && !empty($error)) {
-        if (!empty($_SESSION['error']['photo'])) {
-            msg_warning_toast($_SESSION['error']['photo']);
-            unset($_SESSION['error']['photo']);
-        }
-        foreach ($error as $key => $value) {
-            msg_error_toast($value);
-        }
-        unset($_SESSION['error']);
-    } else {
 
-        if (isset($_SESSION['success']))
-            msg_success_toast($_SESSION['success']['update']);
-        unset($_SESSION['success']);
-
-    }
-
-    ?>
-</div>
-<?php include 'php/elem_menu.php' ?>
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php' ?>
 <div class="container ">
-
-    <!-- grab some space to replace the fixed navbar -->
-    <section class=" my-3 py-3" style="height: 90px"></section>
     <section class="container col  justify-content-center flex-column w-100 h-100 ">
 
 
@@ -114,7 +106,7 @@ include 'php/controller_ville.php';
         </div>
         <div class="row justify-content-around align-items-center p-4 ">
             <div class="col col-7">
-                <form method="post" action="php/create_announce.php" class="was-validated card  row py-4 px-5 g-3 "
+                <form method="post" action="./php/create_announce.php" class="was-validated card  row py-4 px-5 g-3 "
                       id="regForm" enctype="multipart/form-data" style="min-height: 520px">
                     <div class="tab row ">
                         <div class="col col-12 text-center form-title">
@@ -130,8 +122,8 @@ include 'php/controller_ville.php';
                                 <option disabled class="text-center" value="" selected>-- TYPE IMMOBILIER --</option>
                                 <option value="1">Appartements</option>
                                 <option value="2">Maisons et Villas</option>
-                                <option value="3">Magasin, Commerces et Locaux industriels</option>
-                                <option value="4">Bureaux et Plateaux</option>
+                                <option value="4">Magasin, Commerces et Locaux industriels</option>
+                                <option value="3">Bureaux et Plateaux</option>
                                 <option value="5">Terrains et Fermes</option>
                                 <option value="6">autre</option>
 
@@ -143,7 +135,7 @@ include 'php/controller_ville.php';
                                 <span class="text-danger">*</span>
                             </label>
                             <select name="type_transaction" class="form-select col-auto" id="inputTypeTransaction"
-                                    required>
+                                    aria-multiselectable="false" required>
                                 <option value="" disabled selected class="text-center">
                                     -- TYPE DE TRANSACTION --
                                 </option>
@@ -213,7 +205,7 @@ include 'php/controller_ville.php';
                             </label>
                             <div class="position-relative">
                                 <textarea id="description" class="form-control " maxlength="4000" rows="7" cols="45"
-                                          placeholder="Saisir un Texte..." required></textarea>
+                                          name="description" placeholder="Saisir un Texte..." required></textarea>
                                 <span id="descriptionLength" class="position-absolute bottom-0 end-0 p-2">0/4000</span>
                             </div>
                         </div>
@@ -369,7 +361,8 @@ include 'php/controller_ville.php';
 
                         <div class="col col-12 mt-3 text-center">
                             <div class="row mb-3 justify-content-center">Détails supplémentaires</div>
-                            <div class="row row-cols-auto p-3" id="allCheckBox">
+                            <div class="row row-cols-auto justify-content-center align-items-center p-3"
+                                 id="allCheckBox">
                                 <div class="col col-auto">
                                     <input id="inputAscenseur" name="ascenseur" type="checkbox"
                                            class="form-check-input d-none"
@@ -434,7 +427,7 @@ include 'php/controller_ville.php';
                                     <label for="inputMeuble" class="checkInput">Meublé</label>
                                 </div>
                                 <div class="col col-auto">
-                                    <input id="inputCuisineEquipee" name="cuisine_equipee" type="checkbox"
+                                    <input id="inputCuisineEquipee" name="cuisine_equipe" type="checkbox"
                                            class="form-check-input d-none"
                                            value="true" hidden>
                                     <label for="inputCuisineEquipee" class="checkInput">Cuisine équipée</label>
@@ -580,31 +573,7 @@ include 'php/controller_ville.php';
     cropImage("<?php echo $_SESSION['imgProfile'] ?>", 'canvas');
 
 </script>
-<script>
-
-
-    let regions = [];
-    <?php
-    $region = array();
-    foreach (findAllRegions() as $key => $value) {
-        $region[$value['id']] = $value['region'];
-    }
-
-    foreach ($region as $key => $value) {
-        echo "regions[$key]=[";
-        foreach (findVilleByRegion($key) as $regionKey => $ville) {
-            echo "\"" . $ville['ville'] . "\",";
-        }
-        echo "];\n";
-    }
-
-    ?>
-
-
-</script>
 <script src="js/region.js"></script>
 <script src="js/chooseImages.js"></script>
 <script src="js/pickInput.js"></script>
-
-
 </html>

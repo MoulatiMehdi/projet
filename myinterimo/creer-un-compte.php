@@ -3,7 +3,6 @@
 if (!isset($_SESSION)) session_start();
 
 include 'php/controller_user.php';
-include 'php/messages.php';
 if (isset($_SESSION['user'])) header('Location:' . MAIN_FOLDER . '/index.php');
 
 $error = array();
@@ -31,7 +30,7 @@ if (isset($_POST) && !empty($_POST)) {
             if ($result) {
                 $user['user_img'] = $user['n_siret'] . strtolower(strrchr($_FILES['user_img']['name'], "."));
             } else {
-                $_SESSION['error']['photo'] = ERROR_PHOTO;
+                $_SESSION['warning']['photo'] = ERROR_PHOTO;
             }
         }
 
@@ -69,24 +68,9 @@ if (isset($_POST) && !empty($_POST)) {
 
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute top-0 start-50  p-3 "
-     style="z-index:5; margin-top: 100px">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
-
-    if (!empty($_SESSION['error']['photo'])) {
-        msg_warning_toast($_SESSION['error']['photo']);
-        unset($_SESSION['error']['photo']);
-    }
-    foreach ($error as $value) {
-        msg_error_toast($value);
-    }
-
-    ?>
-</div>
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php' ?>
 <section class="container d-flex justify-content-center align-items-center w-100 h-100 ">
 
     <div class="row  justify-content-around align-items-center">

@@ -3,9 +3,16 @@ session_start();
 $error = $_SESSION['error'] ?? null;
 $_SESSION['menu'] = "edit_profile";
 
+
 include 'php/controller_user.php';
-include 'php/messages.php';
+
+if (isset($_SESSION['user'])) {
+    $_SESSION['user'] = findUserByEmail($_SESSION['user']['email']);
+    if ($_SESSION['user'] === null) unset($_SESSION['user']);
+}
 if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
+
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -69,37 +76,10 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
 </head>
 
 <body aria-live="polite" aria-atomic="true" class="position-relative ">
-<div class="toast-container position-absolute  top-0 start-50 p-4"
-     style="z-index:5; margin-top: 100px">
-    <!-- Position it: -->
-    <!-- - `.toast-container` for spacing between toasts -->
-    <!-- - `.position-absolute`, `top-0` & `end-0` to position the toasts in the upper right corner -->
-    <!-- - `.p-3` to prevent the toasts from sticking to the edge of the container  -->
-    <?php
-    if (isset($error) && !empty($error)) {
-        if (!empty($_SESSION['error']['photo'])) {
-            msg_warning_toast($_SESSION['error']['photo']);
-            unset($_SESSION['error']['photo']);
-        }
-        foreach ($error as $key => $value) {
-            msg_error_toast($value);
-        }
-        unset($_SESSION['error']);
-    } else {
-
-        if (isset($_SESSION['success']))
-            msg_success_toast($_SESSION['success']['update']);
-        unset($_SESSION['success']);
-
-    }
-
-    ?>
-</div>
-<?php include 'php/elem_menu.php' ?>
+<?php
+include 'php/elem_messages.php';
+include 'php/elem_menu.php' ?>
 <div class="container ">
-
-    <!-- grab some space to replace the fixed navbar -->
-    <section class=" my-3 py-3"></section>
     <form method="POST" action="php/update_user.php" enctype="multipart/form-data"
           class="was-validated py-3">
         <section class="d-flex justify-content-center align-items-start my-5 ">
@@ -137,7 +117,11 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
                 </h6>
                 <h6 class="text-muted p-3" style="font-size:14px;">
                     <b>inscrit depuis</b>
-                    : <?php echo date("d M Y", $_SESSION['user']['date_inscrit']) ?></h6>
+                    : <?php
+                    if (isset($_SESSION['user']['date_inscrit'])) echo date_format(DateTime::createFromFormat("Y-m-d", $_SESSION['user']['date_inscrit']), "d M Y");
+                    else echo $_SESSION['user']['date_inscrit'];
+                    ?>
+                </h6>
 
 
             </div>
@@ -344,6 +328,27 @@ if (!isset($_SESSION['user'])) header('Location:deconnexion.php');
     });
 
     cropImage("<?php echo $_SESSION['imgProfile'] ?>", 'canvas');
+    window.onload = function () {
+        let fileInput = document.getElementById('fileId');
+        //by default
+        if (fileInput !== undefined) {
+            fileInput.addEventListener('change', function () {
+                let file = fileInput.files[0];
+                let imageType = /image.*/;
+
+                if (file.type.match(imageType)) {
+                    let reader = new FileReader();
+
+
+                    reader.onload = function () {
+                        cropImage(reader.result.toString(), 'canvas');
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+    }
 
 </script>
 
