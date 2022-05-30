@@ -28,7 +28,7 @@ $_SESSION['menu'] = 'faq';
           sizes="32x32">
     <title>FAQ - MyInterimo</title>
 </head>
-<body aria-live="polite" aria-atomic="true" class="position-relative p-5">
+<body aria-live="polite" aria-atomic="true" class="position-relative p-5 ">
 
 <?php foreach ($announces as $announce) {
     printAnnounce($announce);

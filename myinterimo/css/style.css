@@ -233,6 +233,11 @@ button:focus, button:active {
 
 }
 
+.btn-warning {
+    color: white !important;
+
+}
+
 .rectangle-button {
 
     color: white;
@@ -677,7 +682,4 @@ button:is(.carousel-control-prev,.carousel-control-next) {
     top: 0;
     height: 100%;
     background: rgba(99, 99, 99, 0.35);
-    box-shadow: 0 0 3px 1px rgba(99, 99, 99, 0.3);
-    /* width: 100%;*/
-
 }

@@ -70,13 +70,16 @@ function findAllAnnounces(): array
 }
 
 
+/**
+ * @throws Exception
+ */
 function printAnnounce($announce): void
 {
 
     static $id = 0;
     $img = "";
     $user = findUserByEmail($announce['email']);
-    $path_dir = "../" . IMG_FOLDER_ANNOUNCE . "/" . $user['n_siret'] . "/" . $announce['ref'] . "/";
+    $path_dir = "./" . IMG_FOLDER_ANNOUNCE . "/" . $user['n_siret'] . "/" . $announce['ref'] . "/";
 
     if (file_exists($path_dir)) {
         $dir = new DirectoryIterator(dirname($path_dir . "/*"));
@@ -101,8 +104,9 @@ function printAnnounce($announce): void
         CATEGORY_TERRAIN => ICON_TERRAIN,
         default => ""
     };
+    $random = random_int(0, 100);
     echo '                        <div class="col col-12 mb-3 ">
-                            <div class="row box pb-1 px-4 pt-4 align-items-center">
+                            <div class="row box pb-1 px-4 pt-4 align-items-start">
                                 <div class="col col-auto m-2 ">
                                     <div class="row ">
                                         <div class="col shadow-sm rounded-3 p-0 ">
@@ -131,16 +135,24 @@ function printAnnounce($announce): void
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="row mt-3">
-                                        <div class="col col-12">
-                                            <h6 class="fw-bold">Publier par: ' . ucfirst($user['nom_reseau']) . '</h6>
+                                    <div class="row justify-content-between align-items-center mt-2">
+                                        <div class="col col-auto">
+                                            <h6 class="fw-bold text-start m-0">Publier par: ' . ucfirst($user['nom_reseau']) . '</h6>
                                         </div>
+                                        <div class="col col-auto d-flex justify-content-center align-items-center p-0">
+                                                           <div class="rounded-circle ' . (($random % 2 == 0) ? 'bg-success' : 'bg-danger') . ' p-0 m-0" style="width: 13px !important ;height: 13px!important"></div>
+
+                                        <button class="btn pe-0">
+                                              <i class="fa-solid fa-message "></i>
+                                        </button>
+</div>
                                     </div>
                                 </div>
-<div class="col col-auto d-flex h-100">                          
+                                <div class="col col-auto d-flex h-100">                          
       <div class="vr "></div>
-</div>                                <div class="col col-4 m-2">
-                                    <div class="row justify-content-around align-items-center  ">
+</div>       
+                                <div class="col col-3 m-2">
+                                    <div class="row justify-content-around align-items-center  mb-2">
                                         <div class="col col-auto d-flex flex-column justify-content-center align-items-center">
                                             ' . $icon_type . '
                                             <h6 class="fw-bold pt-2 mb-0">Type</h6>
@@ -158,52 +170,53 @@ function printAnnounce($announce): void
                                         </div>
 
                                     </div>
-                                    <div class="row">
-                                        <div class="col col-12 description p-1">
-                                            ' . $announce['description'] . '
+                                    <div class="row mb-2 ">
+                                        <div class="col col-12 fw-bold" style="font-size: 12px; font-family: Rubik,Helvetica, Arial, serif;">
+                                         <h6 class="text-center">   ' . $announce['titre'] . '</h6>
                                         </div>
                                     </div>
                                     <div class="row align-items-center justify-content-center" style="height: 50px">
                                    
-                                        <button class="btn col col-auto icon shadow-sm rounded-3 p-3 " role="button">
+                                        <button class="btn col col-auto icon shadow-sm rounded-3 p-3 " >
                                             <i class="fa-solid  fa-thumbs-up "></i>
                                         </button>
-                                        <button class="btn col col-auto icon shadow-sm rounded-3 p-3 " role="button">
-                                            <i class="fa-solid fa-message "></i>
+                                        <button class="btn col col-auto icon shadow-sm rounded-3 p-3 " >
+                                        <i class="fa-solid fa-comment-dots"></i>
                                         </button>
-                                        <button class="btn col col-auto icon shadow-sm rounded-3 p-3" role="button">
+                                        <button class="btn col col-auto icon shadow-sm rounded-3 p-3" >
                                             <i class="fa-solid fa-share-from-square "></i>
                                         </button>
-                                        <button class="btn col col-auto icon  shadow-sm rounded-3 p-3 " role="button">
+                                        <button class="btn col col-auto icon  shadow-sm rounded-3 p-3 ">
                                         <i class="fa-solid fa-ellipsis-vertical "></i>
                                         </button>
                                     </div>
                                 </div>
-<div class="col col-auto d-flex h-100">                          
+                                <div class="col col-auto d-flex h-100">                          
       <div class="vr "></div>
 </div>      
-                                <div class="col col-2"></div>
-<div class="col col-auto d-flex h-100">                          
-      <div class="vr" ></div>
-</div>      
-                                <div class="col col-2 " >
-                                    <div class="row mb-3 justify-content-center align-items-center" role="button" style="max-width: 150px;">
-                                        <div class="col  rectangle-button-white align-items-center" >
-                                            <i class="fa-solid fa-thumbs-up "></i>
-                                            <span class="mx-3">' . $announce['likes'] . '</span>
-                                        </div>
-                                    </div>
-                                    <div class="row mb-3 justify-content-center" role="button" style="max-width: 150px;">
-                                        <div class="col  rectangle-button-white" >
-                                            <i class="fa-solid fa-eye"></i>
-                                            <span class="mx-3">' . $announce['see'] . '</span>
-                                        </div>
-                                    </div>
-                                    <div class="row" role="button">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>';
+                                <div class="col col-3  description ">
+                                    <h6 class="mb-3 text-primary fw-bolder" style="font-size: 15px">INFO sur l\'announce: </h6 >
+                                    <h6 class="mb-3 text-start" > -Créer le : ' . $announce['date_pub'] . ' </h6 >
+                                    <h6 class="mb-3 text-start" > -Prix:' . "     " . $announce['prix'] . ' </h6 >
+                                    <h6 class="mb-3 text-start" > -description:<br > <br > ' . $announce['description'] . ' </h6 >
+                                </div >
+                                <div class="col col-auto d-flex h-100" >
+      <div class="vr" ></div >
+</div >
+                                <div class="col col-2 py-3 d-flex justify-content-center align-items-center flex-column" >
+                                    <button class="mb-3 rectangle-button-white" style = "width: 190px; height: 40px ;font-size: 13px ;" >
+                                            <i class="fa-solid fa-thumbs-up " ></i >
+                                            <span class="mx-3" > ' . $announce['likes'] . ' </span >
+                                    </button >
+                                    <button class="mb-3 rectangle-button-white" style = "width: 190px; height: 40px ;font-size: 13px ;" >
+                                            <i class="fa-solid fa-eye" ></i >
+                                            <span class="mx-3" > ' . $announce['see'] . ' </span >
+                                    </button >
+                                    <button  class="btn ' . (($random % 2 == 0) ? 'btn-success' : 'btn-warning') . ' mb-3 fw-bolder border-2" style = "width: 190px; height: 40px ;font-size: 12px ;" >
+    DELEGATION A DEMANDER
+</button >
+                                </div >
+                            </div >
+                        </div > ';
     $id += 1;
 }

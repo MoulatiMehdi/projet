@@ -45,17 +45,17 @@ include 'php/elem_menu.php' ?>
                         </div>
                         <div class="col col-auto">
                             <label>
-                                <input type="text" placeholder="Ville" class="form-control shadow-sm">
+                                <input id="inputVille" type="text" placeholder="Ville" class="form-control shadow-sm">
                             </label>
                         </div>
                         <div class="col col-auto">
                             <label>
-                                <input type="text" placeholder="Agence" class="form-control shadow-sm">
+                                <input id="inputAgence" type="text" placeholder="Agence" class="form-control shadow-sm">
                             </label>
                         </div>
                         <div class="col">
                             <label>
-                                <select name="type_immobilier" id="inputCategory"
+                                <select name="type_immobilier" id="inputType"
                                         class="form-select shadow-sm">
                                     <option disabled value="" selected>Type</option>
                                     <option value="1">Appartements</option>
@@ -79,12 +79,12 @@ include 'php/elem_menu.php' ?>
                             </label>
                         </div>
 
-                        <div class="col col-auto circle-button-white " role="button">
+                        <button id='btnReferesh' class="col col-auto circle-button-white " role="button">
                             <i class="fa-solid fa-arrows-rotate fa-lg"></i>
-                        </div>
-                        <div class="col col-auto circle-button-white" role="button">
+                        </button>
+                        <button id="btnFind" class="col col-auto circle-button-white" role="button">
                             <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-                        </div>
+                        </button>
                     </div>
                     <div class="row mb-5 mt-3 flex" id="allAnnounce">
                         <?php
@@ -93,6 +93,7 @@ include 'php/elem_menu.php' ?>
                         }
                         ?>
                     </div>
+                    <script src="js/filter.js"></script>
                 </div>
 
 
