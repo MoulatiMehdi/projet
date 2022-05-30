@@ -62,6 +62,7 @@ include 'php/controller_ville.php';
     <script>
 
         let regions = [];
+
         <?php
         $region = array();
         foreach (findAllRegions() as $key => $value) {
@@ -70,13 +71,15 @@ include 'php/controller_ville.php';
 
         foreach ($region as $key => $value) {
             echo "regions[$key]=[";
-            foreach (findVilleByRegion($key) as $regionKey => $ville) {
-                echo "\"" . $ville['ville'] . "\",";
+            foreach (findVillesByRegion($key) as $regionKey => $ville) {
+                echo "[\"" . $ville['ville'] . "\",\"" . $ville['id'] . "\"],";
             }
             echo "];\n";
-        }
 
+        }
         ?>
+
+        console.log(regions[1][2]);
 
 
     </script>
@@ -124,9 +127,6 @@ include 'php/elem_menu.php' ?>
                                 <option value="2">Maisons et Villas</option>
                                 <option value="4">Magasin, Commerces et Locaux industriels</option>
                                 <option value="3">Bureaux et Plateaux</option>
-                                <option value="5">Terrains et Fermes</option>
-                                <option value="6">autre</option>
-
                             </select>
                         </div>
                         <div class="col col-auto mb-3">
@@ -455,18 +455,6 @@ include 'php/elem_menu.php' ?>
                                            class="form-check-input d-none"
                                            value="true" hidden>
                                     <label for="inputDuplex" class="checkInput">Duplex</label>
-                                </div>
-                                <div class="col col-auto">
-                                    <input id="inputLoti" name="loti" type="checkbox"
-                                           class="form-check-input d-none"
-                                           value="true" hidden>
-                                    <label for="inputLoti" class="checkInput">Loti</label>
-                                </div>
-                                <div class="col col-auto">
-                                    <input id="inputTerrainTitre" name="terrain_titre" type="checkbox"
-                                           class="form-check-input d-none"
-                                           value="true" hidden>
-                                    <label for="inputTerrainTitre" class="checkInput">Titre</label>
                                 </div>
                             </div>
                         </div>

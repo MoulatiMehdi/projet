@@ -238,6 +238,17 @@ button:focus, button:active {
 
 }
 
+.btn-success {
+    background-color: #42ca8b;
+    border-color: #42ca8b;
+}
+
+.bg-success {
+    background-color: #42ca8b;
+    border-color: #42ca8b;
+}
+
+
 .rectangle-button {
 
     color: white;

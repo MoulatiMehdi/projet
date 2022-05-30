@@ -1,6 +1,7 @@
 <?php
 
 include 'controller_category.php';
+include_once 'controller_ville.php';
 
 const TABLE_ANNOUNCE = 'announce';
 const IMG_FOLDER_ANNOUNCE = 'img/announce';
@@ -8,7 +9,6 @@ const ICON_APPARTEMENT = '<i class="fa-solid fa-building shadow-sm icon rounded-
 const ICON_MAISON = '<i class="fa-solid fa-house shadow-sm icon rounded-3 p-3"></i>';
 const ICON_MAGASIN = '<i class="fa-solid fa-shop shadow-sm icon rounded-3 p-3"></i>';
 const ICON_BUREAU = "";
-const ICON_TERRAIN = "";
 
 function saveAnnounce($announce): bool
 {
@@ -101,15 +101,14 @@ function printAnnounce($announce): void
         CATEGORY_MAGASIN => ICON_MAGASIN,
         CATEGORY_BUREAU => ICON_BUREAU,
         CATEGORY_MAISON => ICON_MAISON,
-        CATEGORY_TERRAIN => ICON_TERRAIN,
         default => ""
     };
     $random = random_int(0, 100);
-    echo '                        <div class="col col-12 mb-3 ">
-                            <div class="row box pb-1 px-4 pt-4 align-items-start">
-                                <div class="col col-auto m-2 ">
+    echo '                        <div class="col col-12 mb-3 announce">
+                            <div class="row  box pb-1 pt-3 align-items-start">
+                                <div class="col col-3 ">
                                     <div class="row ">
-                                        <div class="col shadow-sm rounded-3 p-0 ">
+                                        <div class="col col-auto shadow-sm rounded-3 p-0 ">
                                             <div id="carouselExampleControls' . $id . '" class="carousel slide"
                                                  data-bs-ride="carousel">
                                                 <div class="carousel-inner rounded-3">
@@ -137,8 +136,8 @@ function printAnnounce($announce): void
                                     </div>
                                     <div class="row justify-content-between align-items-center mt-2">
                                         <div class="col col-auto">
-                                            <h6 class="fw-bold text-start m-0">Publier par: ' . ucfirst($user['nom_reseau']) . '</h6>
-                                        </div>
+                                            <h6 class="fw-bold text-start m-0">Publier par: <span class="agence">' . ucfirst($user['nom_reseau']) . '</h6>
+                                       </span> </div>
                                         <div class="col col-auto d-flex justify-content-center align-items-center p-0">
                                                            <div class="rounded-circle ' . (($random % 2 == 0) ? 'bg-success' : 'bg-danger') . ' p-0 m-0" style="width: 13px !important ;height: 13px!important"></div>
 
@@ -148,22 +147,22 @@ function printAnnounce($announce): void
 </div>
                                     </div>
                                 </div>
-                                <div class="col col-auto d-flex h-100">                          
+                                <div class="col d-flex h-100">                          
       <div class="vr "></div>
 </div>       
-                                <div class="col col-3 m-2">
+                                <div class="col col-3">
                                     <div class="row justify-content-around align-items-center  mb-2">
-                                        <div class="col col-auto d-flex flex-column justify-content-center align-items-center">
+                                        <div class="col col-4 d-flex flex-column justify-content-center align-items-center">
                                             ' . $icon_type . '
                                             <h6 class="fw-bold pt-2 mb-0">Type</h6>
-                                            <h6>' . tableTarget($announce['type_immobilier']) . '</h6>
+                                            <h6><span class="type">' . tableTarget($announce['type_immobilier']) . '</span></h6>
                                         </div>
-                                        <div class="col col-auto d-flex flex-column justify-content-center align-items-center">
+                                        <div class="col col-4 d-flex flex-column justify-content-center align-items-center">
                                             <i class="fa-solid fa-house icon shadow-sm rounded-3 p-3"></i>
                                             <h6 class="text-center fw-bold pt-2 mb-0">Type</h6>
                                             <h6>Maison</h6>
                                         </div>
-                                        <div class="col  col-auto d-flex  flex-column justify-content-center align-items-center">
+                                        <div class="col  col-4 d-flex  flex-column justify-content-center align-items-center">
                                             <i class="fa-solid fa-house icon shadow-sm rounded-3 p-3"></i>
                                             <h6 class="fw-bold pt-2 mb-0">Type</h6>
                                             <h6>Maison</h6>
@@ -172,7 +171,7 @@ function printAnnounce($announce): void
                                     </div>
                                     <div class="row mb-2 ">
                                         <div class="col col-12 fw-bold" style="font-size: 12px; font-family: Rubik,Helvetica, Arial, serif;">
-                                         <h6 class="text-center">   ' . $announce['titre'] . '</h6>
+                                         <h6 class="text-center text-primary my-2">   ' . $announce['titre'] . '</h6>
                                         </div>
                                     </div>
                                     <div class="row align-items-center justify-content-center" style="height: 50px">
@@ -191,16 +190,17 @@ function printAnnounce($announce): void
                                         </button>
                                     </div>
                                 </div>
-                                <div class="col col-auto d-flex h-100">                          
+                                <div class="col d-flex h-100">                          
       <div class="vr "></div>
 </div>      
                                 <div class="col col-3  description ">
-                                    <h6 class="mb-3 text-primary fw-bolder" style="font-size: 15px">INFO sur l\'announce: </h6 >
-                                    <h6 class="mb-3 text-start" > -Créer le : ' . $announce['date_pub'] . ' </h6 >
-                                    <h6 class="mb-3 text-start" > -Prix:' . "     " . $announce['prix'] . ' </h6 >
-                                    <h6 class="mb-3 text-start" > -description:<br > <br > ' . $announce['description'] . ' </h6 >
+                                    <h6 class="mb-4 fw-bolder" style="font-size: 15px; font-family: Rubik, Helvetica, Arial, serif">INFO sur l\'announce: </h6 >
+                                    <h6 class="mb-2 text-start" > -Créer le : ' . $announce['date_pub'] . ' </h6 >
+                                    <h6 class="mb-2 text-start" > -Prix: <span class="prix">' . $announce['prix'] . ' </span>Dhs </h6 >
+                                    <h6 class="mb-3 text-start"> -Ville: <span class="ville">' . ((isset($announce['id_ville']) && !empty($announce['id_ville'])) ? findVilleById($announce['id_ville']) : '') . ' </span ></h6 >
+                                    <h6 class="text-start" > -Description: <br > ' . $announce['description'] . ' </h6 >
                                 </div >
-                                <div class="col col-auto d-flex h-100" >
+                                <div class="col d-flex h-100" >
       <div class="vr" ></div >
 </div >
                                 <div class="col col-2 py-3 d-flex justify-content-center align-items-center flex-column" >

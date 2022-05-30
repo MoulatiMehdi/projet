@@ -44,7 +44,8 @@ function validateRegion() {
 
         ville.innerHTML = '<option value=""  class="text-center" selected>-- VILLE --</option>\n';
         for (let i = 0; i < regions[region.value].length; i++) {
-            ville.innerHTML += '<option value="' + i.toString() + '" >' + regions[region.value][i].toString() + '</option>\n';
+            console.log("[" + region.value + "][" + i + "]");
+            ville.innerHTML += '<option value="' + regions[region.value][i][1] + '" >' + regions[region.value][i][0].toString() + '</option>\n';
         }
 
 

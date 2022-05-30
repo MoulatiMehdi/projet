@@ -68,21 +68,14 @@ include 'php/elem_menu.php' ?>
                         </div>
                         <div class="col col-auto">
                             <label for="inputPrix">
-                                <select name="prix" id="inputPrix" class="form-select shadow-sm">
-                                    <option disabled class="text-center" value="" selected>Prix</option>
-                                    <option value="10000">10000</option>
-                                    <option value="2">20000</option>
-                                    <option value="4">40000</option>
-                                    <option value="5">50000</option>
-                                    <option value="3">30000</option>
-                                </select>
+                                <input type="text" id="inputPrix" class="form-select shadow-sm"></input>
                             </label>
                         </div>
 
-                        <button id='btnReferesh' class="col col-auto circle-button-white " role="button">
+                        <button id='btnReferesh' class="col col-auto btn circle-button-white " role="button">
                             <i class="fa-solid fa-arrows-rotate fa-lg"></i>
                         </button>
-                        <button id="btnFind" class="col col-auto circle-button-white" role="button">
+                        <button id="btnFind" class="col col-auto btn circle-button-white" role="button">
                             <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                         </button>
                     </div>
@@ -93,13 +86,14 @@ include 'php/elem_menu.php' ?>
                         }
                         ?>
                     </div>
-                    <script src="js/filter.js"></script>
+
                 </div>
 
 
             </div>
 
         </section>
+        <script src="js/filter.js"></script>
     <?php else : ?>
 
 

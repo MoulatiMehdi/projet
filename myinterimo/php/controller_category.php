@@ -4,13 +4,11 @@ const CATEGORY_APPARTEMENT = "1";
 const CATEGORY_MAISON = "2";
 const CATEGORY_BUREAU = "4";
 const CATEGORY_MAGASIN = "3";
-const CATEGORY_TERRAIN = "5";
 
 const TABLE_APPARTEMENT = 'appartement';
 const TABLE_MAISON = 'maison';
 const TABLE_BUREAU = 'bureau';
 const TABLE_MAGASIN = 'magasin';
-const TABLE_TERRAIN = 'terrain';
 
 
 function saveCategory($category): bool
@@ -47,13 +45,12 @@ function tableTarget($category): ?string
         CATEGORY_MAISON => TABLE_MAISON,
         CATEGORY_BUREAU => TABLE_BUREAU,
         CATEGORY_MAGASIN => TABLE_MAGASIN,
-        CATEGORY_TERRAIN => TABLE_TERRAIN,
         default => NULL,
     };
 }
 
 function deleteCategoryByRefAndType($ref, $type): ?string
 {
-    return execRequest("DELETE FROM " . tableTarget($type) . " WHERE `ref` LIKE {$ref}");
+    return execRequest("DELETE FROM " . tableTarget($type) . " WHERE `ref` LIKE $ref");
 }
 
