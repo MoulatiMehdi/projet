@@ -80,7 +80,8 @@ if (isset($_POST['submit'])) {
 
 </head>
 <body class="container d-flex justify-content-center align-items-center">
-<section class="row row-cols-auto justify-content-around align-items-center w-100 h-100">
+<section
+        class="row row-cols-auto justify-content-around align-items-center ">
     <div class="box container col col-lg-5 col-md-6 col-10">
         <form action="" method="post">
             <div class="row">

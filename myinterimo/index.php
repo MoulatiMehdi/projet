@@ -1,7 +1,7 @@
 <?php
 session_start();
 $_SESSION['menu'] = 'accueil';
-include 'php/function_connectBD.php';
+include 'php/controller_user.php';
 include 'php/controller_announce.php';
 $announces = findAllAnnounces();
 ?>
@@ -57,7 +57,7 @@ include 'php/elem_menu.php' ?>
                             <label>
                                 <select name="type_immobilier" id="inputCategory"
                                         class="form-select shadow-sm">
-                                    <option disabled class="text-center " value="" selected>Type</option>
+                                    <option disabled value="" selected>Type</option>
                                     <option value="1">Appartements</option>
                                     <option value="2">Maisons et Villas</option>
                                     <option value="4">Magasin, Commerces et Locaux industriels</option>
@@ -86,7 +86,12 @@ include 'php/elem_menu.php' ?>
                             <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                         </div>
                     </div>
-                    <div class="row mb-5 mt-3" id="allAnnounce">
+                    <div class="row mb-5 mt-3 flex" id="allAnnounce">
+                        <?php
+                        foreach ($announces as $announce) {
+                            printAnnounce($announce);
+                        }
+                        ?>
                     </div>
                 </div>
 

@@ -660,3 +660,24 @@ button:is(.carousel-control-prev,.carousel-control-next) {
     text-align: center;
 
 }
+
+#allAnnounce .icon {
+    width: 40px !important;
+    height: 40px !important;
+    margin: 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #70798B !important;
+}
+
+.vr {
+    width: 2px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: rgba(99, 99, 99, 0.35);
+    box-shadow: 0 0 3px 1px rgba(99, 99, 99, 0.3);
+    /* width: 100%;*/
+
+}
