@@ -34,7 +34,7 @@ if (isset($_POST['submit'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <style>
-        html,body {
+        html, body {
             width: 100%;
             height: 100%;
             top: 0 !important;
@@ -48,13 +48,11 @@ if (isset($_POST['submit'])) {
             font-size: 13px;
         }
 
-
         h2 {
             color: #1B2F46;
             font-size: 22px !important;
             font-weight: bold !important;
             font-family: "Montserrat", Helvetica, Arial, serif;
-
         }
 
         h6 {
@@ -138,9 +136,7 @@ if (isset($_POST['submit'])) {
                     <i class="fa-brands fa-google fa-xl text-danger"></i>
                 </a>
             </div>
-
         </form>
-
     </div>
     <img src="img/illustrations/login.png" class="col col-md-6 col-10 img-fluid mt-md-0 mt-5" alt="Myinterimo,house">
 </section>
