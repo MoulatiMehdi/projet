@@ -321,7 +321,7 @@ include 'php/elem_menu.php' ?>
 <script src="js/editForm.js"></script>
 <script src="js/validation.js"></script>
 <script src="js/cropImage.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="application/javascript">
     $(document).ready(function () {
         $('.toast').toast('show');
