@@ -8,6 +8,22 @@ let announces = document.getElementsByClassName("announce");
 
 let types = ['appartement', 'maison', 'magasin', 'bureau'];
 
+function findAnnounceByAgenceStartWith(announces) {
+
+    let input = inputAgence.value.toLowerCase();
+    let result = [];
+    for (const announce of announces) {
+        let target = announce.querySelector('.agence').innerText.toLowerCase();
+
+        if (target.startsWith(input) || input === "") {
+            announce.style.display = "block";
+            result.push(announce);
+        } else {
+            announce.style.display = "none";
+        }
+    }
+    return result;
+}
 
 function findAnnounceByVilleStartWith(announces) {
 
@@ -28,13 +44,14 @@ function findAnnounceByVilleStartWith(announces) {
 
 function findAnnounceByType(announces) {
     let i = inputType.options.selectedIndex
-    let type = inputType.options[i];
+    let type = inputType.options[i].value;
     let result = [];
 
     for (const announce of announces) {
-        let target = announce.querySelector('.type').innerText.toLowerCase();
-
-        if (target === type) {
+        let target = announce.querySelector('.type').innerText
+        console.log(target)
+        target = target.toLowerCase();
+        if (type.startsWith(target) || type === "") {
             announce.style.display = "block";
             result.push(announce);
         } else {
@@ -45,9 +62,20 @@ function findAnnounceByType(announces) {
 
 }
 
+function filter() {
+    let res = findAnnounceByVilleStartWith(announces);
+    let res1 = findAnnounceByType(res);
+    let res2 = findAnnounceByAgenceStartWith(res1)
+}
+
 inputVille.oninput = function () {
-    findAnnounceByVilleStartWith(announces);
+    filter()
+
 }
 inputType.oninput = function () {
-    findAnnounceByType(announces);
+    filter()
+}
+inputAgence.oninput = function () {
+    filter()
+
 }

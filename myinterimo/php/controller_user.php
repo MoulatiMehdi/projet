@@ -73,14 +73,19 @@ function updateUser($user): ?array
 
     foreach ($user as $key => $value) {
         if (!empty($value) && $value != $_SESSION['user'][$key]) {
-            $setters .= "`$key`='$value' ";
+            $setters .= "`$key`='$value',";
         }
     }
+    $setters = rtrim($setters, ",");
+
     if ($setters == "") {
         return $error;
     } else {
-        $request = "UPDATE `" . TABLE_USERS . "` SET " . $setters . " WHERE `id` = '{$_SESSION['user']['id']}' ";
+
+        $request = "UPDATE `" . TABLE_USERS . "` SET " . $setters . " WHERE `id` = {$_SESSION['user']['id']}";
+        echo $request;
         $test = execRequest($request);
+
 
         if ($test) {
             $_SESSION['success']['update'] = SUCCESS_EDITING_PROFILE;

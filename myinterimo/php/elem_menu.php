@@ -32,12 +32,18 @@ if ($menu === 'pageNotFound') {
                 <li class="nav-item p-sm-2">
                     <?php if ($menu == 'accueil'): ?>
                         <a class="nav-link active" href="<?php echo $currentFolder ?>index.php">
-                            Accueil
+                            <?php
+                                if(isset($_SESSION['user'])) echo "Annonces";
+                            else echo "Accueil";
+                            ?>
                             <hr class="w-100 " style=" background:var(--gradient--blush-bordeaux); ">
                         </a>
                     <?php else: ?>
                         <a class="nav-link " href="<?php echo $currentFolder ?>index.php">
-                            Accueil
+                            <?php
+                            if(isset($_SESSION['user'])) echo "Annonces";
+                            else echo "Accueil";
+                            ?>
                             <hr>
                         </a>
                     <?php endif ?>
@@ -132,7 +138,7 @@ if ($menu === 'pageNotFound') {
             <div class=" me-5 hstack gap-3 d-flex justify-content-center align-content-center ">
                 <?php if (empty($user)): ?>
                     <a href="<?php echo $currentFolder ?>creer-un-compte.php" class="rectangle-button"
-                       style="height: 35px">se Connecter</a>
+                       style="height: 35px">S'inscrire</a>
                     <a href="<?php echo $currentFolder ?>connexion.php" class="rectangle-button-white"
                        style="height: 35px">Connexion</a>
                 <?php else: ?>
@@ -149,9 +155,9 @@ if ($menu === 'pageNotFound') {
                             </span>
                         </button>
 
-                        <ul class="dropdown-menu dropdown-menu-end  "
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end  "
                             aria-labelledby="menu-notification">
-                            <li class="dropdown-header text-dark"><h6>Notification</h6></li>
+                            <li class="dropdown-header text-light"><h6>Notification</h6></li>
                             <li class="dropdown-divider "></li>
                             <li>
                                 <a href="#" class="dropdown-item ">Notification 1</a>
@@ -176,14 +182,14 @@ if ($menu === 'pageNotFound') {
                             <img src="<?php echo $_SESSION['imgProfile'] ?>" id="image-profil" alt="" hidden="hidden">
                             <canvas class="image-profil"></canvas>
                         </button>
-                        <ul class="dropdown-menu dropdown-menu-end "
+                        <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end "
                             aria-labelledby="menu-profil">
                             <li class="dropdown-header d-flex flex-rows align-items-center">
 
                                 <canvas class="image-profil"
                                         style="height: 70px !important; width: 70px !important;"></canvas>
                                 <div class="px-3">
-                                    <div class="text-dark fs-6"><?php echo ucfirst($user['nom']) . " " . ucfirst($user['prenom']) ?></div>
+                                    <div class="text-light fs-6"><?php echo ucfirst($user['nom']) . " " . ucfirst($user['prenom']) ?></div>
                                     <div><?php echo $user['email'] ?></div>
                                     <a href="<?php echo $currentFolder ?>modifier_profile.php"
                                        class="btn btn-primary d-inline-flex  mt-2">
@@ -203,8 +209,7 @@ if ($menu === 'pageNotFound') {
 
                             </li>
                             <li>
-                                <a href="<?php echo $currentFolder ?>" class="dropdown-item"
-                                >
+                                <a href="<?php echo $currentFolder ?>mesAnnounces.php" class="dropdown-item">
                                     <span class="d-flex justify-content-start">
                                         <i class="fa-regular fa-heart fa-xl"></i>
                                         Mes Favoris
@@ -213,8 +218,7 @@ if ($menu === 'pageNotFound') {
 
                             </li>
                             <li>
-                                <a href="<?php echo $currentFolder ?>" class="dropdown-item"
-                                >
+                                <a href="<?php echo $currentFolder ?>mesAnnounces.php" class="dropdown-item">
                                     <span class="d-flex justify-content-start">
                                         <i class="fa-solid fa-bullhorn fa-xl"></i>
                                         Mes Announce

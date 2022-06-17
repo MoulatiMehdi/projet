@@ -2,8 +2,8 @@
 
 const CATEGORY_APPARTEMENT = "1";
 const CATEGORY_MAISON = "2";
-const CATEGORY_BUREAU = "4";
-const CATEGORY_MAGASIN = "3";
+const CATEGORY_BUREAU = "3";
+const CATEGORY_MAGASIN = "4";
 
 const TABLE_APPARTEMENT = 'appartement';
 const TABLE_MAISON = 'maison';
@@ -13,7 +13,6 @@ const TABLE_MAGASIN = 'magasin';
 
 function saveCategory($category): bool
 {
-    var_dump($category);
     $table_target = tableTarget($_POST['type_immobilier']);
     echo $table_target . "\n";
 
@@ -49,6 +48,9 @@ function tableTarget($category): ?string
     };
 }
 
+function findCategorieById($type,$ref){
+    return loadOne("SELECT * FROM ".tableTarget($type)." WHERE ref='$ref'");
+}
 function deleteCategoryByRefAndType($ref, $type): ?string
 {
     return execRequest("DELETE FROM " . tableTarget($type) . " WHERE `ref` LIKE $ref");

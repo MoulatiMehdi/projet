@@ -30,9 +30,6 @@ $_SESSION['menu'] = 'faq';
 </head>
 <body aria-live="polite" aria-atomic="true" class="position-relative p-5 ">
 
-<?php
-var_dump(findVillesByRegion('1')[0]);
-?>
 </body>
 <script src="../js/fontAwesome.js"></script>
 <!-- JavaScript Bundle with Popper -->
@@ -40,7 +37,7 @@ var_dump(findVillesByRegion('1')[0]);
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
 </html>

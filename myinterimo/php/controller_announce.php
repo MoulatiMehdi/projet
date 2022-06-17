@@ -8,7 +8,8 @@ const IMG_FOLDER_ANNOUNCE = 'img/announce';
 const ICON_APPARTEMENT = '<i class="fa-solid fa-building shadow-sm icon rounded-3 p-3 fa-lg"></i>';
 const ICON_MAISON = '<i class="fa-solid fa-house shadow-sm icon rounded-3 p-3"></i>';
 const ICON_MAGASIN = '<i class="fa-solid fa-shop shadow-sm icon rounded-3 p-3"></i>';
-const ICON_BUREAU = "";
+const ICON_BUREAU = '<i class="fa-solid fa-briefcase shadow-sm icon rounded-3 p-3 fa-lg"></i>';
+const icon_surface="<img src='./img/ico-plan.svg' alt='' class='icon shadow-sm rounded-3 p-1' >";
 
 function saveAnnounce($announce): bool
 {
@@ -69,13 +70,17 @@ function findAllAnnounces(): array
     return load("SELECT * FROM " . TABLE_ANNOUNCE);
 }
 
+function findAnnouncesByEmail($email): array
+{
+    return load("SELECT * FROM " . TABLE_ANNOUNCE . " WHERE email like '$email';");
+}
 
 /**
  * @throws Exception
  */
-function printAnnounce($announce): void
+function printAnnounce($announce, $button=true): void
 {
-
+    $category=findCategorieById($announce['type_immobilier'],$announce['ref']);
     static $id = 0;
     $img = "";
     $user = findUserByEmail($announce['email']);
@@ -158,9 +163,9 @@ function printAnnounce($announce): void
                                             <h6><span class="type">' . tableTarget($announce['type_immobilier']) . '</span></h6>
                                         </div>
                                         <div class="col col-4 d-flex flex-column justify-content-center align-items-center">
-                                            <i class="fa-solid fa-house icon shadow-sm rounded-3 p-3"></i>
-                                            <h6 class="text-center fw-bold pt-2 mb-0">Type</h6>
-                                            <h6>Maison</h6>
+                                            '.icon_surface.'
+                                            <h6 class="text-center fw-bold pt-2 mb-0" >Surface Totale</h6>
+                                            <h6>'.(($category!=null)?$category['surface_totale']." m²":'aucune information').'</h6>
                                         </div>
                                         <div class="col  col-4 d-flex  flex-column justify-content-center align-items-center">
                                             <i class="fa-solid fa-house icon shadow-sm rounded-3 p-3"></i>
@@ -196,7 +201,8 @@ function printAnnounce($announce): void
                                 <div class="col col-3  description ">
                                     <h6 class="mb-4 fw-bolder" style="font-size: 15px; font-family: Rubik, Helvetica, Arial, serif">INFO sur l\'announce: </h6 >
                                     <h6 class="mb-2 text-start" > -Créer le : ' . $announce['date_pub'] . ' </h6 >
-                                    <h6 class="mb-2 text-start" > -Prix: <span class="prix">' . $announce['prix'] . ' </span>Dhs </h6 >
+                                    <h6 class="mb-2 text-start" > -Prix: <span class="prix">' . ($announce['prix']!=null?$announce['prix']."Dhs":'aucune information'). ' </span> </h6 >
+                                    <h6 class="mb-2 text-start"> -Région: <span class="region">' . ((isset($announce['id_region']) && !empty($announce['id_region'])) ? findVilleById($announce['id_region']) : '') . ' </span ></h6 >
                                     <h6 class="mb-3 text-start"> -Ville: <span class="ville">' . ((isset($announce['id_ville']) && !empty($announce['id_ville'])) ? findVilleById($announce['id_ville']) : '') . ' </span ></h6 >
                                     <h6 class="text-start" > -Description: <br > ' . $announce['description'] . ' </h6 >
                                 </div >
@@ -204,18 +210,17 @@ function printAnnounce($announce): void
       <div class="vr" ></div >
 </div >
                                 <div class="col col-2 py-3 d-flex justify-content-center align-items-center flex-column" >
-                                    <button class="mb-3 rectangle-button-white" style = "width: 190px; height: 40px ;font-size: 13px ;" >
+                                    <button class="mb-3 rectangle-button-white" style = "width: 190px; height: 40px ;font-size: 13px ;" id="likeButton'.$id.'">
                                             <i class="fa-solid fa-thumbs-up " ></i >
-                                            <span class="mx-3" > ' . $announce['likes'] . ' </span >
+                                            <span class="mx-3" id="likeNbr'.$id.'"> ' . $announce['likes'] . ' </span >
                                     </button >
-                                    <button class="mb-3 rectangle-button-white" style = "width: 190px; height: 40px ;font-size: 13px ;" >
+                                    <button class="mb-3 rectangle-button-white " disabled style = "width: 190px; height: 40px ;font-size: 13px ;" >
                                             <i class="fa-solid fa-eye" ></i >
-                                            <span class="mx-3" > ' . $announce['see'] . ' </span >
-                                    </button >
-                                    <button  class="btn ' . (($random % 2 == 0) ? 'btn-success' : 'btn-warning') . ' mb-3 fw-bolder border-2" style = "width: 190px; height: 40px ;font-size: 12px ;" >
-    DELEGATION A DEMANDER
-</button >
-                                </div >
+                                            <span class="mx-3" id="seeNbr"> ' . $announce['see'] . ' </span >
+                                    </button >'
+        .($button?'                  <button  class="btn ' . (($random % 2 == 0) ? 'btn-success' : 'btn-warning') . ' mb-3 fw-bolder border-2" style = "width: 190px; height: 40px ;font-size: 12px ;" >DELEGATION A DEMANDER</button >':'').'
+                           
+                            </div >
                             </div >
                         </div > ';
     $id += 1;

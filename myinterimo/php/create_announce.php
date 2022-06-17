@@ -2,8 +2,6 @@
 session_start();
 include 'function_connectBD.php';
 include 'controller_announce.php';
-const IMG_FOLDER_ANNOUNCE = "/announce";
-
 
 $announce = array();
 $error = array();
@@ -18,10 +16,12 @@ if (isset($_POST) && !empty($_POST)) {
     $validate = saveAnnounce($announce);
 
     if ($validate) {
+
         $_SESSION['success']['announce'] = "Announce est sauvegarde avec success";
+
         if (isset($_FILES['images'])) {
 
-            $dir = "../img" . IMG_FOLDER_ANNOUNCE . "/" . $_SESSION['user']['n_siret'] . "/" . $announce['ref'] . "/";
+            $dir = "../" . IMG_FOLDER_ANNOUNCE . "/" . $_SESSION['user']['n_siret'] . "/" . $announce['ref'] . "/";
             mkdir($dir, 777, true);
 
             for ($i = 0; $i < count($_FILES['images']['name']); $i++) {
@@ -51,9 +51,8 @@ if (isset($_POST) && !empty($_POST)) {
     }
 
 } else {
-    $_SESSION['error']['form'] = "Error :les fichiers envoyés est dépassée la limite";
+    $_SESSION['error']['form'] = "Error :un des fichiers envoyés a dépassée la limite";
     header("Location:" . MAIN_FOLDER . "/creer_announce.php");
 
 }
-
 

@@ -275,7 +275,7 @@ button:focus, button:active {
     transition: 0.3s ease-out;
 }
 
-.rectangle-button-white:hover {
+.rectangle-button-white:hover:not(:disabled) {
 
     color: white;
     outline: var(--color-main) 2px solid;
@@ -578,7 +578,7 @@ footer a {
 
     content: "";
     display: block;
-    background: #fff;
+    background: #2c2b2b;
     border: 1px solid rgba(0, 0, 0, .15);
     clip-path: polygon(0 0, 100% 100%, 0 100%);
     transform: rotateZ(135deg);

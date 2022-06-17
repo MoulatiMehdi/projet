@@ -31,6 +31,7 @@ function load($request): array
 {
     $db = connectToDB();
     $column = $db->query($request);
+
     return $column->fetchAll();
 }
 

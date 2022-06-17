@@ -1,9 +1,9 @@
 <?php
 session_start();
-$_SESSION['menu'] = 'accueil';
+$_SESSION['menu'] = 'mesAnnounces';
 include 'php/controller_user.php';
 include 'php/controller_announce.php';
-$announces = findAllAnnounces();
+$announces = findAnnouncesByEmail($_SESSION['user']['email']);
 ?>
 <!doctype html>
 <html lang="fr">
@@ -67,7 +67,7 @@ include 'php/elem_menu.php' ?>
                         </div>
                         <div class="col col-auto">
                             <label for="inputPrix">
-                                <input type="text" id="inputPrix" class="form-select shadow-sm" value="Prix">
+                                <input type="text" id="inputPrix" class="form-select shadow-sm"></input>
                             </label>
                         </div>
 
@@ -78,12 +78,10 @@ include 'php/elem_menu.php' ?>
                             <i class="fa-solid fa-magnifying-glass fa-lg"></i>
                         </button>
                     </div>
-                    <div class="row mb-5 mt-3 flex" id="allAnnounce">
+                    <div class="row mb-5 mt-3 position-relative w-100 h-100" id="allAnnounce">
                         <?php
-                        if(empty($announces)) echo "Aucune Annonces Trouvée";
-                        else
                         foreach ($announces as $announce) {
-                            printAnnounce($announce,true);
+                            printAnnounce($announce,false);
                         }
                         ?>
                     </div>
@@ -128,11 +126,11 @@ include 'php/elem_menu.php' ?>
                             <div class="modal-dialog modal-dialog-centered ">
                                 <div class="modal-content bg-black ">
                                     <iframe
-                                            height="504" width="auto"
-                                            src="https://www.youtube-nocookie.com/embed/4fs_eZbQaug"
-                                            title="YouTube video player"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen></iframe>
+                                        height="504" width="auto"
+                                        src="https://www.youtube-nocookie.com/embed/4fs_eZbQaug"
+                                        title="YouTube video player"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>

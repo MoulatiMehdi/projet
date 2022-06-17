@@ -204,9 +204,9 @@ include 'php/elem_menu.php' ?>
                                 <span class="text-danger">*</span>
                             </label>
                             <div class="position-relative">
-                                <textarea id="description" class="form-control " maxlength="4000" rows="7" cols="45"
+                                <textarea id="description" class="form-control " maxlength="400" rows="7" cols="45"
                                           name="description" placeholder="Saisir un Texte..." required></textarea>
-                                <span id="descriptionLength" class="position-absolute bottom-0 end-0 p-2">0/4000</span>
+                                <span id="descriptionLength" class="position-absolute bottom-0 end-0 p-2">0/400</span>
                             </div>
                         </div>
                     </div>
@@ -231,7 +231,7 @@ include 'php/elem_menu.php' ?>
                                         <option value="8">8</option>
                                         <option value="9">9</option>
                                         <option value="10">10</option>
-                                        <option value="11">10+</option>
+                                        <option value="10+">10+</option>
                                     </select>
 
                                 </div>
@@ -248,7 +248,7 @@ include 'php/elem_menu.php' ?>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
-                                        <option value="7">7+</option>
+                                        <option value="7+">7+</option>
                                     </select>
                                 </div>
 
@@ -264,7 +264,7 @@ include 'php/elem_menu.php' ?>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
-                                        <option value="7">7+</option>
+                                        <option value="7+">7+</option>
                                     </select>
                                 </div>
 
@@ -280,19 +280,18 @@ include 'php/elem_menu.php' ?>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
-                                        <option value="7">7+</option>
+                                        <option value="7+">7+</option>
                                     </select>
                                 </div>
                                 <div class="col col-auto mb-3">
 
                                     <label for="selectAgeBien" class="form-label">Âge du Bien</label>
                                     <select id="selectAgeBien" name="age_bien" class="form-select">
-                                        <option value="" disabled="" selected>Choisissez</option>
-                                        <option value="0">Neuf</option>
-                                        <option value="1">1-5 ans</option>
-                                        <option value="2">6-10 ans</option>
-                                        <option value="3">11-20 ans</option>
-                                        <option value="4">21+ ans</option>
+                                        <option value="Neuf" selected>Neuf</option>
+                                        <option value="1-5 ans">1-5 ans</option>
+                                        <option value="6-10 ans">6-10 ans</option>
+                                        <option value="11-20 ans">11-20 ans</option>
+                                        <option value="21+ ans">21+ ans</option>
                                     </select>
                                 </div>
                                 <div class="col col-auto mb-3">
@@ -303,12 +302,12 @@ include 'php/elem_menu.php' ?>
                                         <option disabled class="text-center" value="" selected>
                                             -- Zoning --
                                         </option>
-                                        <option value="1"> Agricole</option>
-                                        <option value="2">Immeuble</option>
-                                        <option value="4">Industriel</option>
-                                        <option value="5">Maison</option>
-                                        <option value="7">Service public</option>
-                                        <option value="8">Villa</option>
+                                        <option value="Agricole"> Agricole</option>
+                                        <option value="Immeuble">Immeuble</option>
+                                        <option value="Industriel">Industriel</option>
+                                        <option value="Maison">Maison</option>
+                                        <option value="Service public">Service public</option>
+                                        <option value="Villa">Villa</option>
                                     </select>
 
                                 </div>
@@ -552,10 +551,10 @@ include 'php/elem_menu.php' ?>
 <script src="js/announceForm.js"></script>
 <script src="js/validation.js"></script>
 <script src="js/cropImage.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="application/javascript">
     $(document).ready(function () {
-        $(' .toast').toast('show');
+        $('.toast').toast('show');
     });
 
     cropImage("<?php echo $_SESSION['imgProfile'] ?>", 'canvas');

@@ -1,7 +1,6 @@
 <?php
 
 if (!isset($_SESSION)) session_start();
-
 include 'php/controller_user.php';
 if (isset($_SESSION['user'])) header('Location:' . MAIN_FOLDER . '/index.php');
 
@@ -42,7 +41,9 @@ if (isset($_POST) && !empty($_POST)) {
         $_POST = array();
         unset($_SESSION['user']);
         $_SESSION['user'] = findUserByEmail($user['email']);
-        header('Location:' . MAIN_FOLDER . '/index.php');
+        //header('Location:' . MAIN_FOLDER . '/index.php');
+    } else {
+        $_SESSION['error'] = $error;
     }
 
 
@@ -67,11 +68,12 @@ if (isset($_POST) && !empty($_POST)) {
 
 
 </head>
-<body aria-live="polite" aria-atomic="true" class="position-relative ">
-<?php
-include 'php/elem_messages.php';
-include 'php/elem_menu.php' ?>
-<section class="container d-flex justify-content-center align-items-center w-100 h-100 ">
+
+<body aria-live="polite" aria-atomic="true" class="position-relative start-0 top-0">
+
+<?php include 'php/elem_messages.php'; ?>
+
+<section class="container d-flex justify-content-center align-items-center h-100 ">
 
     <div class="row  justify-content-around align-items-center">
         <div class="col col-lg-5 col-md-6 col-10">
@@ -265,7 +267,7 @@ include 'php/elem_menu.php' ?>
                 </div>
             </form>
 
-            <h6 class="mt-3 text-center"> Vous avez déjà un compte ? <a href="connexion.php"> Se connecter </a></h6>
+            <h6 class="mt-3 text-center"> Vous avez déjà un compte ? <a href="connexion.php">Se Connecter</a></h6>
 
         </div>
         <img src="img/illustrations/imageMyspace.png" style="width: 400px" class="col col-auto"
@@ -284,7 +286,7 @@ include 'php/elem_menu.php' ?>
 <script type="application/javascript" src="./js/validation.js"></script>
 <script type="application/javascript" src="js/multipleForm.js"></script>
 <script type="application/javascript" src="js/cropImage.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="application/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script type="application/javascript">
     $(document).ready(function () {
         $('.toast').toast('show');
@@ -300,12 +302,9 @@ include 'php/elem_menu.php' ?>
 
                 if (file.type.match(imageType)) {
                     let reader = new FileReader();
-
-
                     reader.onload = function () {
                         cropImage(reader.result.toString(), 'canvas');
                     }
-
                     reader.readAsDataURL(file);
                 }
             });

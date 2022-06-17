@@ -17,12 +17,13 @@ if (isset($_POST) && !empty($_POST)) {
         if ($value == '') continue;
         $update_user[str_replace("update_", "", $key)] = htmlspecialchars($value);
     }
-    var_dump($_POST);
 
     if (sha1($_POST['current_mot_de_passe']) === $_SESSION['user']['mot_de_passe'])
         $update_user['mot_de_passe'] = sha1($_POST['update_mot_de_passe']);
     else {
+        if ($update_user['mot_de_passe'] != "") $_SESSION['warning']['mot_de_pass'] = ERROR_PASSWORD;
         $update_user['mot_de_passe'] = '';
+
     }
 
 
